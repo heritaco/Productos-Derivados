@@ -1,0 +1,289 @@
+# Tasa de Interes Interbancaria de Equilibrio (TIIE)
+
+Paso a paso, sin adornos:
+
+## 1) Qué es
+
+TIIE = **Tasa de Interés Interbancaria de Equilibrio**. Referencia **a plazo** en MXN (28, 91, 182 días). Se usa para créditos, pagarés y swaps TIIE.
+
+## 2) Quién participa
+
+Un **panel de bancos** cotiza la tasa a cada plazo. Banco de México **recibe, valida y publica** el fixing.
+
+## 3) Cómo se determina (idea operativa)
+
+1. Cada banco envía su **cotización** para 28/91/182 días, día hábil $D$.
+2. Banxico limpia outliers y calcula un **promedio robusto** (trimmed/depurado).
+3. Publica la **TIIE-28**, **TIIE-91**, etc., con cuatro decimales.
+4. Ese número es el **fixing** de ese día para cupones que “resetean” en $D$.
+
+> Clave: la TIIE **de plazo** es **basada en cotizaciones**, no en todas las transacciones efectivas del mercado.
+
+## 4) Convención de cómputo
+
+* **Base**: ACT/360.
+* **Interés simple** en el periodo $[t_0,t_1]$ de $\delta$ días:
+
+  $$
+  \text{Interés}=N \times \text{TIIE}_{\text{anual}} \times \frac{\delta}{360}.
+  $$
+* **Monto a pagar** al vencimiento: $N+\text{Interés}$.
+
+**Ejemplo**: Notional $N=10{,}000{,}000$ MXN, TIIE-28 = $10.24\%$, $\delta=28$.
+
+$$
+\text{Interés}=10{,}000{,}000\times0.1024\times\frac{28}{360}
+=79{,}644.44\ \text{MXN}.
+$$
+
+## 5) Cómo entra en un swap TIIE-28
+
+1. **Fecha de reset**: tomas el fixing TIIE-28 del día $D$.
+2. **Periodo**: $[D, D\!+\!28\ \text{días hábiles aprox.}]$.
+3. **Cupón flotante**: $N\times \text{TIIE}\times \frac{\delta}{360}$.
+4. **Pago**: al final del periodo; se repite en cada tramo.
+
+## 6) Relación con F-TIIE (overnight)
+
+* **F-TIIE**: tasa **overnight transaccional**; se **compone** día a día y se usa en **OIS**.
+* **TIIE-plazo**: tasa **simple** a 28/91/182 días, basada en **cotizaciones**.
+* México está **migrando derivados estándar** a F-TIIE (curva OIS) por ser más robusta.
+
+## 7) Qué **no** es
+
+* No es “la tasa que Banxico cobra”. Es una **referencia de mercado**.
+* No obliga a un banco a prestar/aceptar a esa tasa; es **benchmark**.
+
+## 8) Uso típico
+
+* Créditos empresariales con **tasa variable**: “TIIE-28 + spread”.
+* Pagarés/bonos bancarios referidos a TIIE.
+* Swaps **fixed vs TIIE-28** para transformar costo financiero.
+
+Si quieres, te dibujo el **timeline** de un swap TIIE-28 con fechas reales y cálculo de cada cupón.
+
+# Ejemplo
+
+Ejemplo didáctico con **5 bancos** para **TIIE-28**. Supongo un esquema “trimmed” (se elimina la **más alta** y la **más baja**) para ilustrar depuración. La idea es correcta; el detalle reglamentario real puede diferir.
+
+## 1) Cotizaciones del día $D$ (anual ACT/360)
+
+| Banco | Tasa (%) |
+| ----- | -------- |
+| A     | 10.24    |
+| B     | 10.26    |
+| C     | 10.21    |
+| D     | 10.35    |
+| E     | 10.22    |
+
+## 2) Depuración
+
+* Mínima = **10.21** (C) → se excluye.
+* Máxima = **10.35** (D) → se excluye.
+* Quedan: **10.22, 10.24, 10.26**.
+
+## 3) Cálculo del fixing
+
+$$
+\text{TIIE-28}=\frac{10.22+10.24+10.26}{3}=10.24\% \;\Rightarrow\; \boxed{10.2400\%}
+$$
+
+## 4) Uso en un cupón a 28 días
+
+Base ACT/360. Notional $N=10{,}000{,}000$ MXN, $\delta=28$ días.
+
+$$
+\text{Interés}=N\times 0.102400\times \frac{28}{360}
+= \boxed{79{,}644.44\ \text{MXN}}
+$$
+
+Monto al vencimiento: $N+$ interés $=$ 10,079,644.44 MXN.
+
+## 5) Sensibilidad al “outlier” (si **no** se recorta)
+
+Promedio simple de los 5:
+
+$$
+\bar r=\frac{10.24+10.26+10.21+10.35+10.22}{5}=10.2560\%
+$$
+
+$$
+\text{Interés}=10{,}000{,}000\times0.102560\times\frac{28}{360}
+=\; \boxed{79{,}768.89\ \text{MXN}}
+$$
+
+Diferencia por el outlier: **\$124.45** en el cupón de 28 días por cada 10 millones de notional.
+
+> Idea clave: la **TIIE** es un **benchmark a plazo** construido a partir de **cotizaciones** de bancos **depuradas** y promediadas; luego se aplica con **interés simple** ACT/360 en cada tramo.
+
+# Como se crea la TIIE
+
+Base corta y exacta: un banco **no inventa** la TIIE; la **propone** donde su **costo marginal de fondeo a ese plazo** y los **precios de mercado** quedan **consistentes**. Inputs y cálculo operativo:
+
+## Inputs que usa el dealer
+
+1. **Ancla overnight**: expectativa del camino diario de **F-TIIE**.
+2. **Curva OIS MXN**: de F-TIIE compuesta al tenor $\delta$.
+3. **Riesgo no colateralizado**: prima **crédito interbancario** $s_{\text{credit}}$.
+4. **Prima de liquidez y balance**: $s_{\text{liq}}$ por LCR/NSFR, límites de balance y emisión.
+5. **Consistencia de curva**: con **CETES** (riesgo-cero), **FRAs/IRS TIIE**, y **cross-currency** (USD OIS $\to$ MXN vía CCS).
+6. **Calendario/convenciones**: ACT/360, días hábiles, BDs de inicio/fin.
+7. **Oferta/demanda** inmediata\*\*:\*\* necesidad de fondeo propio y flujo de clientes.
+
+## Construcción de la cotización
+
+1. **Implicar una tasa simple “riesgo-cero” al tenor $\delta$** desde OIS:
+
+$$
+r_{\text{OIS},\delta}^{\text{simple}}
+=\Bigg(\prod_{d=1}^{\delta}\big(1+\tfrac{r_{\text{ON}}(d)}{360}\big)-1\Bigg)\times\tfrac{360}{\delta}.
+$$
+
+2. **Agregar bases**:
+
+$$
+\text{TIIE}_\delta
+\approx r_{\text{OIS},\delta}^{\text{simple}}
++ s_{\text{credit}} + s_{\text{liq}} + a_{\text{term}}.
+$$
+
+3. **Chequear no-arbitraje** contra:
+
+   * **FRA** $(0,\delta)$ y **IRS TIIE** cercanos.
+   * **Depósito USD + CCS** $\Rightarrow$ costo MXN alternativo.
+   * **CETES** al mismo tramo $\Rightarrow$ spread razonable.
+
+## Mini-número ilustrativo
+
+* Camino F-TIIE plano 8.00% → $r_{\text{OIS},28}^{\text{simple}}\approx 8.00\%$.
+* Prima crédito $=40$ bps, liquidez $=10$ bps, término $=0$–$5$ bps.
+* **Propuesta TIIE-28** $\approx 8.50\%$. Si el FRA/IRS implícito marca 8.47%, el dealer ajusta a 8.47–8.49% para cerrar **brecha** y evitar arbitraje.
+
+## Lectura conceptual
+
+* **CETES** dan la **curva libre de riesgo**; **OIS** la **curva de fondeo overnight compuesto**; **TIIE-plazo** es **depósito no colateralizado** a tasa **simple ACT/360**.
+* Por eso, en equilibrio:
+
+$$
+\text{TIIE}_\delta - \text{CETES}_\delta
+\approx s_{\text{credit}}+s_{\text{liq}}.
+$$
+
+* Y también:
+
+$$
+\text{TIIE}_\delta - r_{\text{OIS},\delta}^{\text{simple}}
+\approx s_{\text{credit}}+s_{\text{liq}}.
+$$
+
+## Gobernanza
+
+* Cada banco usa **FTP** interno, curvas OIS/TIIE, CCS y constraints regulatorios para fijar su **submit**.
+* Banxico **depura y promedia** los submits del panel para imprimir el **fixing TIIE** del día.
+
+# Inputs
+
+Vamos a desglosar **cada uno de esos inputs** que un **dealer** (operador de mercado) utiliza para fijar la TIIE. Estos elementos reflejan cómo los bancos calculan y ajustan sus cotizaciones de tasas en función de **expectativas de mercado**, **condiciones macroeconómicas** y **restricciones regulatorias**.
+
+---
+
+### 1) **Ancla overnight: expectativa del camino diario de F-TIIE**
+
+**¿Qué es?**
+
+* **F-TIIE** es la **tasa de fondeo overnight** que los bancos pagan entre sí para financiarse de un día para otro sin colateral, publicada diariamente por Banxico.
+* El **dealer** no sólo toma el valor observado del **F-TIIE actual**, sino que también hace una **proyección del F-TIIE a corto plazo**. Esto se debe a que **el F-TIIE refleja las expectativas del mercado sobre la política monetaria** y sobre la dirección de la tasa de interés del Banco de México.
+
+**¿Por qué es importante?**
+
+* El **dealer** usa esta expectativa como base para calcular las tasas a plazo (TIIE-28, TIIE-91, etc.), ya que **F-TIIE** es un proxy para los costos de fondeo a corto plazo.
+* Si el mercado espera que Banxico **suba la tasa de interés**, el **F-TIIE** tiende a subir también. Esto influye en las cotizaciones de la TIIE para los plazos más largos.
+
+---
+
+### 2) **Curva OIS MXN: de F-TIIE compuesta al tenor δ (delta)**
+
+**¿Qué es?**
+
+* **OIS (Overnight Indexed Swap)** es un derivado financiero en el que los participantes intercambian pagos basados en tasas overnight indexadas, como el **F-TIIE** en México. El **OIS** en MXN toma como referencia el **F-TIIE**.
+* La **curva OIS** muestra la tasa de interés implícita en estos swaps para diferentes plazos.
+
+**¿Por qué es importante?**
+
+* La curva OIS refleja las expectativas del mercado sobre **la política monetaria futura** de Banxico.
+* El **dealer** usa esta curva para fijar la tasa a plazo de instrumentos como **swaps** o **futuro** basados en F-TIIE, ayudando a predecir cómo se moverán las tasas en el futuro, lo que afecta las cotizaciones de la TIIE a diferentes plazos.
+
+---
+
+### 3) **Riesgo no colateralizado: prima crédito interbancario $s_{\text{credit}}$**
+
+**¿Qué es?**
+
+* El **riesgo no colateralizado** refleja la **prima de crédito** que los bancos deben pagar por **tomar prestado sin colateral**. En otras palabras, cuando los bancos no entregan activos como garantía, están tomando un **riesgo adicional**.
+* Este riesgo es la **diferencia entre el costo de fondeo seguro (con colateral)** y el costo de fondeo sin colateral.
+
+**¿Por qué es importante?**
+
+* Si un banco tiene **mayor riesgo de crédito**, debe **exigir una prima más alta** para compensar el riesgo que asume al prestar sin garantías.
+* Esta prima es clave para el cálculo de la TIIE, porque los bancos ajustan sus cotizaciones de acuerdo con el **riesgo percibido** en el sistema financiero.
+
+---
+
+### 4) **Prima de liquidez y balance $s_{\text{liq}}$**
+
+**¿Qué es?**
+
+* La **prima de liquidez** refleja el **costo de tener dinero disponible** a corto plazo, teniendo en cuenta restricciones regulatorias como el **LCR (Liquidity Coverage Ratio)** y el **NSFR (Net Stable Funding Ratio)**. Estos son requisitos que exigen que los bancos tengan una **cantidad mínima de activos líquidos** disponibles.
+* **LCR** mide la capacidad de un banco para cubrir sus pasivos a corto plazo, mientras que el **NSFR** asegura que los bancos tengan financiación estable a largo plazo.
+
+**¿Por qué es importante?**
+
+* Si el banco tiene menos **liquidez** o tiene que cumplir con **restricciones regulatorias más estrictas**, su **costo de fondeo será más alto**.
+* Esta prima se incorpora a la TIIE para reflejar la necesidad del banco de mantener un equilibrio entre los activos líquidos y sus pasivos.
+
+---
+
+### 5) **Consistencia de curva: con CETES, FRAs/IRS TIIE, y cross-currency (USD OIS → MXN vía CCS)**
+
+**¿Qué es?**
+
+* La **consistencia de curva** asegura que la **TIIE a plazo** esté alineada con otras tasas **libres de riesgo** y **de fondeo**, como las de los **CETES**, **FRAs** (Forward Rate Agreements), **IRS TIIE** (Interest Rate Swaps) y tasas **cross-currency** (que reflejan la relación entre el **USD y el MXN**).
+* Por ejemplo, la **curva de CETES** muestra el costo de los instrumentos sin riesgo, mientras que los **IRS** y **FRAs** permiten intercambiar tasas de interés en un mismo activo con diferentes maturities.
+
+**¿Por qué es importante?**
+
+* La **consistencia de la curva** asegura que la **TIIE** refleje no sólo las expectativas sobre la política monetaria, sino también las tasas de interés y los costos en el mercado global.
+* Si hay discrepancias en estas curvas, los bancos ajustan las cotizaciones para asegurarse de que los precios de los instrumentos estén alineados.
+
+---
+
+### 6) **Calendario/convenciones: ACT/360, días hábiles, BDs de inicio/fin**
+
+**¿Qué es?**
+
+* **ACT/360** es la convención de cálculo de tasas de interés **más común** en el mercado financiero. Indica que el **año tiene 360 días** y los **intereses se calculan de forma proporcional** a los días del periodo.
+* Además, los bancos usan las **fechas hábiles** de trabajo (lunes a viernes) y definen reglas específicas para las **fechas de inicio y fin** de los tramos.
+
+**¿Por qué es importante?**
+
+* **El cálculo de TIIE** depende de **las fechas** y **la convención ACT/360** para asegurar que los pagos de intereses sean precisos. Cambiar esta convención afectaría directamente las cotizaciones.
+* Además, las fechas de **inicio y fin** del periodo deben estar claras, porque afectan los plazos para calcular el interés.
+
+---
+
+### 7) **Oferta/demanda inmediata: necesidad de fondeo propio y flujo de clientes**
+
+**¿Qué es?**
+
+* Este input se refiere a la **liquidez inmediata** que un banco necesita. Los **dealers** fijan la TIIE teniendo en cuenta si el banco tiene un **exceso o déficit de liquidez** en el mercado.
+* Si un banco tiene una **alta necesidad de fondeo inmediato** (por ejemplo, si está muy cerca del final de mes y necesita **resolver** un déficit de liquidez), podría aumentar su cotización de la TIIE para **cubrir** esa necesidad.
+
+**¿Por qué es importante?**
+
+* La **oferta y demanda de dinero** influencian las **cotizaciones de tasas interbancarias**. Si un banco tiene que **pedir dinero prestado rápido**, generalmente tendrá que ofrecer una **tasa más alta** para atraer fondos rápidamente.
+
+---
+
+### Resumen
+
+Cada uno de estos factores está interrelacionado y contribuye a **ajustar la tasa TIIE** según las condiciones actuales del mercado, las necesidades de los bancos y las expectativas de los inversores sobre la política monetaria. Los dealers **ajustan las cotizaciones** de la TIIE en función de estas variables y de la **demanda de liquidez** dentro de la economía.
