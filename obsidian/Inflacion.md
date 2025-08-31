@@ -95,3 +95,43 @@ x_t\;\text{determinado por}\;r_t-r_t^\star.
 $$
 
 La inflación sostenida requiere **demanda nominal** demasiado alta para la capacidad real y/o **inconsistencia fiscal**, multiplicada por **expectativas desancladas**. Todo lo demás son shocks de nivel.
+
+
+si hay mucha demanda (que puede ser porque la TIR es muy baja) entonces suben los precios y hay inflacion?
+Sí, **si por “TIR” entiendes la tasa objetivo de Banxico**. Nominal baja → si la **tasa real ex-ante** cae por debajo de la **neutral** $r_t - \mathbb E_t\pi_{t+1} < r^\*$ ⇒ **brecha de producto positiva** $x_t>0$ ⇒ **presión inflacionaria** por la NKPC:
+
+  
+
+$$
+
+\pi_t=\beta\,\mathbb E_t[\pi_{t+1}] + \kappa\,x_t + u_t.
+
+$$
+
+  
+
+Claves:
+
+  
+
+* Importa la **tasa real**, no solo la nominal. Nominal “baja” con expectativas de inflación altas puede dar real “alta”.
+
+* El efecto requiere **capacidad ociosa limitada** y **expectativas no ancladas**. Si hay holgura o productividad sube, el traspaso a precios es menor.
+
+* **Canales**: crédito y gasto ↑; tipo de cambio suele depreciar → **inflación importada**; valoración de activos ↑.
+
+* **No es identidad**: choques de oferta $u_t$, primas de riesgo y política fiscal pueden dominar.
+
+  
+
+Regla mental:
+
+
+
+  
+
+$$
+
+\boxed{r_{\text{real}}<r^\* \Rightarrow x_t>0 \Rightarrow \pi_t\uparrow}\quad\text{(con rezagos y según anclaje de expectativas).}
+
+$$

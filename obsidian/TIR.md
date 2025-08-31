@@ -1,170 +1,169 @@
-Sí. La **tasa de referencia de Banxico** (tasa objetivo O/N) **ancla** y **desencadena** a la **TIIE**. La causalidad operativa es: política monetaria → fondeo overnight → cotizaciones interbancarias → TIIE por plazo. No al revés.
+La **TIR** aquí es la **tasa de interés de referencia de Banxico**: la **tasa objetivo overnight** que el banco central fija y defiende operativamente para anclar el costo del dinero a 1 día. Es el **control** primario del sistema monetario mexicano.
 
-# Ensayo técnico breve
+# Qué es
 
-## 1) Taxonomía mínima
-
-* **Tasa objetivo O/N**: meta operativa de Banxico para el costo del fondeo interbancario a 1 día. Instrumentada con operaciones de mercado abierto y un corredor de liquidez.
-* **TIIE $n$**: tasa fija “representativa” a $n\in\{28,91,182\}$ días, calculada por Banxico a partir de cotizaciones bancarias. Sintetiza expectativas del O/N futuro más una prima por plazo y liquidez.
-* **TIIE de Fondeo**: indicador del fondeo efectivo O/N. Fluctúa alrededor de la tasa objetivo.
-
-## 2) Mecanismo causal
-
-Sea $r_{d}$ la tasa O/N esperada para el día $d$ y $n$ el tenor de la TIIE. Ignorando redondeos y festividades,
+* Variable de política $i_t$ definida por la Junta de Gobierno como meta para el fondeo interbancario O/N.
+* Se implementa con **operaciones de mercado abierto** y un **corredor de facilidades** $[i_t^{D},\,i_t^{L}]$ que acota la TIIE de Fondeo:
 
 $$
-\text{TIIE}_{n}
-\;\approx\;
-\frac{360}{n}\!\Bigg[\prod_{d=1}^{n}\Big(1+\tfrac{\mathbb{E}_t[r_{d}]}{360}\Big)-1\Bigg]
-\;+\;\Pi_n,
+i_t^{D}\le i_t^{\text{O/N}}\le i_t^{L},\quad i_t\approx \mathbb E[i_t^{\text{O/N}}].
 $$
 
-donde $\Pi_n$ es la **prima por plazo** (liquidez, riesgo, microestructura). Usando log-linealización:
+# Mecanismo operativo mínimo
+
+1. Banxico estima la **liquidez estructural** del sistema.
+2. Inyecta o retira reservas para que el fondeo efectivo gravite en torno a $i_t$.
+3. El corredor $i_t^{L}-i_t^{D}$ y las **señales prospectivas** disciplinan desviaciones intradía.
+
+Formalización simple del fondeo:
 
 $$
-\text{TIIE}_{n}\;\approx\;\frac{1}{n}\sum_{d=1}^{n}\mathbb{E}_t[r_{d}] \;+\; \Pi_n.
+di_t^{\text{O/N}}=-\phi\big(i_t^{\text{O/N}}-i_t\big)\,dt+\sigma\,dW_t,\quad \phi>0.
 $$
 
-Un ajuste de la **tasa objetivo** cambia $\mathbb{E}_t[r_d]$ en el tramo relevante del horizonte y, por ende, **re-precifica** la TIIE. El tamaño de la respuesta depende de:
+El término de “mean reversion” representa la acción diaria de política.
 
-1. Magnitud y sorpresa del movimiento de Banxico.
-2. Señal de trayectoria futura (forward guidance).
-3. Liquidez y condiciones de balance bancario ($\Pi_n$).
+# Transmisión a la curva y a la economía
 
-## 3) Regla de decisión y expectativas
-
-Banxico sigue una regla de reacción implícita tipo-Taylor:
+La TIR fija el **extremo corto** de la curva; el resto son **expectativas** más primas de plazo:
 
 $$
-r^{\star}_t \approx r^{\text{neutral}} + \phi_\pi(\pi_t-\pi^{\text{objetivo}}) + \phi_y\,\text{brecha}_t.
+\text{TIIE}_{n}\approx \frac{1}{n}\sum_{d=1}^{n}\mathbb{E}_t[i^{\text{O/N}}_{t+d}] + \Pi_n.
 $$
 
-El mercado transforma esta función de reacción en **trayectorias esperadas** del O/N. Por hipótesis de expectativas (Fisher-Wicksell) con prima de plazo:
+El canal macro se resume con el bloque nuevo-keynesiano:
 
 $$
-\text{TIIE}_{n} = \frac{1}{n}\sum_{k=1}^{n}\mathbb{E}_t[r_{t+k}^{\text{O/N}}] + \text{TermPremium}_n.
+\pi_t=\beta\mathbb E_t[\pi_{t+1}] + \kappa\,x_t + u_t,\qquad
+x_t=\mathbb E_t[x_{t+1}] - \sigma\big(r_t-\mathbb E_t[\pi_{t+1}]-r_t^\*\big).
 $$
 
-Por eso, un alza “temporal” del objetivo suele mover más a **TIIE-28** que a **TIIE-182**; si el mercado anticipa recortes posteriores, la curva se empina menos o incluso se **aplana**.
+Si la **tasa real** $r_t=i_t-\mathbb E_t[\pi_{t+1}]$ cae por debajo de la **neutral** $r_t^\*$, la demanda se acelera $(x_t>0)$ y aumenta la presión inflacionaria. El signo se invierte si $r_t>r_t^\*$.
 
-## 4) Microestructura operativa
+# Regla de reacción y el “ancla”
 
-* **Corredor**: la ventanilla permanente y las operaciones de liquidez crean un rango alrededor del objetivo. Cuanto más **tenso** el fondeo, mayor el spread $(\text{TIIE de Fondeo} - \text{objetivo})$.
-* **Fixing TIIE**: bancos cotizan tasas fijas a $n$ días; Banxico depura y publica el fixing. En estrés, $\Pi_n$ aumenta por demanda de balance y riesgo de liquidez.
-
-## 5) Derivados y transmisión
-
-La TIIE es el **activo subyacente** de gran parte del mercado de tasas en MXN:
-
-* **IRS TIIE**: el pagador fijo recibe flotante ligado a TIIE (o TIIE de Fondeo). Precio del swap $\Rightarrow$ promedio descontado de TIIE futuras.
-
-  $$
-  \text{ParSwap}_T \approx \frac{\sum_{i} \Delta_i \,\mathbb{E}_t[\text{TIIE}_{i}]\,DF_i}{\sum_{i} \Delta_i\,DF_i}.
-  $$
-* **FRA / F-TIIE**: tasa forward implícita entre $t_1$ y $t_2$:
-
-  $$
-  1+F(t_1,t_2)\frac{\delta}{360}=\frac{P(t,t_1)}{P(t,t_2)},\quad F\approx\text{TIIE forward}.
-  $$
-* **Bonos flotantes**: cupones indexados a TIIE trasladan cambios de política a costos de financiamiento corporativo y bancario.
-
-La **señal de Banxico** recorre la cadena: objetivo $\to$ O/N $\to$ TIIE $\to$ IRS/FRA $\to$ crédito y precios de activos.
-
-## 6) Ejemplo numérico estilizado
-
-Objetivo sube **50 pb** hoy, y el mercado internaliza: **+50 pb** por 1 mes, **+25 pb** meses 2–3, sin cambios después. Aproximando:
+Regla tipo Taylor empírica:
 
 $$
-\text{TIIE}_{28}\uparrow \approx 50\text{ pb} + \Pi_{28}\text{ (casi 1:1)}.
+i_t \approx r^\* + \pi^\* + \phi_\pi(\pi_t-\pi^\*) + \phi_x x_t + \varepsilon_t,\quad \phi_\pi>1.
 $$
 
-$$
-\text{TIIE}_{91}\uparrow \approx \frac{50+25+25}{3} \approx 33\text{ pb} + \Pi_{91}.
-$$
+* $r^\*$: tasa real neutral, tiempo-variable.
+* $\pi^\*$: objetivo de inflación.
+* $\varepsilon_t$: choques discretos de riesgo financiero o cambiario que ameritan ajustes tácticos.
+
+# Interfaz con el tipo de cambio y el riesgo
+
+Paridad descubierta con prima:
 
 $$
-\text{TIIE}_{182}\uparrow \approx \text{promedio menor}\;+\;\Pi_{182}.
+i_t - i_t^{\text{ext}} \approx \mathbb E_t[\Delta s_{t+1}] + \varphi_t.
 $$
 
-Si, además, sube la aversión a la liquidez, $\Pi_n$ crece y **amplifica** el movimiento en los plazos más largos.
+Un aumento de TIR tiende a apreciar el peso si reduce $\varphi_t$ y mejora el carry ajustado por riesgo. La magnitud depende de liquidez global y balances locales.
 
-## 7) Qué **no** es TIR aquí
+# Derivados y precio del dinero
 
-“TIR” en finanzas corporativas = **tasa interna de retorno** de un proyecto. No determina TIIE. Para evitar ambigüedad, usa **“tasa objetivo”** o **“tasa de referencia de Banxico”** cuando hables de política monetaria.
+* **IRS TIIE**: el swap par a vencimiento $T$ es el promedio descontado de TIIE futuras.
+* **F-TIIE** y **FRAs**: extraen la trayectoria implícita de $i_t$.
+* **Bonos flotantes**: transmiten la TIR al costo de crédito.
 
-## 8) Diagnóstico rápido de causalidad
-
-* **Corto plazo**: $\Delta \text{TIIE}_{28}\approx \Delta \text{objetivo}$ si el movimiento es sorpresivo.
-* **Curva completa**: depende de la **trayectoria esperada** del objetivo.
-* **Desalineaciones**: si TIIE sube más que el objetivo sin anuncio, típicamente es $\uparrow \Pi_n$ (escasez de liquidez, riesgo idiosincrático, quarter-end).
-
-## 9) Síntesis formal
+Descuento continuo bajo Hull–White para ilustrar expectativas:
 
 $$
-\boxed{\text{TIIE}_{n}\;=\;\underbrace{\frac{1}{n}\sum_{d=1}^{n}\mathbb{E}_t[r^{\text{O/N}}_{t+d}]}_{\text{política monetaria y expectativas}}\;+\;\underbrace{\Pi_n}_{\text{prima por plazo/liquidez}}}
+dr_t = a(b-r_t)dt+\sigma dW_t,\quad
+P(t,T)=\exp\Big(A(t,T)-B(t,T)r_t\Big).
 $$
 
-La **tasa objetivo** de Banxico determina $r^{\text{O/N}}$ hoy y condiciona sus trayectorias esperadas. La **TIIE** es la proyección anualizada de ese camino, perturbada por una prima de plazo. En términos de sistema: el objetivo es el **control**, la TIIE es el **estado agregado** observado, y los derivados son **funciones de salida** que arbitran la información intertemporal.
+Un shock $+\Delta i_t$ desplaza $r_t$ y, por $B(t,T)$, reprueba toda la curva corta.
 
-> Wicksell apuntó que el nivel de la tasa de interés es un problema de “desviaciones persistentes” respecto a un ancla real; la técnica moderna lo reescribe como expectativas racionales más primas por riesgo.
+# Riesgos de diseño
 
-**Conclusión**: la TIIE **no** guía a Banxico. Banxico guía a la TIIE a través de expectativas, operación de liquidez y primas de plazo. Para análisis y cobertura, modela $\mathbb{E}_t[r^{\text{O/N}}]$ y $\Pi_n$; todo lo demás es contabilidad de descuento.
+* **Dominancia fiscal**: si la trayectoria de superávits primarios esperados no respalda la deuda, el nivel de precios sube y neutraliza parte del endurecimiento monetario.
+* **Microestructura**: estrés de liquidez eleva $\Pi_n$ y abre “basis” entre TIIE, fondeo y swaps.
+* **Expectativas**: si no están ancladas, $\beta\mathbb E_t[\pi_{t+1}]$ domina y la TIR pierde tracción.
 
-La **Tasa de Interés de Referencia (TIR)** emitida por **Banxico** y la **Tasa de Interés Interbancaria de Equilibrio (TIIE)** son dos tasas de interés clave en el sistema financiero mexicano, pero operan en contextos y con mecanismos diferentes. A continuación, se expone un análisis comparativo detallado:
+# Lectura hermenéutica
 
-### 1. **Tasa de Interés de Referencia de Banxico (TIR)**
+La TIR funciona como **operador de selección** en un espacio de trayectorias nominales: elige, entre muchas historias posibles del precio del dinero, aquella compatible con estabilidad. Es una **condición de contorno** sobre el sistema macro que disciplina narrativas privadas de precios, salarios y crédito. Sin consistencia fiscal y credibilidad comunicacional, el operador pierde unicidad.
 
-#### Definición y Función:
+# Heurística decisional
 
-La **Tasa de Interés de Referencia (TIR)**, también conocida como **Tasa Objetivo de Banxico**, es la tasa de interés que el **Banco de México (Banxico)** establece como referencia para la política monetaria del país. Banxico la utiliza para **influir en las condiciones generales de liquidez** del sistema financiero, con el fin de alcanzar su objetivo primario: la **estabilidad de precios**, que se traduce en un control de la inflación. En términos generales, el **nivel de la TIR** tiene un impacto directo sobre otras tasas de interés, como las de los créditos y los depósitos, tanto en el mercado interbancario como en el comercial.
+* Shock de **demanda** persistente → $i_t\uparrow$.
+* Shock **transitorio** de oferta con expectativas ancladas → paciencia.
+* Episodios de **desanclaje** o **depreciación desordenada** → $i_t\uparrow$ y guía más dura.
 
-#### Mecanismo de Determinación:
+# En una línea
 
-La TIR se establece mediante el **Comité de Política Monetaria (CPM)** de Banxico, el cual se reúne periódicamente (normalmente cada mes) para decidir sobre las políticas monetarias a seguir. La decisión de ajustar la tasa se toma en función de diversos factores macroeconómicos, tales como:
+$$
+\boxed{\text{La TIR es el ancla operacional del precio del dinero; su potencia real depende de expectativas y coherencia fiscal.}}
+$$
 
-* La inflación (objetivo primario).
-* El crecimiento económico.
-* La estabilidad financiera global y local.
+> Wicksell: “La estabilidad requiere alinear la tasa de mercado con la natural.”
+> Friedman: “La política monetaria actúa con rezagos largos y variables.”
 
-El **cambio en la TIR** tiene un **impacto directo sobre el costo del dinero**, ya que afecta las tasas de interés en los mercados de crédito y deuda a corto plazo.
 
-#### Propósito:
+1. **Liquidez estructural**
+   Saldo **persistente** de déficit o superávit de **reservas bancarias** generado por factores autónomos del sistema de pagos y del fisco. Determina cuánto debe inyectar o drenar el banco central para que el O/N converja al objetivo.
 
-La TIR se utiliza principalmente como **herramienta de política monetaria** para controlar la inflación y regular la economía en términos de crecimiento y estabilidad financiera. A través de la manipulación de esta tasa, Banxico puede influir sobre la cantidad de crédito disponible, la tasa de ahorro, y la actividad económica en general.
+2. **Reservas**
+   a) **Bancarias**: depósitos de los bancos en el banco central usados para pagos y para el **encaje**. Son el “dinero de alto poder” del sistema.
+   b) **Internacionales**: activos externos del banco central en divisas y oro usados para estabilidad financiera y operativa cambiaria.
 
-### 2. **Tasa de Interés Interbancaria de Equilibrio (TIIE)**
+3. **Corredor**
+   Rango operativo de tasas fijado por facilidades permanentes. Notación típica:
 
-#### Definición y Función:
+$$
+i^{D}\le i^{\text{O/N}}\le i^{L},
+$$
 
-La **TIIE** es una tasa de interés promedio a la que los bancos comerciales se prestan dinero entre sí en el mercado interbancario a plazos de 28, 91, 182 o 360 días, y se considera un indicador de las condiciones de liquidez en el sistema financiero mexicano.
+donde $i^{D}$ es la tasa de depósito y $i^{L}$ la de préstamo del banco central.
 
-La TIIE es calculada **diariamente** por la **Asociación de Bancos de México (ABM)** a partir de las tasas a las que los bancos transan en el mercado interbancario. Este cálculo no es una simple tasa promedio, sino que se toma en cuenta el **nivel de oferta y demanda de dinero** en el mercado interbancario, lo que le da una representación más dinámica y directa de las condiciones de liquidez en el sistema.
+4. **Señales prospectivas**
+   Comunicación de **trayectoria futura** de la política monetaria. También llamado **forward guidance**. Alinea expectativas $\mathbb E_t[i_{t+k}]$ y comprime volatilidad.
 
-#### Mecanismo de Determinación:
+5. **Fondeo**
+   Obtención de pasivos de corto plazo para financiar activos o liquidez operativa. Incluye **interbancario O/N**, **repo**, pagarés y líneas con el banco central.
 
-La TIIE se basa en las **tasas de interés de las operaciones de crédito entre bancos**, especialmente en aquellas realizadas con **valores del gobierno y operaciones de repos**, y se calcula mediante un promedio ponderado de las tasas a las que los bancos se prestan dinero entre sí.
+6. **Regla de Taylor**
+   Heurística para la tasa objetivo:
 
-Aunque la **TIIE** no es una tasa fijada por un banco central como la **TIR**, sí está influenciada por las expectativas del mercado sobre las decisiones de política monetaria de Banxico. En otras palabras, si el mercado espera que Banxico suba o baje la TIR, es probable que la TIIE también se ajuste, ya que refleja las expectativas sobre el costo del dinero en el futuro cercano.
+$$
+i_t \approx r^\*+\pi^\*+\phi_\pi(\pi_t-\pi^\*)+\phi_x x_t,\quad \phi_\pi>1,
+$$
 
-#### Propósito:
+con $r^\*$ tasa real neutral, $\pi^\*$ objetivo de inflación y $x_t$ brecha de producto.
 
-La TIIE refleja las condiciones de **liquidez y riesgo percibido** en el sistema financiero mexicano y se utiliza como **referencia para las tasas de interés de los créditos** a las empresas y consumidores en el país. Muchas instituciones financieras la utilizan como base para fijar tasas de interés en productos financieros como créditos personales, hipotecas y préstamos corporativos.
+7. **Paridad**
+   Relación entre tasas y tipo de cambio.
 
-### Diferencias Clave:
+* **CIP** (cubierta):
 
-1. **Origen y Propósito:**
+$$
+F=S\frac{1+i_d}{1+i_f},
+$$
 
-   * **TIR (Banxico):** Establecida por Banxico para controlar la política monetaria y mantener la inflación bajo control.
-   * **TIIE (Mercado Interbancario):** Determinada por el mercado interbancario con base en las transacciones entre bancos, y refleja las expectativas del mercado sobre el costo del dinero.
+sin arbitraje al cubrir FX.
 
-2. **Mecanismo de Determinación:**
+* **UIP** (descubierta):
 
-   * **TIR (Banxico):** Decidida por Banxico en reuniones periódicas basadas en las condiciones económicas generales.
-   * **TIIE (Mercado Interbancario):** Calculada por la ABM como un promedio ponderado de las tasas de interés a las que los bancos se prestan dinero.
+$$
+i_d-i_f \approx \mathbb E_t[\Delta s_{t+1}] + \varphi_t,
+$$
 
-3. **Impacto:**
+con $\varphi_t$ prima de riesgo.
 
-   * **TIR (Banxico):** Afecta las decisiones de política monetaria, influye directamente sobre las tasas de interés interbancarias y las de los productos financieros en general.
-   * **TIIE (Mercado Interbancario):** Es una tasa de referencia para los préstamos entre bancos y, por lo tanto, afecta a las tasas de interés en los productos de crédito de las instituciones financieras.
+8. **Carry ajustado**
+   Rendimiento esperado por diferenciales de tasa **después** de costos y riesgo. Ejemplo simple no cubierto:
 
-En resumen, aunque ambas tasas están interrelacionadas y Banxico tiene influencia indirecta sobre la TIIE, la **TIR** es una herramienta de política monetaria directa, mientras que la **TIIE** es un indicador del mercado interbancario, representando las condiciones de liquidez y el costo del dinero en un nivel más específico.
+$$
+\text{carry} \approx i_d-i_f-\mathbb E_t[\Delta s],
+$$
+
+y ajustado por riesgo $\approx \frac{\text{carry}}{\sigma}$ o por VaR.
+
+9. **Liquidez global**
+   Capacidad agregada del sistema financiero mundial para proveer balance y crédito a bajo costo. Depende de política de bancos centrales sistémicos, condiciones en USD, apalancamiento de intermediarios y apetito de riesgo.
+
+10. **Balances locales**
+    Estructura de activos, pasivos y capital de bancos y no bancos domésticos. Restricciones como **LCR**, **NSFR**, razón préstamos-depósitos y colaterales disponibles determinan spreads y la transmisión de tasas.
