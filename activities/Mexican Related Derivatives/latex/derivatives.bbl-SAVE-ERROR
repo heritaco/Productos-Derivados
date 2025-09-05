@@ -1,0 +1,431 @@
+\begin{thebibliography}{}
+
+\bibitem[{Banco de M{\'e}xico}, 2024]{banxico_regional_2024}
+{Banco de M{\'e}xico} (2024).
+\newblock Reporte sobre las econom{\'\i}as regionales: Octubre--diciembre 2023.
+\newblock Technical report, Banco de M{\'e}xico.
+\newblock Publicado el 14 de marzo de 2024.
+
+\bibitem[{Banco de México}, 2023]{banxico2023}
+{Banco de México} (2023).
+\newblock Transición de las tiie a plazos a la tiie de fondeo.
+\newblock
+  \url{https://www.banxico.org.mx/publicaciones-y-prensa/miscelaneos/%7BDD5668BD-09DA-8AEB-1A34-C53EB4DFB8C6%7D.pdf}.
+\newblock June 2, 2023.
+
+\bibitem[{Banco de México}, nda]{banxico_methodology}
+{Banco de México} (n.d.a).
+\newblock Overnight tiie funding rate methodology.
+\newblock
+  \url{https://www.banxico.org.mx/markets/d/%7B1FDD2772-9F1C-FDA3-FBBC-AC641FE94CD2%7D.pdf}.
+\newblock PDF.
+
+\bibitem[{Banco de México}, ndb]{banxico_indices}
+{Banco de México} (n.d.b).
+\newblock Índices de tiie de fondeo y tiie de fondeo compuesta (ca766).
+\newblock
+  \url{https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?accion=consultarCuadroAnalitico&idCuadro=CA766&locale=es&sector=18}.
+
+\bibitem[Barchart, nd]{barchart_zc_specs}
+Barchart (n.d.).
+\newblock Corn futures contract specifications (zc).
+\newblock \url{https://www.barchart.com/futures/quotes/ZC%2A0/profile}.
+
+\bibitem[Borio et~al., 2016]{bis_cip_2016}
+Borio, C., McCauley, R.~N., and McGuire, P. (2016).
+\newblock Covered interest parity lost: understanding the cross-currency basis.
+\newblock Technical report, Bank for International Settlements.
+\newblock BIS Quarterly Review, September 2016.
+
+\bibitem[Caballero et~al., 2022]{bis_eme_internationalisation_2022}
+Caballero, J. et~al. (2022).
+\newblock The internationalisation of eme currency trading.
+\newblock Technical report, Bank for International Settlements.
+\newblock BIS Quarterly Review, December 2022.
+
+\bibitem[{CME Group}, 2022]{cme_mxn_rulebook}
+{CME Group} (2022).
+\newblock Chapter 256: Mexican peso/u.s. dollar (mxn/usd) futures.
+\newblock \url{https://www.cmegroup.com/rulebook/CME/III/250/256/256.pdf}.
+
+\bibitem[{CME Group}, 2025a]{cme_mxn_product}
+{CME Group} (2025a).
+\newblock Mexican peso (mxn/usd) futures.
+\newblock
+  \url{https://www.cmegroup.com/markets/fx/emerging-market/mexican-peso.html}.
+
+\bibitem[{CME Group}, 2025b]{cme2025a}
+{CME Group} (2025b).
+\newblock A new era for mexican rates: Inside three-month f-tiie contracts.
+\newblock
+  \url{https://www.cmegroup.com/articles/2025/new-quarterly-contracts-for-mexican-funding-tiie-futures.html}.
+
+\bibitem[{CME Group}, 2025c]{cme2025b}
+{CME Group} (2025c).
+\newblock Three-month f-tiie overview.
+\newblock
+  \url{https://www.cmegroup.com/markets/interest-rates/stirs/three-month-f-tiie.html}.
+
+\bibitem[{CME Group}, nda]{cme_corn_overview}
+{CME Group} (n.d.a).
+\newblock Corn futures overview.
+\newblock \url{https://www.cmegroup.com/markets/agriculture/grains/corn.html}.
+
+\bibitem[{CME Group}, ndb]{cme_cl_calendar}
+{CME Group} (n.d.b).
+\newblock Crude oil futures calendar.
+\newblock
+  \url{https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.calendar.html}.
+
+\bibitem[{CME Group}, ndc]{cme_cl_specs}
+{CME Group} (n.d.c).
+\newblock Crude oil futures (cl) contract specifications.
+\newblock
+  \url{https://www.cmegroup.com/markets/energy/crude-oil/light-sweet-crude.contractSpecs.html}.
+
+\bibitem[{CPC}, 2025]{noaa_enso_discussion}
+{CPC}, N. (2025).
+\newblock Enso diagnostic discussion.
+\newblock
+  \url{https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml}.
+
+\bibitem[Daily, 2025]{mnd_inflation_band_2025}
+Daily, M.~N. (2025).
+\newblock Annual inflation rose in august, but remains within banxico’s
+  target band.
+\newblock
+  \url{https://mexiconewsdaily.com/news/inflation-ticks-up-august-banxico-expectations/}.
+
+\bibitem[{Encyclop\ae dia Britannica}, nd]{britannica_silver_thursday}
+{Encyclop\ae dia Britannica} (n.d.).
+\newblock Silver thursday.
+\newblock \url{https://www.britannica.com/event/Silver-Thursday}.
+\newblock Overview of the March 27, 1980 episode.
+
+\bibitem[{European Central Bank}, 2024]{ecb_oil_usd_2024}
+{European Central Bank} (2024).
+\newblock The link between oil prices and the us dollar.
+\newblock
+  \url{https://www.ecb.europa.eu/press/economic-bulletin/focus/2024/html/ecb.ebbox202407_02~5ce155d504.en.html}.
+
+\bibitem[{Federal Reserve Bank of New York}, nda]{frbny_sofr}
+{Federal Reserve Bank of New York} (n.d.a).
+\newblock Secured overnight financing rate (sofr) data.
+\newblock \url{https://www.newyorkfed.org/markets/reference-rates/sofr}.
+
+\bibitem[{Federal Reserve Bank of New York}, ndb]{frbny_sofr_index}
+{Federal Reserve Bank of New York} (n.d.b).
+\newblock Sofr averages and index data.
+\newblock
+  \url{https://www.newyorkfed.org/markets/reference-rates/sofr-averages-and-index}.
+\newblock Accessed Sep 13, 2025.
+
+\bibitem[Hern{\'a}ndez, 2024]{bis_cip_2024}
+Hern{\'a}ndez, J.~R. (2024).
+\newblock Covered interest parity: a forecasting approach to estimate
+  deviations.
+\newblock Technical report, Bank for International Settlements.
+\newblock BIS Working Papers No. 1206.
+
+\bibitem[Hofmann et~al., 2023]{bis_usd_commodity_2023}
+Hofmann, B. et~al. (2023).
+\newblock The changing nexus between commodity prices and the us dollar.
+\newblock Technical report, Bank for International Settlements.
+
+\bibitem[{International Monetary Fund}, 2012]{imf_tequila_2012}
+{International Monetary Fund} (2012).
+\newblock Tequila hangover: The mexican peso crisis and its aftermath.
+\newblock In {\em IMF History 2000--2011}.
+
+\bibitem[Lautier, 2008]{kaldor_working_brennan}
+Lautier, P. (2008).
+\newblock The theory of storage and the convenience yield
+  (kaldor--working--brennan).
+\newblock \url{https://www.pims.math.ca/files/Convenienceyield_Lautier.pdf}.
+\newblock Lecture notes summarizing classic storage theory.
+
+\bibitem[McFadden et~al., 2023]{ers_precision_2023}
+McFadden, J.~L. et~al. (2023).
+\newblock Precision agriculture in the digital era: Recent adoption on u.s.
+  farms.
+\newblock Technical report, {USDA Economic Research Service}.
+
+\bibitem[{MexDer}, 2022]{mexder_ipc_fut}
+{MexDer} (2022).
+\newblock S\&p/bmv ipc futures contract.
+\newblock
+  \url{https://www.mexder.com.mx/wb3/wb/MEX/MEX_Repositorio/_vtp/MEX/1ef4_presentaciones/_rid/21/_mto/3/IPC_Future_2022.pdf}.
+
+\bibitem[Milonas and coauthors, 2024]{milonas_convenience_2024}
+Milonas, N.~T. and coauthors (2024).
+\newblock The convenience yield under commodity financialization.
+\newblock {\em Futures \& Derivatives}.
+
+\bibitem[Musacchio, 2012]{yale_tequila_2012}
+Musacchio, A. (2012).
+\newblock Mexico's financial crisis of 1994--1995.
+\newblock
+  \url{https://elischolar.library.yale.edu/cgi/viewcontent.cgi?article=12060&context=ypfs-documents}.
+
+\bibitem[{National Corn Growers Association}, 2025]{ncga_storage_2025}
+{National Corn Growers Association} (2025).
+\newblock A look at current u.s. grain storage capacity.
+\newblock
+  \url{https://ncga.com/stay-informed/media/the-corn-economy/article/2025/08/a-look-at-current-u-s-grain-storage-capacity}.
+
+\bibitem[News, 2025]{bloomberg_mx_inflation_2025}
+News, B. (2025).
+\newblock Mexico inflation accelerates as banxico reduces easing pace.
+\newblock
+  \url{https://www.bloomberg.com/news/articles/2025-09-09/mexico-inflation-rises-more-than-expected-as-banxico-slows-cuts}.
+
+\bibitem[{Office of the U.S. Trade Representative},
+  2023]{ustr_usmca_biotech_2023}
+{Office of the U.S. Trade Representative} (2023).
+\newblock United states requests usmca dispute settlement consultations on
+  mexico’s agricultural biotechnology measures.
+\newblock
+  \url{https://ustr.gov/about-us/policy-offices/press-office/press-releases/2023/june/united-states-requests-usmca-dispute-settlement-consultations-mexicos-agricultural-biotechnology}.
+
+\bibitem[{Office of the U.S. Trade Representative},
+  2024]{ustr_usmca_biotech_win_2024}
+{Office of the U.S. Trade Representative} (2024).
+\newblock United states prevails in usmca dispute on biotech corn.
+\newblock
+  \url{https://ustr.gov/about-us/policy-offices/press-office/press-releases/2024/december/united-states-prevails-usmca-dispute-biotech-corn}.
+
+\bibitem[Reuters, 2008]{reuters_oil_peak_2008}
+Reuters (2008).
+\newblock Half a century of oil price volatility.
+\newblock
+  \url{https://www.reuters.com/article/markets/stocks/-half-a-century-of-oil-price-volatility-idUSTRE4AJ3ZR/}.
+\newblock Chronology noting July 11, 2008 peaks: Brent \$147.50, U.S. crude
+  \$147.27.
+
+\bibitem[Reuters, 2025a]{reuters_mexico_gm_ban_2025}
+Reuters (2025a).
+\newblock After trade dispute, mexico officially bans the planting of gm corn.
+\newblock
+  \url{https://www.reuters.com/markets/commodities/after-trade-dispute-mexico-officially-bans-planting-gm-corn-2025-02-26/}.
+
+\bibitem[Reuters, 2025b]{reuters_tariffs_china_autos_2025}
+Reuters (2025b).
+\newblock Byd and tesla set to lose most from mexico's proposed tariffs on
+  china.
+\newblock
+  \url{https://www.reuters.com/business/autos-transportation/byd-tesla-set-lose-most-mexicos-proposed-tariffs-china-2025-09-12/}.
+
+\bibitem[Reuters, 2025c]{reuters2025a}
+Reuters (2025c).
+\newblock Fed’s fear meter may be pointing to stagnation rather than
+  stagflation.
+\newblock
+  \url{https://www.reuters.com/business/feds-fear-meter-may-be-pointing-stagnation-rather-than-stagflation-2025-09-12/}.
+\newblock September 12, 2025.
+
+\bibitem[Reuters, 2025d]{reuters2025b}
+Reuters (2025d).
+\newblock Fed’s fear meter may be pointing to stagnation rather than
+  stagflation.
+\newblock
+  \url{https://www.reuters.com/business/feds-fear-meter-may-be-pointing-stagnation-rather-than-stagflation-2025-09-12/}.
+\newblock September 12, 2025.
+
+\bibitem[Reuters, 2025e]{reuters2025c}
+Reuters (2025e).
+\newblock Imf says fed has scope to lower interest rates.
+\newblock
+  \url{https://www.reuters.com/markets/us/imf-says-fed-has-scope-lower-interest-rates-2025-09-11/}.
+\newblock September 11, 2025.
+
+\bibitem[Reuters, 2025f]{reuters_border_jobs_2025}
+Reuters (2025f).
+\newblock In mexican border town, thousands of jobs lost due to u.s. tariffs.
+\newblock
+  \url{https://www.reuters.com/business/world-at-work/mexican-border-town-thousands-jobs-lost-due-trump-tariffs-2025-09-01/}.
+
+\bibitem[Reuters, 2025g]{reuters_ipc_record_2025}
+Reuters (2025g).
+\newblock Mexican peso and stocks head for weekly gains on fed-cut bets; ipc
+  hits record.
+\newblock
+  \url{https://www.reuters.com/latam/negocio/FI45P245BRLRJIYFOSWEE7ISUA-2025-09-12/}.
+\newblock Reports IPC near 61,903 and MXN around 18.48/USD.
+
+\bibitem[Reuters, 2025h]{reuters_pemex_plan_2025}
+Reuters (2025h).
+\newblock Mexico reveals sweeping plan to bring down pemex debt, boost
+  investment.
+\newblock
+  \url{https://www.reuters.com/world/americas/mexico-reveals-sweeping-plan-bring-down-pemex-debt-boost-investment-lift-2025-08-05/}.
+
+\bibitem[Reuters, 2025i]{reuters_budget_2025}
+Reuters (2025i).
+\newblock Mexico sees budget deficit lower in 2026 as growth ticks up despite
+  uncertainty.
+\newblock
+  \url{https://www.reuters.com/world/americas/mexico-sees-budget-deficit-lower-2026-growth-ticks-up-despite-uncertainty-2025-09-09/}.
+
+\bibitem[Reuters, 2025j]{reuters2025}
+Reuters (2025j).
+\newblock Morgan stanley expects four consecutive u.s. interest rate cuts
+  starting next week.
+\newblock
+  \url{https://www.reuters.com/business/morgan-stanley-expects-three-us-interest-rate-cuts-this-year-2025-09-12}.
+\newblock September 12, 2025.
+
+\bibitem[Reuters, 2025k]{reuters2025d}
+Reuters (2025k).
+\newblock Powell, citing jobs risk, opens door to cuts but doesn’t commit.
+\newblock
+  \url{https://www.reuters.com/markets/wealth/powell-citing-jobs-risk-opens-door-cuts-doesnt-commit-2025-08-22/}.
+\newblock August 22, 2025.
+
+\bibitem[Reuters, 2025l]{reuters_usdmxn_quote}
+Reuters (2025l).
+\newblock Us dollar / mexican peso fx spot rate (usdmxn=x).
+\newblock \url{https://www.reuters.com/markets/quote/USDMXN%3DX/}.
+\newblock Quote page; ~18.42 on Sep 13, 2025.
+
+\bibitem[Reuters, 2025m]{reuters_record_crop_2025}
+Reuters (2025m).
+\newblock Usda projects record u.s. corn crop, biggest harvested acres since
+  1933.
+\newblock
+  \url{https://www.reuters.com/sustainability/climate-energy/usda-projects-record-us-corn-crop-biggest-harvested-acres-since-1933-2025-09-12/}.
+
+\bibitem[Sagnanert et~al., 2023]{dallasfed_peso_2023}
+Sagnanert, P., Ca{\~n}as, J., and Torres, L. (2023).
+\newblock Mexican peso strength noteworthy among emerging markets during fed
+  tightening.
+\newblock {\em Dallas Fed Economics}.
+
+\bibitem[Schlumberger, 2010]{worldbank_oil_spike_2008}
+Schlumberger, C.~E. (2010).
+\newblock The oil price spike of 2008: The result of speculation or an early
+  realization of a supply-constrained world?
+\newblock
+  \url{https://thedocs.worldbank.org/en/doc/60591434652912502-0190022009/original/AirTransportTheOilPriceSpikeof2008.pdf}.
+
+\bibitem[{S\&P Dow Jones Indices}, 2020]{spdj_bmv_methodology}
+{S\&P Dow Jones Indices} (2020).
+\newblock S\&p/bmv indices methodology.
+\newblock
+  \url{https://www.spglobal.com/spdji/en/documents/methodologies/methodology-sp-bmv-indices.pdf}.
+
+\bibitem[{S\&P Dow Jones Indices}, nd]{spdj_ipc_page}
+{S\&P Dow Jones Indices} (n.d.).
+\newblock S\&p/bmv ipc.
+\newblock \url{https://www.spglobal.com/spdji/en/indices/equity/sp-bmv-ipc/}.
+
+\bibitem[{The New York Times}, 1980]{nyt_1980_silver_thursday}
+{The New York Times} (1980).
+\newblock Silver prices collapse as hunts fail to meet margin calls.
+\newblock Coverage of March 27, 1980 events; archived article.
+
+\bibitem[{The Silver Institute}, 2024]{silver_institute_wss_2024}
+{The Silver Institute} (2024).
+\newblock World silver survey 2024.
+\newblock \url{https://www.silverinstitute.org/resources/world-silver-survey/}.
+\newblock Industrial demand, supply, and price drivers.
+
+\bibitem[{U.S. Commodity Futures Trading Commission}, nda]{cftc_cot_about}
+{U.S. Commodity Futures Trading Commission} (n.d.a).
+\newblock About the commitments of traders (cot) reports.
+\newblock
+  \url{https://www.cftc.gov/MarketReports/CommitmentsofTraders/AbouttheCOTReports/index.htm}.
+
+\bibitem[{U.S. Commodity Futures Trading Commission}, ndb]{cftc_cot_notes}
+{U.S. Commodity Futures Trading Commission} (n.d.b).
+\newblock Cot explanatory notes.
+\newblock
+  \url{https://www.cftc.gov/MarketReports/CommitmentsofTraders/ExplanatoryNotes/index.htm}.
+
+\bibitem[{U.S. Energy Information Administration},
+  2013]{eia_backwardation_2013}
+{U.S. Energy Information Administration} (2013).
+\newblock Oil futures price curve has steepened over the past six months.
+\newblock \url{https://www.eia.gov/todayinenergy/detail.php?id=13051}.
+\newblock Explains backwardation in oil markets.
+
+\bibitem[{U.S. Energy Information Administration}, 2023]{eia_prices_2023}
+{U.S. Energy Information Administration} (2023).
+\newblock Oil and petroleum products explained: Oil prices and outlook.
+\newblock
+  \url{https://www.eia.gov/energyexplained/oil-and-petroleum-products/prices-and-outlook.php}.
+
+\bibitem[{U.S. Energy Information Administration}, 2024]{eia_opec_2024}
+{U.S. Energy Information Administration} (2024).
+\newblock What is opec+ and how is it different from opec?
+\newblock \url{https://www.eia.gov/todayinenergy/detail.php?id=61102}.
+
+\bibitem[{U.S. Geological Survey}, 2024]{usgs_silver_mcs_2024}
+{U.S. Geological Survey} (2024).
+\newblock Mineral commodity summaries 2024: Silver.
+\newblock Technical report, U.S. Department of the Interior.
+\newblock See the Silver chapter for uses and market factors.
+
+\bibitem[{USDA Agricultural Marketing Service}, 2023]{ams_gtr_2023}
+{USDA Agricultural Marketing Service} (2023).
+\newblock Grain transportation report.
+\newblock
+  \url{https://www.ams.usda.gov/sites/default/files/media/GTR07132023.pdf}.
+\newblock River draft constraints raise barge rates and depress local bids.
+
+\bibitem[{USDA Economic Research Service}, 2023]{ers_ethanol_2030}
+{USDA Economic Research Service} (2023).
+\newblock Global demand for fuel ethanol through 2030.
+\newblock Technical report.
+
+\bibitem[{USDA Economic Research Service}, 2025a]{ers_feedgrains_topic}
+{USDA Economic Research Service} (2025a).
+\newblock Corn and other feed grains.
+\newblock
+  \url{https://www.ers.usda.gov/topics/crops/corn-and-other-feed-grains}.
+
+\bibitem[{USDA Economic Research Service}, 2025b]{ers_feedgrains_outlook}
+{USDA Economic Research Service} (2025b).
+\newblock Corn and other feed grains — market outlook.
+\newblock
+  \url{https://www.ers.usda.gov/topics/crops/corn-and-other-feed-grains/market-outlook}.
+
+\bibitem[{USDA Economic Research Service}, nd]{ers_ethanol_40}
+{USDA Economic Research Service} (n.d.).
+\newblock Corn-based ethanol production in the united states.
+\newblock
+  \url{https://www.ers.usda.gov/data-products/chart-gallery/chart-detail?chartId=58346}.
+\newblock Ethanol has accounted for over 40\% of U.S. corn use in recent years.
+
+\bibitem[{USDA Foreign Agricultural Service}, 2023]{fas_mexico_decree_2023}
+{USDA Foreign Agricultural Service} (2023).
+\newblock Mexico issues 2023 corn decree to substitute gradually biotech corn
+  used in human consumption.
+\newblock
+  \url{https://www.fas.usda.gov/data/mexico-mexico-issues-2023-corn-decree-substitute-gradually-biotech-corn-used-human-consumption}.
+
+\bibitem[{USDA Foreign Agricultural Service},
+  2025]{fas_mexico_grain_annual_2025}
+{USDA Foreign Agricultural Service} (2025).
+\newblock Mexico: Grain and feed annual (mx2025-0013).
+\newblock
+  \url{https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Grain+and+Feed+Annual_Mexico+City_Mexico_MX2025-0013.pdf}.
+
+\bibitem[{USDA NASS}, nd]{usda_understanding_wasde}
+{USDA NASS} (n.d.).
+\newblock Understanding usda crop forecasts.
+\newblock
+  \url{https://www.nass.usda.gov/Education_and_Outreach/Understanding_Statistics/pub1554.pdf}.
+
+\bibitem[{USDA Office of the Chief Economist}, nd]{usda_wasde}
+{USDA Office of the Chief Economist} (n.d.).
+\newblock World agricultural supply and demand estimates (wasde).
+\newblock
+  \url{https://www.usda.gov/about-usda/general-information/staff-offices/office-chief-economist/commodity-markets/wasde-report}.
+
+\bibitem[YCharts, 2025]{ycharts2025}
+YCharts (2025).
+\newblock 6 reasons leading to fed rate cuts.
+\newblock
+  \url{https://get.ycharts.com/resources/blog/6-reasons-leading-to-fed-rate-cuts/}.
+
+\end{thebibliography}
