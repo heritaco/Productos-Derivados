@@ -3,6 +3,14 @@
 % --- Layout & links ---
 \usepackage[english]{babel}
 \usepackage[margin=1.5in]{geometry}
+
+\PassOptionsToPackage{hyphens}{url} % permite cortar en guiones
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}                   % permite corte “en cualquier punto”
+\usepackage{microtype}
+\hypersetup{breaklinks=true}
+\emergencystretch=3em               % evita overfull boxes
+
 \usepackage[hidelinks]{hyperref}
 
 % --- Fuentes (texto y matemáticas) ---
@@ -17,22 +25,63 @@
   BoldItalicFont = * SemiBold Italic
 ]
 
-% --- Secciones y subsecciones ---
-\usepackage{titlesec}
-\newfontface\garamondbold{EB Garamond Bold}
-\newfontface\garamondbolditalic{EB Garamond Bold Italic}
-\titleformat{\section}
-  {\garamondbold\Large}{\thesection}{1em}{}
-\titleformat{\subsection}
-  {\garamondbold\large}{\thesubsection}{1em}{}
+    % --- Secciones y subsecciones ---
+    \usepackage{titlesec}
+    \newfontface\boldd{EB Garamond Bold}
+    \newfontface\bolditalic{EB Garamond  Bold Italic}
+    \newfontface\extrabold{EB Garamond ExtraBold}
+    \newfontface\medium{EB Garamond Medium}
 
-% --- Encabezado con nombre de la sección ---
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{\small\leftmark}
-\fancyhead[R]{\small\thepage}
-\renewcommand{\headrulewidth}{0.1pt}
+
+
+    \usepackage{bookmark}              % mejora anchors
+    \hypersetup{hypertexnames=false}   % evita destinos idénticos
+
+    \usepackage{etoolbox,needspace}
+
+    % Rompe página solo en \section y crea ancla propia
+    \pretocmd{\section}{\clearpage\phantomsection\needspace{6\baselineskip}}{}{}
+
+    % No rompas página en \subsection; solo asegura espacio
+    \pretocmd{\subsection}{\phantomsection\needspace{4\baselineskip}}{}{}
+
+    \setcounter{secnumdepth}{0}
+
+    % --- Hacer los títulos de sección y subsección más grandes ---
+    \titleformat{\section}
+      {\boldd\fontsize{34pt}{128pt}\selectfont} % el primer {} es el formato, el segundo {} es el tamaño de línea
+      {\thesection}{18em}{} % el primer {} es el formato, el segundo {} es la separación entre número y título
+      \titleformat{\subsection}
+        {\boldd\fontsize{18pt}{18pt}\selectfont}
+        {\thesubsection}{10em}{}
+    \titlespacing*{\section}{0pt}{0pt}{24pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+    \titlespacing*{\subsection}{0pt}{18pt}{18pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+
+    % --- Encabezado con nombre de la sección ---
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[L]{\small\leftmark}
+    \fancyhead[R]{\small\thepage}
+    \fancyhead[C]{\small\textit{\rightmark}}
+    \renewcommand{\headrulewidth}{0.1pt}
+
+    %\textsc{} para versalitas
+
+    % --- Crear un nuevo estilo de pagina con el numero arriba a la derecha ---
+    \fancypagestyle{myfancy}{
+      \fancyhf{}
+      \fancyhead[R]{\small\thepage}
+      \renewcommand{\headrulewidth}{0pt}
+    }
+
+        % --- Cambia el pagestyle a 'plain' en cada \section ---
+    \let\oldsection\section
+    \renewcommand{\section}{%
+      \clearpage
+      \thispagestyle{myfancy}%
+      \oldsection
+    }
 
 % --- Espaciado ---
 \usepackage{setspace}
@@ -47,9 +96,15 @@
 
 \usepackage{graphicx}
 
+
 % --- Bibliografía ---
 \usepackage{natbib}
+\makeatletter
+\renewcommand{\bibsection}{\relax} % suprime el título que inserta natbib
+\makeatother
+
 \bibliographystyle{apalike}   % u otro: plainnat, abbrvnat, unsrtnat
+
 
 % --- Código fuente ---
 \usepackage{listings}
@@ -63,21 +118,30 @@
 % interlineado de 1.2
 \usepackage{setspace}
 \setstretch{1.2}
+\setlength{\parskip}{0.2em} % espacio entre párrafos
 
 \begin{document}
 
 % --- Portada ---
 \begin{titlepage}
-  \centering
-  \vspace*{4cm}
-  {\Huge\bfseries Mexico Derivatives Market\par}
-  \vspace{2cm}
-  {\Large Heriberto Espino Montelongo\par}
-  \vspace{1cm}
-  {\large Universidad de las Américas Puebla\par}
-  \vfill
-  {\large \today\par}
+\centering
+\vspace*{4cm}
+{\extrabold\fontsize{28pt}{28pt}\selectfont Método de Aceptación y Rechazo\par}
+\vspace{1cm}
+
+{\medium\fontsize{12pt}{12pt}\selectfont
+{\large Curso:  Temas Selectos I: O25 LAT4032 1\par}
+\vspace{.5em}
+{\large Profesor:  Rubén Blancas Rivera\par}
+\vspace{.5em}
+{\large Heriberto Espino Montelongo, ID: 175199\par}
+\vspace{.5em}
+{\large Universidad de las Américas Puebla\par}
+\vfill
+{\large \today \par}}
 \end{titlepage}
+
+
 
 % --- Abstract ---
 \begin{abstract}
@@ -85,6 +149,8 @@ This document provides a template for reports in the "AI in Financial Services" 
 \end{abstract}
 
 % --- Tabla de contenidos ---
+\section*{Contents}
+\renewcommand{\contentsname}{}
 \tableofcontents
 \thispagestyle{empty}
 \newpage
@@ -202,20 +268,248 @@ Silver has many uses, mainly in the industrial side. Therefore, there are many f
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/silver.jpg}
+\includegraphics[width=0.7\textwidth]{figures/silver_time_series.jpg}
+\caption{Silver futures price series. Source: Investing.com.}
+\end{figure}
+
+\paragraph{Geopolitical events are also an influence on silver prices.} Trade policies, tariffs, or tensions between nations can affect the supply chains and international trade that impact its availability and price \citep{silver_institute_wss_2024}.
+
+\paragraph{In 1980 there was a big high in silver futures.} That event is known as Silver Thursday, and it referred to the Thursday 27th of March 1980 \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
+On that day, the price of silver futures on the COMEX market in New York plummeted dramatically. The price had reached an all-time high of \$49.45 per ounce in January 1980, driven by a speculative frenzy largely fueled by the Hunt brothers, who attempted to corner the silver market. However, regulatory changes and margin calls led to a rapid collapse in prices, causing significant financial losses for many investors and leading to a broader market panic \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
+
+\subsection{Recent developments}
+Spot silver has breached multi-year highs in early September 2025, trading above \$40/oz and printing fresh 14-year peaks as U.S. rate-cut probabilities increased and the dollar softened; momentum has been reinforced by analyst upgrades that cite ETF inflows and a persistent physical deficit \citep{reuters_silver_14y_sep1,reuters_tradingday_sep11,reuters_anz_raises_silver,lbma_q2_2025}. Corporate activity remains supportive for Mexico-centric supply, with a pending acquisition that consolidates interest in the Juanicipio asset \citep{reuters_paasmag}. Benchmarking for spot valuation continues to rely on the LBMA Silver Price, while COMEX futures provide standardized hedging and exposure along the curve \citep{lbma_prices,cme_silver_overview}.
+
+\paragraph{Mexico: why it matters.}
+Mexico is the world’s leading silver producer; mining income, royalties, and FX earnings are sensitive to silver’s level and volatility \citep{reuters_mx_top_silver}. Higher prices improve cash flow and capex flexibility for domestic producers and their suppliers, while policy or logistics shocks can widen local basis. Stronger silver also interacts with MXN through the trade channel and risk sentiment: improved mining terms of trade are peso-supportive conditional on broader macro conditions.
+
+\paragraph{spot vs.\ futures.}
+The spot price of unallocated silver in London (or a deliverable loco), typically proxied by the LBMA Silver Price or XAG/USD spot quotes; it is used to value immediate physical transactions and inventory. By contrast, COMEX silver futures embed financing and inventory economics over a horizon \(T\). A standard cost-of-carry relation is used:
+\[
+F = S\,e^{(r+u-l)\,T},
+\]
+where \(r\) is the dollar funding rate, \(u\) represents storage/insurance, and \(l\) is the lease (or convenience) rate. When tightening in nearby physical markets raises \(l\) above \(r+u\), backwardation is obtained \((F<S\,e^{rT})\); when financing and storage dominate, contango is obtained. During episodes of rapid spot appreciation catalyzed by Fed-easing expectations and robust investor demand, it is common that lease rates rise and spot premia widen, so the futures curve can richen less than spot or even invert at the front. For Mexico-based producers, this distinction shapes hedge design: spot strength is used to lock revenue, while curve shape determines carry costs and roll outcomes on futures hedges.
+
+\paragraph{Implications for Mexico-linked exposures.}
+Given elevated spot levels and persistent tightness signals, it is expected that: (i) producers with near-term shipments benefit first via realized spot, (ii) longer-dated cash flows depend on curve structure and hedge discipline, and (iii) MXN correlations remain regime-dependent—improving terms of trade are supportive, but U.S. rate surprises and global risk cycles dominate at high frequency. Policy and permitting news can modulate this transmission, affecting local basis and project timing even when global prices are strong.
+
+
+\subsection{Interpretation of SIZ25.}
+A \textbf{positive basis} is observed: $F=42.83>F^{*}=42.74$, a premium of \textbf{\$0.09/oz} (18 ticks, \textbf{\$450} per 5,000-oz contract). With $S=42.195$ and a 108-day horizon $(T=108/360=0.30)$, the market carry is obtained as
+\[
+c_{\mathrm{mkt}} = \frac{1}{T}\ln\!\frac{F}{S}
+= \frac{1}{0.30}\ln\!\frac{42.83}{42.195}
+\approx \mathbf{4.97\%}\ \text{per year}.
+\]
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/silver_pricing_one_day.png}
+\caption{Pricing of SIZ25}
+\end{figure}
+
+Compared with the funding rate $r=4.41\%$, the implied \textbf{net storage minus lease rate} is
+\[
+u-l = c_{\mathrm{mkt}} - r \approx \mathbf{0.6\%}\ \text{per year},
+\]
+which is consistent with \textbf{contango}: financing and storage slightly exceed the lease (convenience) rate, so the futures price sits modestly above both spot $(F>S)$ and the pure-financing benchmark $(F>F^{*}=S e^{rT})$.
+
+\paragraph{Why this aligns with the news.} Recent silver headlines emphasize multi-year highs driven by rising Fed-cut probabilities, a softer USD, ETF inflows, and talk of persistent physical deficits. Those forces primarily elevate the \textbf{spot} (the subyacente). However, the \textbf{futures} price capitalizes financing and inventory economics over the 108-day horizon. The observed, small premium indicates that—despite strong spot demand—the lease rate has \textbf{not} risen enough to overwhelm storage and funding costs. Adequate deliverable inventories, available storage, year-end financing effects, and investor preference to hold exposure via futures rather than immediate physical settlement are sufficient to keep the front of the curve in \textbf{slight contango}. The deviation is economically modest and should be read as a carry/liquidity effect rather than as a dislocation.
+
+\subsection{Weekly read (cost-of-carry lens).}
+Across 5--12 Sep 2025 the silver curve transitions from \textbf{mild backwardation} to \textbf{mild contango}. Early in the week, \textbf{Market $-$ Theoretical} is negative ($-\$0.02$ to $-\$0.11$/oz), which is consistent with a lease/convenience rate that temporarily \textbf{exceeds} financing plus storage; by Thu--Fri the sign flips positive ($+\$0.02$ to $+\$0.09$/oz), indicating that \textbf{financing and storage dominate} the lease rate over the remaining horizon. This evolution is consistent with the news backdrop: spot strength driven by rising Fed-cut odds and USD softness elevates the subyacente, while futures pricing incorporates funding and inventory economics; as immediate tightness eases or as futures demand is used for exposure, the front of the curve reverts to slight contango.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{figures/silver_pricing_over_the_week.pdf}
+\caption{Pricing of SIZ25 over the week}
+\end{figure}
+
+\paragraph{Day-by-day classification and implied net carry.}
+Using $F=S\,e^{(r+u-l)T}$ and $F^{\*}=S\,e^{rT}$, the net $u-l$ is obtained from $u-l=\tfrac{1}{T}\ln(F/F^{\*})$ (ACT/360; $T$ decreases from $\sim0.319$ to $\sim0.300$ over the week):
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/silver_difference.pdf}
 \caption{Silver price series. Source: Investing.com.}
 \end{figure}
 
-Geopolitical events are also an influence on silver prices. Trade policies, tariffs, or tensions between nations can affect the supply chains and international trade that impact its availability and price \citep{silver_institute_wss_2024}.
+\begin{itemize}
+  \item \textbf{Fri 9/5:} $F-F^{*} = -\$0.024$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.18\%$ p.a.
+  \item \textbf{Mon 9/8:} $F-F^{*} = -\$0.011$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.08\%$ p.a.
+  \item \textbf{Tue 9/9:} $F-F^{*} = -\$0.111$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.87\%$ p.a.
+  \item \textbf{Wed 9/10:} $F-F^{*} = -\$0.114$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.89\%$ p.a.
+  \item \textbf{Thu 9/11:} $F-F^{*} = +\$0.017$ $\rightarrow$ \textbf{contango}; $u-l \approx +0.13\%$ p.a.
+  \item \textbf{Fri 9/12:} $F-F^{*} = +\$0.085$ $\rightarrow$ \textbf{contango}; $u-l \approx +0.66\%$ p.a.
+\end{itemize}
 
-In 1980 there was a big high in silver futures. That event is known as Silver Thursday, and it referred to the Thursday 27th of March 1980 \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/silver_risk_premium.pdf}
+\caption{Silver price series. Source: Investing.com.}
+\end{figure}
+
+\paragraph{Forward premium vs.\ spot.}
+The ``Risk Premium'' column $(F/S-1)$ stays small ($\approx 1.06$--$1.50\%$). It dips mid-week as spot outperforms, then rises as futures regain a modest premium. Economically, this forward premium is used to summarize \textbf{carry} (funding $+$ storage $-$ lease). It should be interpreted as a carry/liquidity effect, not as an arbitrage.
+
+
+\section{Silver}
+
+In this section, the economic role, policy drivers, historical stress episode, recent developments, spot versus futures framework, and Mexico-linked implications of silver are discussed.
+
+\subsection{Economic role and macro-financial channels}
+Silver is a dual-use metal with a large industrial footprint (electronics, photovoltaics, medical and chemical applications) and a non-trivial investment component. As a result, its pricing is shaped by both end-use demand and financial conditions. Cyclical expansions raise manufacturing throughput and technology adoption, lifting physical offtake; global slowdowns reverse that impulse. Monetary policy and term premia transmit through discount rates and the USD: a stronger dollar tightens global financial conditions and lowers non-USD purchasing power, dampening demand for dollar-priced commodities; a softer USD does the opposite \citep{silver_institute_wss_2024,usgs_silver_mcs_2024,bis_usd_commodity_2023}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/silver_time_series.jpg}
+\caption{COMEX silver futures time series (illustrative). Source: Investing.com.}
+\label{fig:silver_time_series}
+\end{figure}
+
+\subsection{Policy and geopolitical drivers}
+Trade restrictions, tariffs, sanctions, and logistics frictions reallocate flows across refining hubs and end-user markets, altering local basis and inventory dynamics; these mechanisms operate alongside the macro channels above \citep{silver_institute_wss_2024}.
+
+\subsection{Historical stress episode}
+The 1980 episode (“Silver Thursday”) illustrates how leverage, concentrated positioning, and margining can dominate price discovery. After a speculative run-up to \$49.45/oz, rule changes and margin calls precipitated a sharp decline on March 27, 1980, with broader market spillovers \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
+
+\subsection{Recent developments}
+In early September 2025, spot silver traded above \$40/oz and marked 14-year highs amid rising Fed-easing probabilities and a weaker USD; research commentary highlighted ETF inflows and a persistent physical deficit \citep{reuters_silver_14y_sep1,reuters_tradingday_sep11,reuters_anz_raises_silver,lbma_q2_2025}. Corporate activity remains supportive for Mexico-centric supply, including consolidation around the Juanicipio asset \citep{reuters_paasmag}. Spot benchmarking relies on the LBMA Silver Price, while COMEX futures provide standardized exposure and hedging along the term structure \citep{lbma_prices,cme_silver_overview}.
+
+\paragraph{Mexico: why it matters.}
+Mexico is the world’s largest silver producer, so revenue, royalties, and FX inflows are sensitive to the level and volatility of silver. Higher prices improve internal cash generation and capex flexibility; conversely, regulatory or logistical frictions widen local basis and delay monetization. Through the terms-of-trade channel, stronger silver can be peso-supportive when broader macro conditions are aligned \citep{reuters_mx_top_silver}.
+
+\subsection{Spot versus futures (interpretive framework)}
+The spot price refers to unallocated silver in London (or a deliverable loco) and is used to value immediate transactions and inventories. COMEX futures internalize financing and inventory economics over horizon \(T\) via the cost-of-carry relation
+\[
+F=S\,e^{(r+u-l)T},
+\]
+with \(r\) the USD funding rate, \(u\) storage/insurance, and \(l\) the lease (convenience) rate. Tight nearby physical conditions raise \(l\) and can generate backwardation \((F<S\,e^{rT})\); abundant storage and higher financing tilt the curve toward contango. Thus, spot primarily reflects contemporaneous scarcity and dollar conditions, while futures reflect the intertemporal trade-off between owning inventory today versus financing delivery later.
+
+The \emph{spot} benchmark is the LBMA Silver Price (or XAG/USD quotes for unallocated metal in London); it is used to value immediate physical transactions, inventory revaluation, and cash-market settlements \citep{lbma_prices}. The COMEX futures curve is used to transfer price risk across time and to standardize hedging and speculative exposure; contract design, margining, and delivery mechanics shape its microstructure \citep{cme_silver_overview}. In practice, three news-sensitive wedges separate spot from futures: (i) the \emph{financing–storage–lease} term in the cost-of-carry \(F=S\,e^{(r+u-l)T}\), (ii) \emph{location/quality} basis between London unallocated and COMEX-deliverable bars, and (iii) \emph{timing} basis linked to near-term ETF creations/redemptions and refinery/warehouse flows. When easing U.S. rate expectations strengthen non-USD demand and ETF creations accelerate, it is common that spot tightens faster than the curve (lease rate \(l\uparrow\)), generating transient backwardation; as inventories are replenished and funding/storage regain prominence, slight contango reappears. Hence, spot is used as a barometer of contemporaneous scarcity and USD conditions, whereas futures are used to price the intertemporal trade-off between carrying inventory and deferring settlement.
+
+\subsection{Mexico-linked implications}
+Near-term shipments monetize elevated spot first; medium-dated cash flows depend on the curve’s carry and roll costs. Hedge design should distinguish (i) price level risk (spot) from (ii) term-structure risk (roll yield and basis), recognizing that cross-currency and policy shocks can modulate both even when the global price is strong.
+
+Mexico’s role as the world’s largest silver producer means that domestic cash flows, royalties, and FX receipts are highly exposed to these spot–futures dynamics \citep{reuters_mx_top_silver}. The following news-driven scenarios are operationally relevant:
+\begin{enumerate}
+  \item \textbf{ETF inflow surges and USD weakness.} Spot premia rise first; it is used by producers with near-term shipments to monetize higher LBMA realizations. If COMEX contango persists, rolling short futures hedges entails modest carry costs; if backwardation appears, rolls can be revenue-positive.
+  \item \textbf{Refinery or logistics bottlenecks.} Delays in moving Mexico-origin doré or concentrates to refiners widen the location basis versus London. It is used to hedge with COMEX futures, but performance depends on the basis path; treasury policy should stress-test basis risk alongside price risk.
+  \item \textbf{Funding-cost swings.} Shifts in dollar funding alter \(r\) and, with stable lease \(l\), move the curve even if spot is unchanged; this is used to reassess hedge tenors because forward premia/discounts change while realized sales prices do not.
+  \item \textbf{Domestic policy shocks.} Changes in royalties, permitting, power tariffs, or labor conditions affect mining margins and supply timing; it is used to adjust production hedges and to reassess the mix of spot sales versus forward coverage given altered cash-need profiles.
+  \item \textbf{FX interaction (USD/MXN).} Stronger silver improves Mexico’s terms of trade and can support MXN conditionally on global risk; however, a stronger MXN reduces peso revenues for unhedged USD sales. It is used to pair metal hedges with FX hedges to stabilize MXN cash flows.
+\end{enumerate}
+In summary, elevated spot levels benefit near-term Mexican exports directly, while the sign and size of the futures basis determine carry and roll outcomes on hedges. Policy- and logistics-sensitive basis risk is material; it is used to complement price hedging with explicit basis and FX risk management, recognizing that the curve reflects financing and inventory conditions that need not move one-for-one with spot.
+
+
+\subsection{Interpretation of \texorpdfstring{SIZ25}{SIZ25} (one-day read)}
+A \emph{positive basis} is observed: \(F=42.83>F^{*}=42.74\), a premium of \$0.09/oz (18 ticks, \$450 per 5{,}000-oz contract). With \(S=42.195\) and \(T=108/360\), the market carry is
+\[
+c_{\mathrm{mkt}}=\frac{1}{T}\ln\!\frac{F}{S}
+=\frac{1}{0.30}\ln\!\frac{42.83}{42.195}\approx 4.97\%\ \text{p.a.}
+\]
+Relative to \(r=4.41\%\), the implied net storage minus lease is
+\[
+u-l=c_{\mathrm{mkt}}-r\approx 0.6\%\ \text{p.a.},
+\]
+consistent with \emph{slight contango}: financing plus storage marginally exceed the lease rate, so the future sits above spot and above the pure-financing benchmark \(F^{*}=S\,e^{rT}\). This aligns with contemporaneous news: strong demand and a softer USD lift spot, yet lease rates have not risen enough to overcome carry costs over 108 days.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/silver_pricing_one_day.png}
+\caption{One-day pricing decomposition for SIZ25.}
+\label{fig:silver_one_day}
+\end{figure}
+
+
+A small, but statistically meaningful, \emph{positive basis} is observed on \emph{September 12, 2025}: \(F=42.83>F^{*}=42.74\), i.e., a premium of \(\$0.09/\mathrm{oz}\) (18 ticks, \(\$450\) per 5{,}000-oz contract). With \(S=42.195\) and \(T=108/360\), the market-implied carry is
+\[
+c_{\mathrm{mkt}}=\frac{1}{T}\ln\!\frac{F}{S}=\frac{1}{0.30}\ln\!\frac{42.83}{42.195}\approx 4.97\% \ \text{p.a.}
+\]
+Given a funding benchmark \(r=4.41\%\), the net inventory term is obtained as
+\[
+u-l=c_{\mathrm{mkt}}-r\approx 0.60\%\ \text{p.a.}
+\]
+This decomposition is used to interpret the premium as \emph{slight contango}: financing and storage together exceed the lease (convenience) rate by a few basis points on an annualized basis, so the future prices above both spot and the pure-financing benchmark \(F^{*}=S\,e^{rT}\).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/silver_pricing_over_the_week.pdf}
+\caption{Weekly evolution of Market \(-\) Theoretical and risk premium for SIZ25.}
+\label{fig:silver_week}
+\end{figure}
+
+
+\paragraph{Why this is consistent with the news flow.}
+Contemporaneous headlines emphasize (i) elevated spot levels on rising Fed-cut probabilities and a softer USD, (ii) ETF-related investor demand, and (iii) discussion of structural deficits. These elements are used to lift the \emph{subyacente} first; however, the futures price capitalizes financing and inventory over the next 108 days. The small, positive \(u-l\) indicates that, notwithstanding robust spot demand, lease rates have not surged enough to dominate funding and storage for this horizon. Adequate deliverable stocks, available storage, and year-end financing conditions can sustain a modest contango even as spot remains buoyant. Economically, this is read as a \emph{carry/liquidity configuration}, not as a dislocation or an arbitrage.
 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/silver2.png}
-\caption{Silver price series. Source: Investing.com.}
+\includegraphics[width=0.7\textwidth]{figures/silver_difference.pdf}
+\caption{Daily difference \(F-F^{*}\) and sign (backwardation vs.\ contango).}
+\label{fig:silver_difference}
 \end{figure}
+
+
+\medskip
+\noindent\emph{Risk classification.} The premium sits well within typical no-arbitrage bands once bid–ask, exchange fees, collateral haircuts, and delivery frictions are recognized. Positioning should therefore emphasize curve-shape risk (carry and roll) rather than seeking to monetize an illusory mispricing.
+
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+Table-based evidence indicates a transition from \emph{mild backwardation} early in the week (negative Market \(-\) Theoretical) to \emph{mild contango} by Thursday–Friday (positive spreads). Interpreting \(u-l=\tfrac{1}{T}\ln(F/F^{*})\) with ACT/360:
+\begin{itemize}
+  \item \textbf{9/5–9/10:} negative spreads (\(-\$0.02\) to \(-\$0.11\)/oz) imply \(l>r+u\): nearby inventory scarcity and/or elevated lease rates.
+  \item \textbf{9/11–9/12:} positive spreads (\(+\$0.02\) to \(+\$0.09\)/oz) imply \(r+u>l\): easing tightness and/or stronger preference for futures exposure that capitalizes carry.
+\end{itemize}
+The “Risk Premium” \((F/S-1)\) remains small (≈1.06–1.50\%), dipping when spot outperforms and recovering as futures regain a modest premium. Economically, this premium summarizes carry (funding \(+\) storage \(-\) lease) and is best interpreted as a liquidity/carry effect rather than an arbitrage opportunity.
+
+
+The term structure transitions from \emph{mild backwardation} to \emph{mild contango} over the week. Early readings (\(F-F^{*}<0\)) are used to infer \(l>r+u\) for short horizons—consistent with transient tightness or elevated borrow in the physical market—while late-week readings (\(F-F^{*}>0\)) indicate \(r+u>l\) as funding and storage reassert dominance.
+
+\paragraph{Day-by-day interpretation.}
+Using \(u-l=\frac{1}{T}\ln(F/F^{*})\) (ACT/360; \(T\) declines from \(\sim 0.319\) to \(\sim 0.300\)):
+\begin{itemize}
+  \item \textbf{Fri 9/5:} \(F-F^{*}=-\$0.024\) \(\Rightarrow\) mild backwardation; \(u-l\approx-0.18\%\) p.a. It is used to read near-term inventory value as slightly elevated relative to carry.
+  \item \textbf{Mon 9/8:} \(F-F^{*}=-\$0.011\) \(\Rightarrow\) mild backwardation; \(u-l\approx-0.08\%\) p.a. Tightness signal weakens; curve moves toward flat.
+  \item \textbf{Tue 9/9:} \(F-F^{*}=-\$0.111\) \(\Rightarrow\) backwardation; \(u-l\approx-0.87\%\) p.a. A sharper spot-led impulse is used to widen the lease premium.
+  \item \textbf{Wed 9/10:} \(F-F^{*}=-\$0.114\) \(\Rightarrow\) backwardation; \(u-l\approx-0.89\%\) p.a. Persistence of tightness; curve remains inverted at the front.
+  \item \textbf{Thu 9/11:} \(F-F^{*}=+\$0.017\) \(\Rightarrow\) slight contango; \(u-l\approx+0.13\%\) p.a. The balance shifts; funding/storage begin to dominate.
+  \item \textbf{Fri 9/12:} \(F-F^{*}=+\$0.085\) \(\Rightarrow\) contango; \(u-l\approx+0.66\%\) p.a. A normalized carry regime is used to characterize the close of the week.
+\end{itemize}
+
+\paragraph{Mechanistic drivers behind the flip.}
+Three operational channels are typically implicated: (i) \emph{funding}—a rise in Fed-cut odds lowers expected discount rates but can steepen near-term collateral demand, dynamically affecting \(r\) relative to \(l\); (ii) \emph{inventory/warehouse}—refinery and warehouse flows can replenish deliverables, compressing lease premia; (iii) \emph{term demand}—investors may prefer futures exposure to defer physical handling, lifting \(F\) relative to spot once the initial spot-led surge abates. The observed risk premium \((F/S-1\approx 1.06\% \text{ to } 1.50\%)\) remains small; it is used as a summary statistic of carry rather than a tradable edge.
+
+\subsection{Does this benefit Mexico? What should be done?}
+
+\paragraph{Economic incidence for Mexico.}
+As the leading global producer, Mexico is positioned to benefit from elevated spot and orderly term structure. The one-day contango and the week’s re-steepening are used to indicate that (i) near-term shipments monetize high spot realizations, and (ii) forward coverage can be implemented with manageable roll costs. FX pass-through matters: stronger silver improves terms of trade and is often peso-supportive, yet a stronger MXN reduces peso-denominated revenues unless currency risk is hedged.
+
+\paragraph{Implications for investors (policy-neutral).}
+\begin{enumerate}
+  \item \textbf{Separate spot risk from curve risk.} It is used to treat price level (\(S\)) and roll/carry (\(F-S\), shape) as distinct. Long spot exposure benefits from the current level; futures strategies should model carry explicitly.
+  \item \textbf{Hedge design.} For producers and MXN-based portfolios, it is used to pair metal hedges with FX hedges to stabilize peso cash flows. With slight contango, rolling short COMEX futures entails modest carry costs; in backwardation windows, rolls may be revenue-positive.
+  \item \textbf{Tenor selection.} It is used to choose hedge tenors where \(u-l\) is stable and liquidity is deep (e.g., front two contract months), minimizing basis and execution risk.
+  \item \textbf{Basis management.} Location and quality basis between London unallocated and COMEX deliverable bars should be monitored; treasury policy is used to set limits on basis drift and to pre-approve alternative hedging venues if needed.
+\end{enumerate}
+
+\paragraph{Implications for Mexico (policy and operating environment).}
+\begin{enumerate}
+  \item \textbf{Logistics and permitting reliability.} It is used to prioritize predictable permitting timelines and logistics corridors; stable, transparent processes compress location basis and reduce lease-rate spikes tied to bottlenecks.
+  \item \textbf{Energy and power reliability.} Processing and refining require stable power; reliability improvements lower effective storage/operating costs \(u\), improving net margins across the cycle.
+  \item \textbf{Market infrastructure and risk management.} It is used to encourage the adoption of standardized hedge programs (including FX overlays) among medium-size producers to align with best practices and reduce macro-volatility transmission to local cash flows.
+  \item \textbf{Tax and royalty neutrality to hedging.} It is used to ensure that fiscal rules treat realized hedge outcomes neutrally relative to spot sales, avoiding distortions that discourage prudent risk transfer.
+\end{enumerate}
+
+\medskip
+\noindent\emph{Synthesis.} The current configuration—high spot with slight, later-week contango—supports Mexican revenues while keeping roll costs contained. For investors, it is used to favor disciplined hedge-and-carry implementations that respect term-structure signals. For policymakers, reducing operational frictions and basis volatility enhances the capacity to translate favorable global prices into stable domestic income and investment.
+
+
+
+
+
+
 
 
 \section{MXN/USD}
@@ -243,6 +537,34 @@ Since MXN rates are usually higher than USD rates, the MXN/USD forward is normal
 \includegraphics[width=0.7\textwidth]{figures/usdmxn.png}
 \caption{Silver price series. Source: Investing.com.}
 \end{figure}
+
+
+\subsubsection{USD/MXN: recent news and pricing implications}
+
+\paragraph{Spot context.}
+As of mid-September 2025, USD/MXN trades near 18.45, the peso having reached its strongest levels in over a year amid improved global risk sentiment and lower U.S. rate expectations \citep{reuters_usdmxn_quote,reuters_mx_markets_11sep,reuters_mx_markets_12sep}.
+
+\paragraph{Key developments.}
+\begin{enumerate}
+  \item \textbf{Federal Reserve path.} A 25 bp cut at the September meeting is widely expected, with markets pricing additional easing by year end; this lowers U.S. rate differentials against MXN and is typically peso-supportive \citep{reuters_fed_poll_2025,reuters_cenbank_graphic_2025}. 
+  \item \textbf{Banxico stance and calendar.} Banxico reduced the policy rate to 8.0\% on June 26 and has signaled a gradual path thereafter; the next decision falls on a Thursday at 13:00 CST per the published calendar. A slower easing cadence preserves carry in MXN \citep{reuters_banxico_jun26_2025,banxico_calendar_2025}. 
+  \item \textbf{Fiscal guidance.} The draft 2026 budget foresees a narrower deficit (4.1\%/GDP) and includes so-called ``healthy taxes''; improved fiscal optics tend to compress sovereign risk premia and modestly support MXN \citep{reuters_budget_2026_2025}. 
+  \item \textbf{Trade policy.} A plan to impose 50\% tariffs on vehicles from non-FTA countries is being advanced; tighter trade measures can weigh on Mexico’s external sector and raise risk premia, which is MXN-negative \citep{reuters_tariffs_autos_2025}. 
+  \item \textbf{Pemex credit and sovereign linkages.} A government plan to reduce Pemex debt and a rating upgrade to BB reflect stronger support; improved Pemex credit metrics can narrow Mexico’s risk premium and aid MXN, though execution risk remains \citep{reuters_pemex_plan_2025,reuters_fitch_pemex_2025}. 
+\end{enumerate}
+
+\paragraph{Mapping to spot and futures.}
+For spot, U.S. rate cuts and steady domestic carry are associated with USD weakness and MXN strength; adverse trade shocks or Pemex slippage work in the opposite direction. For futures, interest-rate parity is used:
+\[
+F \approx S \, e^{(r_{\mathrm{USD}} - r_{\mathrm{MXN}})T},
+\]
+so a downward shift in the Fed path (\(r_{\mathrm{USD}}\downarrow\)) is used to lower \(F\) relative to \(S\), while a faster Banxico easing (\(r_{\mathrm{MXN}}\downarrow\)) is used to raise \(F\). Fiscal consolidation and Pemex support compress risk premia that are often embedded in longer-dated forwards, while tariff risks and global-growth shocks are used to widen them \citep{cme_mxn_quotes,cme_fx_overview}.
+
+
+\paragraph{Measurement.} A small \textbf{positive basis} is observed: the futures price exceeds the theoretical cost-of-carry value by \textbf{20.64 points} $(F=61{,}840 > F^{\*}=61{,}819.36)$, which corresponds to \textbf{0.07\%} on the index. In equity-index pricing, $F^{\*}=S\,e^{(r-q)T}$ is used; therefore a positive $F-F^{\*}$ indicates that the \textbf{market-implied carry} $\hat{c} = \tfrac{1}{T}\ln(F/S)$ is slightly \textbf{above} the model’s $(r-q)$, equivalently that the \textbf{effective dividend drag} expected to expiry is a bit lower than assumed (or that marginal funding is a bit higher).
+
+\paragraph{Interpretation with the news backdrop.} The recent macro mix—Fed easing expectations, supportive global risk appetite, a relatively firm MXN, and locally gradual Banxico guidance—creates a setting in which index futures demand is used to obtain fast beta exposure and dividend-timing risk is perceived as limited. Under these conditions, a \textbf{modestly richer future} vs.\ fair is consistent with: (i) pro-risk positioning that lifts $F$ marginally, (ii) slightly lower expected dividends before expiry, and (iii) liquidity/carry effects as equities trade near highs. The signal is small and lies within typical no-arbitrage frictions; it is read as a \textbf{mild, pro-risk tilt} rather than a standalone mispricing.
+
 
 
 
@@ -331,11 +653,14 @@ Netting these forces, the near-term base case is a \emph{carry-and-liquidity-sup
 \caption{Silver price series. Source: Investing.com.}
 \end{figure}
 
+\paragraph{Measurement.} A small \textbf{positive basis} is observed: the futures price exceeds the theoretical value by \textbf{20.64 points} $(F=61{,}840 > F^{*}=61{,}819.36)$. In equity-index futures priced via the cost-of-carry relation $F^{*}=S\,e^{(r-q)T}$, a positive $F-F^{*}$ is interpreted as a market-implied carry $\hat{c} = \tfrac{1}{T}\ln(F/S)$ that is \textbf{slightly above} the model’s $(r-q)$. Equivalently, the market is embedding a \textbf{lower effective dividend yield} over the remaining horizon (or marginally higher funding) than the one used in the model. Expressed on the underlying, the premium equals \textbf{$\approx 0.07\%$}, which is economically small and typically falls within no-arbitrage frictions (bid–ask, financing haircuts, dividend-timing uncertainty, and LAST vs SETTLE timing).
+
+\paragraph{Interpretation with the news background.} In a setting where risk appetite is supported by anticipated Fed easing, a firm MXN, and benign local discount-rate dynamics, a \textbf{slightly richer future} is consistent with: (i) \textbf{long-demand in futures} to gain rapid benchmark exposure, (ii) \textbf{temporarily lower dividend-drag} expected between now and expiry, and (iii) \textbf{carry-and-liquidity effects} when equity rallies compress index lending spreads. The signal is therefore read as a \textbf{modest, pro-risk tilt}—not a standalone arbitrage—indicating that the market prices a marginally easier near-term environment for Mexican equities than implied by the model inputs.
 
 
-\section{REFERENCIAS}
 
 
+\section{Bibliography}
 \bibliography{refs}
 
 
