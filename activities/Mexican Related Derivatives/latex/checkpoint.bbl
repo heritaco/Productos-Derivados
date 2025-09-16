@@ -6,6 +6,10 @@
 \newblock Technical report, Banco de M{\'e}xico.
 \newblock Publicado el 14 de marzo de 2024.
 
+\bibitem[{Banco de M\'exico}, 2025]{banxico_calendar_2025}
+{Banco de M\'exico} (2025).
+\newblock Banco de m\'exico: Monetary policy calendar 2025.
+
 \bibitem[{Banco de México}, 2023]{banxico2023}
 {Banco de México} (2023).
 \newblock Transición de las tiie a plazos a la tiie de fondeo.
@@ -48,20 +52,32 @@ Caballero, J. et~al. (2022).
 \newblock Chapter 256: Mexican peso/u.s. dollar (mxn/usd) futures.
 \newblock \url{https://www.cmegroup.com/rulebook/CME/III/250/256/256.pdf}.
 
-\bibitem[{CME Group}, 2025a]{cme_mxn_product}
+\bibitem[{CME Group}, 2025a]{cme_silver_overview}
 {CME Group} (2025a).
+\newblock Comex silver futures overview.
+
+\bibitem[{CME Group}, 2025b]{cme_fx_overview}
+{CME Group} (2025b).
+\newblock Fx futures and options overview.
+
+\bibitem[{CME Group}, 2025c]{cme_mxn_product}
+{CME Group} (2025c).
 \newblock Mexican peso (mxn/usd) futures.
 \newblock
   \url{https://www.cmegroup.com/markets/fx/emerging-market/mexican-peso.html}.
 
-\bibitem[{CME Group}, 2025b]{cme2025a}
-{CME Group} (2025b).
+\bibitem[{CME Group}, 2025d]{cme_mxn_quotes}
+{CME Group} (2025d).
+\newblock Mexican peso mxn/usd quotes.
+
+\bibitem[{CME Group}, 2025e]{cme2025a}
+{CME Group} (2025e).
 \newblock A new era for mexican rates: Inside three-month f-tiie contracts.
 \newblock
   \url{https://www.cmegroup.com/articles/2025/new-quarterly-contracts-for-mexican-funding-tiie-futures.html}.
 
-\bibitem[{CME Group}, 2025c]{cme2025b}
-{CME Group} (2025c).
+\bibitem[{CME Group}, 2025f]{cme2025b}
+{CME Group} (2025f).
 \newblock Three-month f-tiie overview.
 \newblock
   \url{https://www.cmegroup.com/markets/interest-rates/stirs/three-month-f-tiie.html}.
@@ -144,6 +160,14 @@ Lautier, P. (2008).
 \newblock \url{https://www.pims.math.ca/files/Convenienceyield_Lautier.pdf}.
 \newblock Lecture notes summarizing classic storage theory.
 
+\bibitem[{LBMA}, 2025a]{lbma_prices}
+{LBMA} (2025a).
+\newblock Lbma precious metal prices.
+
+\bibitem[{LBMA}, 2025b]{lbma_q2_2025}
+{LBMA} (2025b).
+\newblock Lbma precious metals market report: Q2 2025.
+
 \bibitem[McFadden et~al., 2023]{ers_precision_2023}
 McFadden, J.~L. et~al. (2023).
 \newblock Precision agriculture in the digital era: Recent adoption on u.s.
@@ -193,6 +217,63 @@ News, B. (2025).
 \newblock United states prevails in usmca dispute on biotech corn.
 \newblock
   \url{https://ustr.gov/about-us/policy-offices/press-office/press-releases/2024/december/united-states-prevails-usmca-dispute-biotech-corn}.
+
+\bibitem[{Reuters}, a]{reuters_anz_raises_silver}
+{Reuters}.
+\newblock Anz hikes gold price forecast; lifts silver view as well.
+
+\bibitem[{Reuters}, b]{reuters_banxico_jun26_2025}
+{Reuters}.
+\newblock Bank of mexico cuts key interest rate to near three-year low.
+
+\bibitem[{Reuters}, c]{reuters_fitch_pemex_2025}
+{Reuters}.
+\newblock Fitch upgrades pemex's credit rating to `bb', citing stronger
+  government support.
+
+\bibitem[{Reuters}, d]{reuters_tradingday_sep11}
+{Reuters}.
+\newblock Global markets: Trading day.
+
+\bibitem[{Reuters}, e]{reuters_silver_14y_sep1}
+{Reuters}.
+\newblock Gold trades near record highs on us rate cut bets; silver at 14-year
+  high.
+
+\bibitem[{Reuters}, f]{reuters_mx_top_silver}
+{Reuters}.
+\newblock Mexico remains the world’s top silver producer; industry overview.
+
+\bibitem[{Reuters}, g]{reuters_budget_2026_2025}
+{Reuters}.
+\newblock Mexico sees budget deficit lower in 2026 as growth ticks up.
+
+\bibitem[{Reuters}, h]{reuters_tariffs_autos_2025}
+{Reuters}.
+\newblock Mexico to raise tariffs on cars from china to 50\% in major overhaul.
+
+\bibitem[{Reuters}, i]{reuters_paasmag}
+{Reuters}.
+\newblock Pan american silver to acquire mag silver; consolidates stake in
+  mexico’s juanicipio.
+
+\bibitem[{Reuters}, j]{reuters_mx_markets_11sep}
+{Reuters}.
+\newblock Peso mexicano y bolsa ganan impulso tras datos eeuu.
+
+\bibitem[{Reuters}, k]{reuters_mx_markets_12sep}
+{Reuters}.
+\newblock Peso mexicano y bolsa perfilan semana de ganancias por expectativas
+  recorte de tasas fed.
+
+\bibitem[{Reuters}, l]{reuters_fed_poll_2025}
+{Reuters}.
+\newblock September fed rate cut a done deal, at least one more to follow by
+  year-end.
+
+\bibitem[{Reuters}, m]{reuters_cenbank_graphic_2025}
+{Reuters}.
+\newblock Us fed looks set to resume rate cuts just as its peers are diverging.
 
 \bibitem[Reuters, 2008]{reuters_oil_peak_2008}
 Reuters (2008).

@@ -1,5 +1,95 @@
 \begin{thebibliography}{}
 
+\bibitem[cme, a]{cme_tiie_monthly_method}
+Final settlement calculation of cme funding-tiie futures (monthly contracts).
+\newblock
+  \url{https://www.cmegroup.com/trading/interest-rates/files/mexican-f-tiie-settlement-methdology.pdf}.
+\newblock PDF; Accessed Sep 15, 2025.
+
+\bibitem[cme, b]{cme_tiie_monthly_specs}
+Mexican funding tiie (monthly contracts) contract specs.
+\newblock
+  \url{https://www.cmegroup.com/markets/interest-rates/stirs/mexican-monthly-f-tiie.contractSpecs.html}.
+\newblock Min tick 0.5 bp = MXN 100; Accessed Sep 15, 2025.
+
+\bibitem[cme, c]{cme_tiie_monthly_quotes}
+Mexican funding tiie (monthly contracts) futures quotes.
+\newblock
+  \url{https://www.cmegroup.com/markets/interest-rates/stirs/mexican-monthly-f-tiie.quotes.html}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[cme, d]{cme_tiie_monthly_overview}
+Mexican funding tiie (monthly contracts) overview.
+\newblock
+  \url{https://www.cmegroup.com/markets/interest-rates/stirs/mexican-monthly-f-tiie.html}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[ban, a]{banxico_mps_aug7_2025}
+Monetary policy decision press release, aug 7, 2025.
+\newblock
+  \url{https://www.banxico.org.mx/publications-and-press/announcements-of-monetary-policy-decisions/\%7B6DD1297B-DDAB-EB9D-16B7-274E45A4547A\%7D.pdf}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[ban, b]{banxico_indices_page}
+Overnight funding tiie index and compounded rates.
+\newblock
+  \url{https://www.banxico.org.mx/apps/dao-web/4/57/overnight-funding-tiie-inde.html}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[ban, c]{banxico_on_method_en}
+Overnight funding tiie index: Technical note.
+\newblock
+  \url{https://www.banxico.org.mx/apps/dao-web/4/57/notaTecnicaIndiceTiieFondeoyFondeoCompuestoAdelantadoIngles.pdf}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[ban, d]{banxico_f_tiie_method}
+Overnight tiie funding rate methodology.
+\newblock
+  \url{https://www.banxico.org.mx/markets/d/\%7B1FDD2772-9F1C-FDA3-FBBC-AC641FE94CD2\%7D.pdf}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[fre, ]{fred_sofr}
+Sofr, federal reserve bank of st. louis (fred).
+\newblock \url{https://fred.stlouisfed.org/series/SOFR}.
+\newblock Observation 2025-09-12; Accessed Sep 15, 2025.
+
+\bibitem[frb, ]{frbny_sofr_page}
+Sofr reference rates.
+\newblock \url{https://www.newyorkfed.org/markets/reference-rates/sofr}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[cme, e]{cme_tiie_quarterly_overview}
+Three-month f-tiie overview.
+\newblock
+  \url{https://www.cmegroup.com/markets/interest-rates/stirs/three-month-f-tiie.html}.
+\newblock Accessed Sep 15, 2025.
+
+\bibitem[reu, 2025a]{reuters_banxico_cut_aug25}
+ (2025a).
+\newblock Bank of mexico slows pace of cuts, brings key rate to 7.75\%.
+\newblock {\em Reuters}.
+
+\bibitem[reu, 2025b]{reuters_global_cuts_sep11b}
+ (2025b).
+\newblock Global markets: Labor softness boosts fed cut bets.
+\newblock {\em Reuters}.
+
+\bibitem[reu, 2025c]{reuters_mxn_sept15}
+ (2025c).
+\newblock Peso advances for seventh session; bmv above 62,000 as markets eye
+  fed.
+\newblock {\em Reuters}.
+
+\bibitem[reu, 2025d]{reuters_global_cuts_sep11a}
+ (2025d).
+\newblock Stocks rise, dollar falls as soft u.s. jobs data fuels rate cut bets.
+\newblock {\em Reuters}.
+
+\bibitem[cme, 2025]{cme_ftiie_article}
+ (2025).
+\newblock Using f-tiie futures to trade banco de méxico policy decisions.
+\newblock {\em CME Group}.
+
 \bibitem[{Banco de M{\'e}xico}, 2024]{banxico_regional_2024}
 {Banco de M{\'e}xico} (2024).
 \newblock Reporte sobre las econom{\'\i}as regionales: Octubre--diciembre 2023.
