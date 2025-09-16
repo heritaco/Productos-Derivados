@@ -1,148 +1,148 @@
 \documentclass[10pt,a4paper]{article} % Compila con lualatex o xelatex
 
-% --- Layout & links ---
-\usepackage[english]{babel}
-\usepackage[margin=1.5in]{geometry}
+  % --- Layout & links ---
+  \usepackage[english]{babel}
+  \usepackage[margin=1.5in]{geometry}
 
-\PassOptionsToPackage{hyphens}{url} % permite cortar en guiones
-\usepackage[hidelinks]{hyperref}
-\usepackage{xurl}                   % permite corte “en cualquier punto”
-\usepackage{microtype}
-\hypersetup{breaklinks=true}
-\emergencystretch=3em               % evita overfull boxes
+  \PassOptionsToPackage{hyphens}{url} % permite cortar en guiones
+  \usepackage[hidelinks]{hyperref}
+  \usepackage{xurl}                   % permite corte “en cualquier punto”
+  \usepackage{microtype}
+  \hypersetup{breaklinks=true}
+  \emergencystretch=3em               % evita overfull boxes
 
-\usepackage[hidelinks]{hyperref}
+  \usepackage[hidelinks]{hyperref}
 
-% --- Fuentes (texto y matemáticas) ---
-\usepackage{amsmath}  % Para escribir fórmulas matemáticas
-\usepackage{amssymb}  % Símbolos adicionales
-\usepackage{fontspec}  % Para usar fuentes del sistema
-\usepackage{newtxmath}  % Libertinus Math para fórmulas
-\setmainfont{EB Garamond}[
-  UprightFont = * Medium,
-  ItalicFont = * Medium Italic,
-  BoldFont = * SemiBold,
-  BoldItalicFont = * SemiBold Italic
-]
+  % --- Fuentes (texto y matemáticas) ---
+  \usepackage{amsmath}  % Para escribir fórmulas matemáticas
+  \usepackage{amssymb}  % Símbolos adicionales
+  \usepackage{fontspec}  % Para usar fuentes del sistema
+  \usepackage{newtxmath}  % Libertinus Math para fórmulas
+  \setmainfont{EB Garamond}[
+    UprightFont = * Medium,
+    ItalicFont = * Medium Italic,
+    BoldFont = * SemiBold,
+    BoldItalicFont = * SemiBold Italic
+  ]
 
-    % --- Secciones y subsecciones ---
-    \usepackage{titlesec}
-    \newfontface\boldd{EB Garamond Bold}
-    \newfontface\bolditalic{EB Garamond  Bold Italic}
-    \newfontface\extrabold{EB Garamond ExtraBold}
-    \newfontface\medium{EB Garamond Medium}
+  % --- Secciones y subsecciones ---
+  \usepackage{titlesec}
+  \newfontface\boldd{EB Garamond Bold}
+  \newfontface\bolditalic{EB Garamond  Bold Italic}
+  \newfontface\extrabold{EB Garamond ExtraBold}
+  \newfontface\medium{EB Garamond Medium}
 
 
 
-    \usepackage{bookmark}              % mejora anchors
-    \hypersetup{hypertexnames=false}   % evita destinos idénticos
+  \usepackage{bookmark}              % mejora anchors
+  \hypersetup{hypertexnames=false}   % evita destinos idénticos
 
-    \usepackage{etoolbox,needspace}
+  \usepackage{etoolbox,needspace}
 
-    % Rompe página solo en \section y crea ancla propia
-    \pretocmd{\section}{\clearpage\phantomsection\needspace{6\baselineskip}}{}{}
+  % Rompe página solo en \section y crea ancla propia
+  \pretocmd{\section}{\clearpage\phantomsection\needspace{6\baselineskip}}{}{}
 
-    % No rompas página en \subsection; solo asegura espacio
-    \pretocmd{\subsection}{\phantomsection\needspace{4\baselineskip}}{}{}
+  % No rompas página en \subsection; solo asegura espacio
+  \pretocmd{\subsection}{\phantomsection\needspace{4\baselineskip}}{}{}
 
-    \setcounter{secnumdepth}{0}
+  \setcounter{secnumdepth}{0}
 
-    % --- Hacer los títulos de sección y subsección más grandes ---
-    \titleformat{\section}
-      {\boldd\fontsize{34pt}{128pt}\selectfont} % el primer {} es el formato, el segundo {} es el tamaño de línea
-      {\thesection}{18em}{} % el primer {} es el formato, el segundo {} es la separación entre número y título
-      \titleformat{\subsection}
-        {\boldd\fontsize{18pt}{18pt}\selectfont}
-        {\thesubsection}{10em}{}
-    \titlespacing*{\section}{0pt}{0pt}{24pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
-    \titlespacing*{\subsection}{0pt}{18pt}{18pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+  % --- Hacer los títulos de sección y subsección más grandes ---
+  \titleformat{\section}
+    {\boldd\fontsize{34pt}{128pt}\selectfont} % el primer {} es el formato, el segundo {} es el tamaño de línea
+    {\thesection}{18em}{} % el primer {} es el formato, el segundo {} es la separación entre número y título
+    \titleformat{\subsection}
+      {\boldd\fontsize{18pt}{18pt}\selectfont}
+      {\thesubsection}{10em}{}
+  \titlespacing*{\section}{0pt}{0pt}{24pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+  \titlespacing*{\subsection}{0pt}{18pt}{18pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
 
-    % --- Encabezado con nombre de la sección ---
-    \usepackage{fancyhdr}
-    \pagestyle{fancy}
+  % --- Encabezado con nombre de la sección ---
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[L]{\small\leftmark}
+  \fancyhead[R]{\small\thepage}
+  \fancyhead[C]{\small\textit{\rightmark}}
+  \renewcommand{\headrulewidth}{0.1pt}
+
+  %\textsc{} para versalitas
+
+  % --- Crear un nuevo estilo de pagina con el numero arriba a la derecha ---
+  \fancypagestyle{myfancy}{
     \fancyhf{}
-    \fancyhead[L]{\small\leftmark}
     \fancyhead[R]{\small\thepage}
-    \fancyhead[C]{\small\textit{\rightmark}}
-    \renewcommand{\headrulewidth}{0.1pt}
+    \renewcommand{\headrulewidth}{0pt}
+  }
 
-    %\textsc{} para versalitas
+      % --- Cambia el pagestyle a 'plain' en cada \section ---
+  \let\oldsection\section
+  \renewcommand{\section}{%
+    \clearpage
+    \thispagestyle{myfancy}%
+    \oldsection
+  }
 
-    % --- Crear un nuevo estilo de pagina con el numero arriba a la derecha ---
-    \fancypagestyle{myfancy}{
-      \fancyhf{}
-      \fancyhead[R]{\small\thepage}
-      \renewcommand{\headrulewidth}{0pt}
-    }
+  % --- Espaciado ---
+  \usepackage{setspace}
 
-        % --- Cambia el pagestyle a 'plain' en cada \section ---
-    \let\oldsection\section
-    \renewcommand{\section}{%
-      \clearpage
-      \thispagestyle{myfancy}%
-      \oldsection
-    }
+  % --- Otros paquetes útiles ---
+  \usepackage{tocloft}  % Para personalizar la tabla de contenidos
+  \usepackage{xcolor}   % Para colores en el código
+  \usepackage{booktabs} % Para tablas bonitas
 
-% --- Espaciado ---
-\usepackage{setspace}
+  % \usepackage{amsmath}
+  % \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-% --- Otros paquetes útiles ---
-\usepackage{tocloft}  % Para personalizar la tabla de contenidos
-\usepackage{xcolor}   % Para colores en el código
-\usepackage{booktabs} % Para tablas bonitas
-
-% \usepackage{amsmath}
-% \usepackage[colorlinks=true, allcolors=blue]{hyperref}
-
-\usepackage{graphicx}
+  \usepackage{graphicx}
 
 
-% --- Bibliografía ---
-\usepackage{natbib}
-\makeatletter
-\renewcommand{\bibsection}{\relax} % suprime el título que inserta natbib
-\makeatother
+  % --- Bibliografía ---
+  \usepackage{natbib}
+  \makeatletter
+  \renewcommand{\bibsection}{\relax} % suprime el título que inserta natbib
+  \makeatother
 
-% --- Para incluir PDFs ---
-\usepackage{pdfpages}
+  % --- Para incluir PDFs ---
+  \usepackage{pdfpages}
 
-\bibliographystyle{apalike}   % u otro: plainnat, abbrvnat, unsrtnat
+  \bibliographystyle{apalike}   % u otro: plainnat, abbrvnat, unsrtnat
 
 
-% --- Código fuente ---
-\usepackage{listings}
-\lstset{
-  basicstyle=\ttfamily\small,
-  backgroundcolor=\color{gray!10},
-  frame=single,
-  breaklines=true
-}
+  % --- Código fuente ---
+  \usepackage{listings}
+  \lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true
+  }
 
-% interlineado de 1.2
-\usepackage{setspace}
-\setstretch{1.2}
-\setlength{\parskip}{0.2em} % espacio entre párrafos
+  % interlineado de 1.2
+  \usepackage{setspace}
+  \setstretch{1.2}
+  \setlength{\parskip}{0.2em} % espacio entre párrafos
 
-\begin{document}
+  \begin{document}
 
-% --- Portada ---
-\begin{titlepage}
-\centering
-\vspace*{4cm}
-{\extrabold\fontsize{28pt}{28pt}\selectfont Método de Aceptación y Rechazo\par}
-\vspace{1cm}
-
-{\medium\fontsize{12pt}{12pt}\selectfont
-{\large Curso:  Temas Selectos I: O25 LAT4032 1\par}
-\vspace{.5em}
-{\large Profesor:  Rubén Blancas Rivera\par}
-\vspace{.5em}
-{\large Heriberto Espino Montelongo, ID: 175199\par}
-\vspace{.5em}
-{\large Universidad de las Américas Puebla\par}
-\vfill
-{\large \today \par}}
-\end{titlepage}
+  % --- Portada ---
+  \begin{titlepage}
+  \centering
+  \vspace*{4cm}
+  {\extrabold\fontsize{28pt}{28pt}\selectfont Mexican Related Derivatives\par}
+  \vspace{1cm}
+  
+  {\medium\fontsize{12pt}{12pt}\selectfont
+  {\large Course:  Productos Derivados: O25 LAT4012 2\par}
+  \vspace{.5em}
+  {\large Professor:  Enríque Covarrubias Jaramillo\par}
+  \vspace{.5em}
+  {\large Heriberto Espino Montelongo, ID: 175199\par}
+  \vspace{.5em}
+  {\large Universidad de las Américas Puebla\par}
+  \vfill
+  {\large September 17, 2025 \par}}
+  \end{titlepage}
 
 
 
@@ -1207,7 +1207,7 @@ Compare $q_{\text{impl}}$ to realized IPC dividends to test if the slope is rich
 \bibliography{refs}
 
 
-\section{Appendix: Key references and data sources}
+\section{Appendix A: Price Settlements (Sep 12, 2025)}
 \newpage
 
 %% add another pdf
@@ -1253,5 +1253,9 @@ Compare $q_{\text{impl}}$ to realized IPC dividends to test if the slope is rich
   \includegraphics[width=0.99\textwidth]{appendix/IPC12SEP.pdf}
   \label{fig:ipc_settlements}
 \end{figure}
+
+\section{Appendix B: Price Settlements (Sep 8, 2025)}
+\newpage
+\includepdf[pages=-]{appendix/appendixB.pdf}
 
 \end{document}
