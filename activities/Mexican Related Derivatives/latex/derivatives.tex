@@ -103,6 +103,9 @@
 \renewcommand{\bibsection}{\relax} % suprime el título que inserta natbib
 \makeatother
 
+% --- Para incluir PDFs ---
+\usepackage{pdfpages}
+
 \bibliographystyle{apalike}   % u otro: plainnat, abbrvnat, unsrtnat
 
 
@@ -158,6 +161,120 @@ This document provides a template for reports in the "AI in Financial Services" 
 
 \section{Corn}
 
+\subsection{Recent developments}
+Corn pricing remains anchored in weather-driven yield risk, biofuel policy, logistics, and the USDA balance sheet. ENSO dynamics and late-season precipitation are used to condition yield and quality dispersion \citep{noaa_enso_discussion}. The USDA WASDE cycle is used to reset supply–demand baselines and ending-stocks paths that reprice the curve \citep{usda_wasde,usda_understanding_wasde}. The ethanol channel remains material, with roughly 40\% of U.S. corn used for biofuels, so renewable-fuel demand and crush margins are used to tilt the outlook \citep{ers_ethanol_40,ers_ethanol_2030}. Recent commentary has emphasized a very large 2025 U.S. harvest, which is used to weigh on deferred contracts such as December 2025 (ZCZ5), all else equal \citep{reuters_record_crop_2025,ers_feedgrains_outlook}. Transport conditions and barge drafts at the Mississippi system are used to propagate regional basis and export pace \citep{ams_gtr_2023}. Storage capacity and carry incentives are used to determine the magnitude of post-harvest carries and seasonal inversions \citep{ncga_storage_2025}.
+
+\subsection{Spot \& futures}
+Cash corn is quoted in \emph{cents per bushel} at specific locations and grades; it is used to value immediate physical transactions and inventories. CBOT corn futures standardize risk transfer over horizon \(T\) with contract size \(5{,}000\) bu, tick \(1/4\) cent (\$12.50/contract), and delivery rules \citep{barchart_zc_specs}. The cost-of-carry relation is used:
+\[
+F=S\,e^{(r+u-y)T},
+\]
+where \(r\) denotes USD funding, \(u\) storage/insurance and handling, and \(y\) the convenience (inventory) yield. In storable ags, seasonal \(y\) peaks around planting/harvest uncertainty and at logistics bottlenecks; abundant storage and financing are used to steepen carries pre- and post-harvest. Location and quality basis between Illinois cash, barge/Gulf, and CBOT deliverables is used to explain deviations between spot realizations and futures marks \citep{ams_gtr_2023}.
+
+\subsection{Mexico-linked implications}
+Mexico is structurally short yellow corn and imports predominantly from the U.S.; white corn is central for tortillas. Policy has been in flux: the 2023 decree on biotech corn and the subsequent USMCA dispute, followed by the 2024 panel outcome, are used to shape import protocols and basis \citep{fas_mexico_decree_2023,ustr_usmca_biotech_2023,ustr_usmca_biotech_win_2024,reuters_mexico_gm_ban_2025,fas_mexico_grain_annual_2025}. For Mexico’s food-security and inflation dynamics, high spot with large post-harvest carries is used to manage procurement via staggered hedging; harvest-time inversions are used to seek tactical buying opportunities if logistics permit. FX pass-through (USD/MXN) is used to amplify or cushion domestic price effects; combined corn+FX hedges are used to stabilize MXN-denominated costs.
+
+\paragraph{Structural context and policy regime.}
+Mexico is structurally short yellow corn and relies on U.S. supply, while white corn underpins tortilla consumption. Import protocols have been shaped by the 2023 biotech decree and the ensuing USMCA dispute; the 2024 panel outcome and subsequent adjustments continue to govern allowable uses and testing regimes \citep{fas_mexico_decree_2023,ustr_usmca_biotech_2023,ustr_usmca_biotech_win_2024,reuters_mexico_gm_ban_2025,fas_mexico_grain_annual_2025}. This policy layer adds non-price variance to procurement and basis, especially near contract roll and harvest windows.
+
+\paragraph{Transmission channels into domestic costs.}
+Three levers dominate the pass-through from CBOT to Mexican delivered prices:
+(i) the global level set by USDA balances and WASDE revisions \citep{usda_wasde,ers_feedgrains_outlook};
+(ii) the \emph{location basis} driven by U.S. interior-to-Gulf logistics, barge drafts, and export pace \citep{ams_gtr_2023};
+(iii) the USD/MXN exchange rate. Seasonal logistics constraints and barge costs widen basis precisely when Mexican buyers are most active, while FX swings amplify or cushion the result. Ethanol demand adds an endogenous pull on U.S. usage; stronger crush margins tighten balances and lift deferreds \citep{ers_ethanol_40}.
+
+\paragraph{Operational playbook for importers and food/feed users.}
+\begin{enumerate}
+  \item \textbf{Separate level risk from curve risk.} Price level (\(S\)) and term structure (carries, inversions) are distinct. Coverage ratios should be tied to WASDE event risk and ENSO/weather windows \citep{noaa_enso_discussion,usda_wasde}.
+  \item \textbf{Exploit seasonality in the curve.} Pre-/post-harvest \emph{contango} (\(r+u>y\)) is used to ladder deferred purchases; harvest \emph{inversions} are used to time physical lifts when logistics permit. Calendar spreads (e.g., Z/H, H/K) translate a view on stocks and barge capacity into hedge P\&L.
+  \item \textbf{Manage basis explicitly.} Define and monitor a \emph{CBOT-to-delivered Mexico} basis (Illinois/Gulf/rail) and set variance limits. Use OTC basis swaps or physical forward differentials where available to reduce residual basis risk \citep{ams_gtr_2023}.
+  \item \textbf{Pair with FX overlays.} Combine ZC futures (or swaps) with USD/MXN forwards/options to stabilize MXN-denominated unit costs; treat FX and corn greeks jointly in risk limits.
+  \item \textbf{Use options around event risk.} Ahead of WASDE or weather inflections, collars or call spreads limit upside exposure without overcommitting to volume. Position size is benchmarked to historical move distributions from \citep{usda_wasde}.
+\end{enumerate}
+
+\paragraph{Scenario guidance (news-aware).}
+\begin{itemize}
+  \item \textbf{Large U.S. crop, robust logistics.} Deferred contango widens; Mexico layers coverage out the curve and budgets carry as a known cost \citep{ers_feedgrains_outlook,reuters_record_crop_2025}.
+  \item \textbf{Harvest bottlenecks or low river stages.} Nearby inversions emerge; basis to Gulf widens. Mexico prioritizes near-coverage and barge/rail optionality; basis hedges are activated \citep{ams_gtr_2023}.
+  \item \textbf{Biotech-policy friction.} Testing/permit delays raise non-price costs and timing risk. Procurement staggers imports across origins/uses consistent with the decree and USMCA guidance \citep{fas_mexico_decree_2023,ustr_usmca_biotech_win_2024,fas_mexico_grain_annual_2025}.
+  \item \textbf{Ethanol-led pull.} Strong ethanol margins lift domestic U.S. usage; Mexico advances coverage in the front and reduces reliance on the back of the curve \citep{ers_ethanol_40}.
+\end{itemize}
+
+\paragraph{Policy and infrastructure implications.}
+Stable, transparent import protocols reduce policy-induced basis variance; logistics investments that lower \(u\) (handling/storage) and improve corridor reliability compress delivered volatility. Public guidance that reports procurement coverage, basis benchmarks, and hedge governance improves price discovery and reduces funding costs across the chain.
+
+
+\subsection{Futures term structure (12 Sep 2025)}
+\paragraph{Quoting rule.} Corn quotes are in \textbf{¢/bu}. Format \texttt{430'0} \(=\) \textbf{430.00 ¢/bu}. Tick \texttt{'2} \(=\) \textbf{0.25 ¢} \(=\) \textbf{\$12.50} per 5,000 bu. Thus, \textbf{1 ¢ = \$50} per contract \citep{barchart_zc_specs}.
+
+\paragraph{Curve and carries (illustrative strip).}
+Up to mid-2026, settles are used to rise with maturity (\emph{contango}); around harvest months, a \emph{kink} is observed:
+\begin{itemize}
+  \item \textbf{Pre-harvest carries:} Z25 \(\to\) H26 \(+\)17'2 \(=\) 17.25 ¢ (\(\approx\$862.50\) per contract) over \(\sim\)3 months \(\Rightarrow\) carry \(\approx 17.25/430\approx 4.0\%\) for the period (\(\sim\)16\% p.a.).
+  \item \textbf{Harvest kink:} N26 \(\to\) U26 \(-\)3'6 \(=\) \(-\)3.75 ¢. New-crop supply and logistics are used to compress carries or invert the nearby spread.
+  \item \textbf{Re-emergent carry:} U26 \(\to\) Z26 \(+\)9'4 \(=\) 9.50 ¢ as grain moves into storage and financing dominates.
+\end{itemize}
+\textbf{Interpretation.} Pre- and post-harvest contango indicates \(r+u>y\). Local inversions around harvest are used to signal elevated \(y\) due to supply timing, drying/quality risk, and barge or rail constraints \citep{ams_gtr_2023,ncga_storage_2025}.
+
+\subsection{Interpretation of \texorpdfstring{ZCZ5}{ZCZ5} (one-day read)}
+A 91-day horizon (ACT/360) is used with \(S=\) \textbf{430.00 ¢/bu} (Illinois cash), \(F=\) \textbf{428.00 ¢/bu} (ZCZ5), and \(r=\) \textbf{4.41\%}. The no-carry fair is obtained as
+\[
+T=\tfrac{91}{360},\quad F^{*}=S\,e^{rT}=430\,e^{0.0441T}\approx \mathbf{434.72}\ \text{¢/bu}.
+\]
+A difference of \(\mathbf{-6.72}\) ¢/bu is observed \((F-F^{*})\) \(=\) \textbf{26.9 ticks} \(=\) \textbf{\$336} per contract. The spot–futures return is \(F/S-1=\mathbf{-0.47\%}\).
+
+For interpretation, the carry relation \(F=S\,e^{(r+u-y)T}\) is used. The market carry is
+\[
+c_{\text{mkt}}=\frac{1}{T}\ln\!\frac{F}{S}
+=\frac{1}{91/360}\ln\!\frac{428}{430}\approx \mathbf{-1.84\%}\ \text{p.a.},
+\]
+so the net convenience yield is
+\[
+y-u \approx r-c_{\text{mkt}}\approx 4.41\%-(-1.84\%)=\mathbf{6.25\%}\ \text{p.a.}
+\]
+This \emph{negative basis} and \(F<S e^{rT}\) are consistent with \textbf{backwardation}: near-dated corn is priced below pure financing carry. Operationally, inventory optionality, transport frictions, and location premia are used to raise \(y\) relative to \(r+u\). The deviation is interpreted as an inventory/logistics signal—\emph{not} an arbitrage—given storage, barge capacity, and delivery-grade constraints \citep{ams_gtr_2023,ncga_storage_2025}.
+
+\paragraph{Link to the news.}
+Large-crop expectations weigh on deferreds \citep{reuters_record_crop_2025}, but pre-harvest and harvest-adjacent tightness can keep nearby \(y\) elevated. WASDE revisions are used to shift the curve level; barge costs and export pace are used to move location basis; and ethanol margins are used to condition domestic offtake \citep{usda_wasde,ams_gtr_2023,ers_ethanol_40}.
+
+\medskip
+\noindent\emph{Tactics.} Directional bulls are typically routed to near months for higher spot beta, with curve views expressed via flatteners if stocks are expected to tighten. Producers are used to forward-sell deferred maturities when carries are rich; users are used to layer coverage into harvest dips. Procurement desks are used to pair corn hedges with USD/MXN overlays to stabilize local-currency costs, given Mexico’s structural short and policy-sensitive import channel \citep{fas_mexico_grain_annual_2025}.
+
+
+\subsection{Does this benefit Mexico? What should be done}
+
+\paragraph{Assessment.}
+Given Mexico’s structural short in yellow corn, the observed configuration—\emph{cash Illinois} at 430.00 ¢/bu, \emph{ZCZ5} at 428.00 ¢/bu, and a \emph{negative} \((F-F^{*})=-6.72\) ¢/bu—reduces \emph{hedgeable} procurement costs at the margin. One-day backwardation (\(F<S e^{rT}\)) implies a positive roll yield for long futures into expiry, while the term structure on 12 Sep 2025 displays pre-/post-harvest \emph{contango} with a \emph{harvest kink}. Net effect: near-term cover benefits from backwardation, but deferred cover faces carry (contango) that must be budgeted. The benefit materializes only if \emph{basis} (CBOT-to-delivered Mexico) and \emph{FX} (USD/MXN) risks are actively controlled.
+
+\paragraph{Operational guidance for Mexican buyers (feed, food, processors).}
+\begin{enumerate}
+  \item \textbf{Layered coverage with curve discipline.} Use a front-weighted hedge ladder in Z/H/K, increasing coverage into backwardation windows; reduce pace when carries widen. Tie hedge adds to WASDE and logistics checkpoints.
+  \item \textbf{Exploit roll when favorable.} In backwardation, long ZC futures earn positive roll yield as contracts converge; keep tenors short and roll frequently. In contango, lengthen physical tenor and hedge less of the far strip to avoid paying excessive carry.
+  \item \textbf{Manage basis explicitly.} Track Illinois/Gulf/rail-to-Mexico basis and set variance limits. Where available, use basis swaps or physical differentials to fix location risk before fixing futures size.
+  \item \textbf{Pair with FX overlays.} Hedge USD/MXN for the same notional and tenor as corn exposure; treat corn and FX jointly in VaR and budget. Use forwards for base cover and options for event tails.
+  \item \textbf{Use options around event risk.} Ahead of WASDE or weather inflections, deploy collars or call spreads sized to historical move distributions; avoid over-hedging volume before logistics windows are secured.
+\end{enumerate}
+
+\paragraph{Investor playbook (policy–neutral).}
+\begin{itemize}
+  \item \textbf{Directional view:} Express with near contracts for higher spot beta; calibrate size to weekly vol and WASDE dates.
+  \item \textbf{Curve view:} If you expect stocks to tighten or funding to ease, run \emph{flatteners} (long near/short far); if ample stocks/logistics, \emph{steepeners}.
+  \item \textbf{Carry harvesting:} Systematic long–only carry works in backwardation; in contango, restrict tenors, or finance long futures against short calendar spreads.
+\end{itemize}
+
+\paragraph{Policy and infrastructure priorities for Mexico.}
+\begin{enumerate}
+  \item \textbf{Reduce logistics/storage frictions (\(u\)).} Improve port, rail, and storage capacity to compress delivered basis and lower carry; prioritize harvest–import corridors.
+  \item \textbf{Regulatory clarity.} Maintain transparent, predictable biotech/testing protocols to cut non-price variance at customs and reduce timing premia.
+  \item \textbf{Hedging governance.} Promote standardized hedge frameworks (corn + FX) for public entities and SMEs; ensure tax/royalty neutrality between spot and hedged outcomes.
+  \item \textbf{Market transparency.} Publish procurement coverage, basis benchmarks, and hedge cadence to lower financing spreads and anchor expectations along the supply chain.
+\end{enumerate}
+
+\noindent\emph{Bottom line.} The present mix—spot strength with localized backwardation at the front and carries farther out—can \emph{benefit} Mexico’s import bill if basis and FX are actively hedged and logistics are reliable. Tactical gains come from timing cover into backwardation and limiting exposure to expensive carries; structural gains come from policies that compress \(u\) and stabilize the import regime.
+
+
+\section{Corn}
+
 
 ZCZ5 Corn futures are vital to the agricultural commodities market, offering farmers, traders, and investors opportunities to hedge risks and speculate on price movements \citep{cme_corn_overview}. There are 13 elements that drive corn futures prices. Weather, supply and demand, ethanol production, government policies, global economic conditions, competing crops, transportation costs, storage costs and capacity, technological advancements, speculative trading, global events, and USDA reports and market information \citep{noaa_enso_discussion,ers_ethanol_40,ers_feedgrains_outlook,ams_gtr_2023,ncga_storage_2025,ers_precision_2023,cftc_cot_about,usda_wasde}. A brief overview of each one is that weather affects corn production, depending on the weather it can lead to supply shortages and price spikes \citep{noaa_enso_discussion}. Supply and demand refer to the basic economic principles. About 40\% of U.S. corn goes into ethanol production, therefore the renewable fuel industry influences corn prices \citep{ers_ethanol_40,ers_ethanol_2030}. Economic growth or recession impacts the demand and prices of corn \citep{ers_feedgrains_topic}. Competing crops refers to other crops like soybeans and their relative returns that may shift acreage away from corn \citep{ers_feedgrains_outlook}. Higher fuel prices can increase transport costs and corn prices \citep{ams_gtr_2023}. Limited storage capacity during harvests can pressure prices \citep{ncga_storage_2025}. Improvements in harvesting and precision-ag equipment may influence yields and cost structures \citep{ers_precision_2023}. Speculative trading can amplify moves; positioning is tracked in the CFTC Commitments of Traders reports \citep{cftc_cot_about,cftc_cot_notes}. Finally, monthly USDA WASDE and related reports anchor supply–demand expectations that reprice futures curves \citep{usda_wasde,usda_understanding_wasde}.
 
@@ -174,7 +291,8 @@ Recent U.S. balance-sheet news also matters: USDA has projected very large 2025 
 % (Optional) Add a footnote if you want month codes spelled out.
 \footnote{CBOT month codes: H=Mar, K=May, N=Jul, U=Sep, Z=Dec \citep{barchart_zc_specs}.}
 
-\subsection{Pricing the ZCZ5 contract}
+\subsection{Interpretation of \texorpdfstring{ZCZ25}{ZCZ25} (one-day read)}
+
 \begin{center}
 \includegraphics[width=0.5\textwidth]{figures/corn2.png}
 \end{center}
@@ -203,6 +321,168 @@ y-u \approx r-c_{\text{mkt}}\approx 4.41\%-(-1.84\%)=\mathbf{6.25\%}\ \text{per 
 
 Therefore, a \textbf{negative basis} and $F<S e^{rT}$ are consistent with \textbf{backwardation}: near-dated corn is priced below pure financing carry because inventory availability, storage constraints, or location basis premia raise the value of holding physical grain now. The deviation is explained by $y$ and operational frictions, so it is interpreted as an inventory/logistics signal rather than a tradable arbitrage.
 
+\subsection{Futures terms structure (12 Sep 2025)}
+
+\paragraph{Rule of thumb:} Corn quotes are \textbf{cents per bushel}. Format \texttt{430'0} = \textbf{430.00 ¢/bu}. Tick \texttt{'2} = \textbf{0.25 ¢} = \textbf{\$12.50} per 5,000-bu contract. \textbf{1 ¢ = \$50}.
+
+\subsubsection*{Curve and carries}
+
+\begin{itemize}
+  \item \textbf{Up to Jul-26:} rising settles $\Rightarrow$ \textbf{contango}.
+    \begin{itemize}
+      \item Z25 430'0 $\rightarrow$ H26 447'2: spread \textbf{+17'2 = 17.25 ¢}. Roughly 3 months $\Rightarrow$ carry $\approx 17.25/430 \approx 4.0\%$ over the period, \textbf{$\sim$16\% annualized}.
+      \item H26$\rightarrow$K26: \textbf{+9'6 = 9.75 ¢}.
+      \item K26$\rightarrow$N26: \textbf{+6'4 = 6.50 ¢}.
+    \end{itemize}
+  \item \textbf{Harvest kink:} N26 463'4 $\rightarrow$ U26 459'6 = $-3'6 = -3.75$ ¢. New-crop discount at harvest.
+  \item \textbf{Back to carry:} U26 459'6 $\rightarrow$ Z26 469'0 = $+9'4 = 9.50$ ¢.
+  \item \textbf{Far strip:} classic pattern repeats. N27 492'0 $\rightarrow$ U27 470'6 = $-21'4$ big harvest discount, then U27$\rightarrow$Z27 $+2'6$.
+\end{itemize}
+
+\textbf{Interpretation:} Ample old-crop stocks and positive financing/storage net of convenience yield pre-harvest. \textbf{Harvest months invert} on expected supply surge, then carries re-emerge as grain moves into storage.
+
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+
+\subsubsection*{Daily move}
+
+Parallel bull. \textbf{Z25 +10'2 = +10.25 ¢ ($\sim$+2.4\%)}, H26 +10'0, tails +6'2 to +9'0. Shape largely intact. Rally is spot-led rather than curve-shape driven.
+
+\subsubsection*{Liquidity}
+
+Heavy near-dated flow. \textbf{Z25 vol 343k, OI 852k.} H26 111k vol. Back months thin and mostly marks. Use Z-H-K-N for execution and for clean curve reads.
+
+\subsubsection*{Carry economics}
+
+Cost-of-carry model $F=S\,e^{(r+u-y)T}$. Contango says $r+u>y$. Inversions at \textbf{U} reflect higher convenience yield around harvest or anticipated large new-crop availability. If rates fall or stocks tighten, carries \textbf{compress}; harvest inversions \textbf{shrink} or flip.
+
+\subsubsection*{Tactics}
+
+\begin{itemize}
+  \item \textbf{Directional bull:} prefer \textbf{near months} for higher spot beta. Hedge roll with a \textbf{flattener} if you expect stocks to tighten.
+  \item \textbf{Carry view:}
+    \begin{itemize}
+      \item Expect \textbf{more carry} $\rightarrow$ position for \textbf{steepeners} (near cheaper vs far).
+      \item Expect \textbf{tightness} $\rightarrow$ \textbf{flatteners} (long near, short far) benefit if Z-H narrows from +17'2.
+    \end{itemize}
+  \item \textbf{Hedgers:}
+    \begin{itemize}
+      \item \textbf{Producers} forward-sell deferred to lock today’s rich carries.
+      \item \textbf{Users} favor near coverage and layer into harvest dips.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Quick conversions}
+
+\begin{itemize}
+  \item \textbf{Z25 settle 430'0 = \$4.300/bu.}
+  \item \textbf{Z25--H26 +17'2} = \textbf{\$0.1725/bu} carry $\approx$ \textbf{\$862.50/contract} over the quarter.
+\end{itemize}
+
+\section{Crude Oil}
+
+\subsection{Recent developments}
+Crude oil remains anchored by the classical triad of fundamentals, policy coordination, and dollar conditions. Global demand growth and inventory paths continue to govern the balance; OPEC+ supply management modulates prompt availability; and the USD transmits monetary conditions into non-USD purchasing power \citep{eia_prices_2023,eia_opec_2024,bis_usd_commodity_2023,ecb_oil_usd_2024}. Into mid-September 2025, front-WTI traded in the low \$60s per barrel while carry signals pointed to persistent, though not extreme, prompt tightness.
+
+\subsection{Spot \& futures}
+WTI spot reflects contemporaneous physical scarcity and the USD level; by contrast, the futures curve prices the intertemporal trade-off between holding inventory and deferring delivery. The standard cost-of-carry relation is used:
+\[
+F_T=S_0\,e^{(r+u-y)T},
+\]
+with \(r\) the USD funding rate, \(u\) storage/insurance, and \(y\) the convenience (lease) yield. Backwardation (\(F_T<S_0e^{rT}\)) occurs when \(y>r+u\); contango when \(y<r+u\). Contract units and expiries follow CME specifications for WTI (1{,}000 bbl, USD/bbl) \citep{cme_cl_specs,cme_cl_calendar}. Risk-neutral “no-carry” fair values in this report use \(F^{*}=S_0 e^{rT}\) with SOFR-based \(r\) \citep{frbny_sofr}.
+
+\subsection{Mexico-linked implications}
+For Mexico, oil levels and curve shape transmit through fiscal and external accounts. Higher spot improves upstream realized prices and state revenues; pronounced backwardation raises the value of prompt barrels relative to deferrals, but compresses the forward cover available to hedge future cash flows. Conversely, contango lowers prompt realizations but cheapens deferred hedges. Given Pemex’s financing and investment plans, a stable, shallow backwardation is operationally preferable to extreme tightness: it supports near-term cash margins while avoiding destabilizing roll dynamics \citep{reuters_oil_peak_2008,worldbank_oil_spike_2008}. Policy levers that reduce logistics and storage frictions effectively lower \(u\) and stabilize basis, improving the translation from global prices to domestic income.
+
+\paragraph{Transmission channels.}
+Three first-order channels transmit crude dynamics into Mexico’s macro-financial stance: (i) the \emph{fiscal} channel via upstream realized prices, production volumes \(Q_t\), and the Maya/WTI differential; (ii) the \emph{external} channel through the hydrocarbon trade balance (crude exports vs.\ refined-product imports); and (iii) the \emph{financial} channel via USD/MXN, sovereign risk premia, and the equity cost of capital for energy-linked corporates. Formally, upstream cash margin is \(M_t \approx Q_t\,[S_t-\delta_t]-\text{OPEX}_t\), where \(S_t\) is the benchmark (WTI/Brent proxy), \(\delta_t\) the quality/location discount (e.g., Maya to WTI), and \(\text{OPEX}_t\) operating costs. Fiscal intake and external balances scale with \(M_t\) and with the sign of refined-product net imports.
+
+\paragraph{Role of curve shape for cash-flow timing.}
+With \emph{orderly backwardation} and modest day-to-day parallel level moves, prompt barrels are valued above deferred. This configuration is advantageous for near-term monetization but reduces the forward price available for long-dated hedges. In accounting terms, a government or SOE hedger that sells \(n\) futures across a ladder \(\{T_i\}\) locks
+\[
+\mathbb{E}[\text{Revenue}] \approx \sum_i Q_{T_i}\,F_{T_i},
+\]
+so backwardation (\(F_{T_i}<S_0 e^{rT_i}\)) lowers hedge strikes even as it supplies \emph{positive roll} to long consumers. Conversely, contango would raise forward strikes but erode consumer roll. The week’s diagnostics show stable \(y-u\) at short horizons; hedge design can therefore prioritize \emph{tenor diversification} rather than chasing transient slope noise.
+
+\paragraph{Logistics, storage, and basis.}
+Domestic logistics and storage conditions map into the effective \(u\) and into location basis \(\delta_t\). Lower pipeline/terminal frictions reduce \(u\) and compress \(\delta_t\), improving pass-through from global benchmarks to domestic realizations. In backwardation, low working inventories are rational; however, excessively lean stocks amplify downside tail risk if \emph{y} spikes. A policy mix that keeps minimum operational inventories while upgrading storage flexibility reduces the volatility of \(M_t\) without materially sacrificing carry.
+
+\paragraph{FX and monetary-policy interactions.}
+Higher crude supports the terms of trade and, conditional on global risk, can be MXN-supportive. Yet FX pass-through to domestic fuel prices affects headline inflation. If policy opts for partial smoothing (implicit fuel-price stabilization), fiscal buffers must be pre-committed or hedged. Otherwise, inflation volatility tightens the constraint set for monetary policy. Practically, energy-linked issuers should pair oil hedges with FX overlays to stabilize MXN cash flows; otherwise, USD price gains can be offset by MXN appreciation.
+
+\paragraph{Corporate treasury and investor implementation.}
+For upstream exposure, a \emph{laddered short} in the liquid front two or three contracts balances execution depth and slope risk; the documented stability of short-dated \(y-u\) argues for systematic rebalancing rather than discretionary timing. For refiners/marketers, \emph{long prompt / short deferred} structures monetize positive roll in backwardation while capping input-cost spikes. Cross-asset investors can express macro views via \emph{curve trades}: expected inventory rebuilds or lower USD rates support flatteners (long near/short far); persistent OPEC+ discipline or logistics constraints support steepeners in backwardation.
+
+\paragraph{Policy and operating priorities.}
+(i) \emph{Lower \(u\)}: invest in storage reliability and throughput to reduce effective storage/operational costs and to smooth basis.  
+(ii) \emph{Standardize hedging governance}: publish a clear tenor ladder and risk limits; disclose hedge strikes and coverage ratios to anchor funding costs.  
+(iii) \emph{Integrate FX and commodity risk}: mandate MXN cash-flow stabilization targets with coordinated oil–FX overlays.  
+(iv) \emph{Transparency on quality differentials}: regular disclosure of the Maya/WTI (or delivered) differential \(\delta_t\) improves revenue forecasting and reduces uncertainty premia.
+
+\paragraph{Net assessment.}
+Given spot in the low \$60s and shallow, stable backwardation, near-term upstream margins are supported while roll dynamics remain manageable. The configuration benefits Mexico if logistics keep \(u\) contained and if hedging policy converts favorable prompt economics into stable, multi-quarter MXN cash flows. The principal risks are a shock to inventories (deepening backwardation and basis) or a USD-driven tightening in global financial conditions; both warrant pre-defined hedge and liquidity triggers.
+
+
+\subsection{Futures term structure (12 Sep 2025)}
+\textbf{Shape and slopes.} The strip exhibits \emph{orderly backwardation}:
+\[
+\text{Oct-25 } \mathbf{62.69} \;\rightarrow\; \text{Dec-25 } \mathbf{62.19}
+\;\rightarrow\; \text{Mar-26 } \mathbf{61.95}
+\;\rightarrow\; \text{Dec-26 } \mathbf{61.77}
+\;\rightarrow\; \text{Oct-27 } \mathbf{62.08}.
+\]
+The 1-year slope (Oct-25\(\to\)Oct-26) is \(61.74/62.69-1\approx \mathbf{-1.52\%}\) p.a., implying \(r+u-y\approx -1.5\%\) p.a. (therefore \(y>r+u\)). A slight re-steepening at the very back is consistent with normalization of tightness beyond one year.
+
+\textbf{Daily move.} A near-parallel \(\,+0.32\) to \(+0.36\) USD/bbl shift is observed across the strip on the session, read as a \emph{spot-led} rally with curve shape broadly preserved—i.e., news raised the level, not the intertemporal premium.
+
+\textbf{Carry and rolls.} Calendar spreads such as Oct/Nov \(+0.27\), Nov/Dec \(+0.23\), and Oct/Dec \(+0.50\) encode positive roll income for long-only consumers and negative roll for producer shorts in the current backwardation regime.
+
+\subsection{Interpretation of \texorpdfstring{CLV25}{CLV25} (one-day read)}
+Using \(S_0=\$62.69\), \(r=4.41\%\) (ACT/360), and \(T=10/360\), the no-carry fair is
+\[
+F^{*}=S_0 e^{rT} \approx 62.69\,e^{0.0441\cdot(10/360)}=\mathbf{62.765}.
+\]
+The observed settlement \(F=\mathbf{62.69}\) implies \(F<F^{*}\) by \(\$0.075\) (backwardation). Two equivalent diagnostics are used:
+
+\(\bullet\) \emph{Market carry vs.\ spot:} \(c_{\text{mkt}}=\frac{1}{T}\ln(F/S_0)\approx 0\) p.a., since \(F\approx S_0\).
+
+\(\bullet\) \emph{Net convenience minus storage:} from \(F/F^{*}=e^{(u-y)T}\),
+\[
+y-u=\frac{1}{T}\ln\!\Big(\frac{F^{*}}{F}\Big)\approx \mathbf{4.32\%}\ \text{p.a.}
+\]
+Numerically, \(y-u\) is close to \(r\), indicating that the discount to \(F^{*}\) is largely explained by convenience yield offsetting financing (with storage \(u\) small at the 10-day horizon). This is the canonical signature of \emph{mild but persistent prompt tightness} \citep{eia_backwardation_2013,milonas_convenience_2024}.
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+\textbf{Data.} SOFR ranged \(4.39\)–\(4.42\%\); horizons declined from 17 to 10 days. Spot and front futures were essentially equal each day; the theoretical no-carry fair \(F^{*}\) exceeded market by \(\$0.075\)–\(\$0.127\).
+
+\textbf{Finding 1: stable backwardation intensity.} Although \((F-F^{*})\) becomes less negative through the week, this is \emph{mechanical time decay}—as \(T\downarrow\), the present-value gap from financing shrinks. The carry metric that nets out horizon effects,
+\[
+y-u=\frac{1}{T}\ln\!\Big(\frac{F^{*}}{F}\Big),
+\]
+is remarkably stable at \(\mathbf{4.30\%{-}4.33\%}\) p.a. each day. Hence, the convenience yield continues to offset funding with little drift.
+
+\textbf{Finding 2: spot-led level variation, curve preserved.} Day-to-day price changes are dominated by spot (macro/USD) rather than by shifts in \((r+u-y)\). This matches the session commentary above: level up-moves occur with an approximately unchanged slope, consistent with fundamentals/news raising the spot anchor while physical tightness stays moderate \citep{eia_prices_2023,eia_opec_2024,bis_usd_commodity_2023}.
+
+\textbf{Finding 3: micro implications.} For longs, backwardation provides positive roll yield into expiry; for producer shorts, rolls are a headwind but hedge effectiveness is high because \(y-u\) is stable. The absence of sharp slope changes reduces basis risk for short-dated hedges.
+
+\subsection{Does this benefit Mexico? What should be done}
+\textbf{Benefit.} The configuration—spot in the low \$60s with steady, shallow backwardation—supports upstream cash flow and state revenue without imposing extreme roll costs or volatility.
+
+\textbf{Investor actions (policy-neutral).}
+\begin{enumerate}
+  \item \emph{Decompose risks.} Manage level risk (spot) and term risk (roll/carry) separately. Use short-dated futures for beta; use calendar spreads to express views on slope normalization.
+  \item \emph{Hedge structure.} Producer hedges can be laddered in the front two contracts to exploit stable backwardation; consumers can pre-buy prompt barrels and keep deferred cover lighter to benefit from positive roll.
+  \item \emph{Trigger mapping.} Monitor OPEC+ guidance and U.S. rate moves: a durable fall in \(r\) or inventory builds should flatten the curve; tightening logistics raises \(y\) and deepens backwardation.
+\end{enumerate}
+
+\textbf{Policy/operating recommendations for Mexico.}
+\begin{enumerate}
+  \item \emph{Lower logistics/storage frictions.} Reducing \(u\) via infrastructure and operational reliability improves realized margins and stabilizes basis.
+  \item \emph{Hedge governance.} Standardize hedge programs that couple oil price hedges with FX overlays to dampen peso-revenue volatility.
+  \item \emph{Transparency and cadence.} Publish regular hedge/carry metrics (e.g., inferred \(y-u\)) alongside production guidance to anchor market expectations and lower funding costs.
+\end{enumerate}
+
+
 
 \section{Crude Oil}
 Crude oil is one of the most important energy commodities, powering transportation, industry, and heating. Therefore, its price is influenced by a complex array of factors. One of the most significant is the balance between global supply and demand. During periods of strong economic growth, demand for oil increases due to higher transportation and manufacturing activity. Conversely, economic recessions can lead to a sharp drop in demand and lower prices \citep{eia_prices_2023}.
@@ -218,6 +498,8 @@ In 2008, crude oil prices reached a historic peak. That July, the price of West 
 \textbf{CLV25} refers to the WTI (West Texas Intermediate) crude oil futures contract that expires in October 2025. Each contract represents 1{,}000 barrels and is quoted in U.S. dollars (USD) per barrel \citep{cme_cl_specs,cme_cl_calendar}.
 This table compares the spot price, \$62.69, with what the futures price “should” be over 10 days using the 4.41\% annual risk-free rate and assuming there are no extra costs/benefits such as dividends \citep{frbny_sofr}.
 
+
+\subsection{Interpretation of \texorpdfstring{CLV25}{CLV25} (one-day read)}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{figures/wti.png}
 \end{center}
@@ -261,101 +543,66 @@ y-u \approx r-c_{\text{mkt}}\approx 4.41\%-(-5.17\%)=9.6\% \ \text{per year}.
 
 Hence, the observed discount is consistent with \textbf{backwardation}: inventory is valued sufficiently highly (or storage is constrained) so that $y$ more than offsets financing $r$ and any $u$. No-arbitrage is preserved because $y$ and operational frictions are not directly tradable; the deviation is therefore read as a signal of tight near-term balances rather than a free arbitrage.
 
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
 
 
-\section{Silver}
-Silver has many uses, mainly in the industrial side. Therefore, there are many factors that influence its price. One of them is the global economy. Fluctuations in global growth or changes in monetary policies can impact demand for silver. Usually, during economic expansions, the demand for silver increases because of more manufacturing and technology. Fluctuations in currency can also affect demand for silver, especially talking about the US dollar. When the currency is stronger, the demand for silver is less because it is more expensive \citep{silver_institute_wss_2024,usgs_silver_mcs_2024,bis_usd_commodity_2023}.
+\subsection{Futures terms structure (12 Sep 2025)}
+\paragraph{Backwardation.} Front $>$ deferred. Positive convenience yield.
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/silver_time_series.jpg}
-\caption{Silver futures price series. Source: Investing.com.}
-\end{figure}
-
-\paragraph{Geopolitical events are also an influence on silver prices.} Trade policies, tariffs, or tensions between nations can affect the supply chains and international trade that impact its availability and price \citep{silver_institute_wss_2024}.
-
-\paragraph{In 1980 there was a big high in silver futures.} That event is known as Silver Thursday, and it referred to the Thursday 27th of March 1980 \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
-On that day, the price of silver futures on the COMEX market in New York plummeted dramatically. The price had reached an all-time high of \$49.45 per ounce in January 1980, driven by a speculative frenzy largely fueled by the Hunt brothers, who attempted to corner the silver market. However, regulatory changes and margin calls led to a rapid collapse in prices, causing significant financial losses for many investors and leading to a broader market panic \citep{britannica_silver_thursday,nyt_1980_silver_thursday}.
-
-\subsection{Recent developments}
-Spot silver has breached multi-year highs in early September 2025, trading above \$40/oz and printing fresh 14-year peaks as U.S. rate-cut probabilities increased and the dollar softened; momentum has been reinforced by analyst upgrades that cite ETF inflows and a persistent physical deficit \citep{reuters_silver_14y_sep1,reuters_tradingday_sep11,reuters_anz_raises_silver,lbma_q2_2025}. Corporate activity remains supportive for Mexico-centric supply, with a pending acquisition that consolidates interest in the Juanicipio asset \citep{reuters_paasmag}. Benchmarking for spot valuation continues to rely on the LBMA Silver Price, while COMEX futures provide standardized hedging and exposure along the curve \citep{lbma_prices,cme_silver_overview}.
-
-\paragraph{Mexico: why it matters.}
-Mexico is the world’s leading silver producer; mining income, royalties, and FX earnings are sensitive to silver’s level and volatility \citep{reuters_mx_top_silver}. Higher prices improve cash flow and capex flexibility for domestic producers and their suppliers, while policy or logistics shocks can widen local basis. Stronger silver also interacts with MXN through the trade channel and risk sentiment: improved mining terms of trade are peso-supportive conditional on broader macro conditions.
-
-\paragraph{spot vs.\ futures.}
-The spot price of unallocated silver in London (or a deliverable loco), typically proxied by the LBMA Silver Price or XAG/USD spot quotes; it is used to value immediate physical transactions and inventory. By contrast, COMEX silver futures embed financing and inventory economics over a horizon \(T\). A standard cost-of-carry relation is used:
-\[
-F = S\,e^{(r+u-l)\,T},
-\]
-where \(r\) is the dollar funding rate, \(u\) represents storage/insurance, and \(l\) is the lease (or convenience) rate. When tightening in nearby physical markets raises \(l\) above \(r+u\), backwardation is obtained \((F<S\,e^{rT})\); when financing and storage dominate, contango is obtained. During episodes of rapid spot appreciation catalyzed by Fed-easing expectations and robust investor demand, it is common that lease rates rise and spot premia widen, so the futures curve can richen less than spot or even invert at the front. For Mexico-based producers, this distinction shapes hedge design: spot strength is used to lock revenue, while curve shape determines carry costs and roll outcomes on futures hedges.
-
-\paragraph{Implications for Mexico-linked exposures.}
-Given elevated spot levels and persistent tightness signals, it is expected that: (i) producers with near-term shipments benefit first via realized spot, (ii) longer-dated cash flows depend on curve structure and hedge discipline, and (iii) MXN correlations remain regime-dependent—improving terms of trade are supportive, but U.S. rate surprises and global risk cycles dominate at high frequency. Policy and permitting news can modulate this transmission, affecting local basis and project timing even when global prices are strong.
-
-
-\subsection{Interpretation of SIZ25.}
-A \textbf{positive basis} is observed: $F=42.83>F^{*}=42.74$, a premium of \textbf{\$0.09/oz} (18 ticks, \textbf{\$450} per 5,000-oz contract). With $S=42.195$ and a 108-day horizon $(T=108/360=0.30)$, the market carry is obtained as
-\[
-c_{\mathrm{mkt}} = \frac{1}{T}\ln\!\frac{F}{S}
-= \frac{1}{0.30}\ln\!\frac{42.83}{42.195}
-\approx \mathbf{4.97\%}\ \text{per year}.
-\]
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/silver_pricing_one_day.png}
-\caption{Pricing of SIZ25}
-\end{figure}
-
-Compared with the funding rate $r=4.41\%$, the implied \textbf{net storage minus lease rate} is
-\[
-u-l = c_{\mathrm{mkt}} - r \approx \mathbf{0.6\%}\ \text{per year},
-\]
-which is consistent with \textbf{contango}: financing and storage slightly exceed the lease (convenience) rate, so the futures price sits modestly above both spot $(F>S)$ and the pure-financing benchmark $(F>F^{*}=S e^{rT})$.
-
-\paragraph{Why this aligns with the news.} Recent silver headlines emphasize multi-year highs driven by rising Fed-cut probabilities, a softer USD, ETF inflows, and talk of persistent physical deficits. Those forces primarily elevate the \textbf{spot} (the subyacente). However, the \textbf{futures} price capitalizes financing and inventory economics over the 108-day horizon. The observed, small premium indicates that—despite strong spot demand—the lease rate has \textbf{not} risen enough to overwhelm storage and funding costs. Adequate deliverable inventories, available storage, year-end financing effects, and investor preference to hold exposure via futures rather than immediate physical settlement are sufficient to keep the front of the curve in \textbf{slight contango}. The deviation is economically modest and should be read as a carry/liquidity effect rather than as a dislocation.
-
-\subsection{Weekly read (cost-of-carry lens).}
-Across 5--12 Sep 2025 the silver curve transitions from \textbf{mild backwardation} to \textbf{mild contango}. Early in the week, \textbf{Market $-$ Theoretical} is negative ($-\$0.02$ to $-\$0.11$/oz), which is consistent with a lease/convenience rate that temporarily \textbf{exceeds} financing plus storage; by Thu--Fri the sign flips positive ($+\$0.02$ to $+\$0.09$/oz), indicating that \textbf{financing and storage dominate} the lease rate over the remaining horizon. This evolution is consistent with the news backdrop: spot strength driven by rising Fed-cut odds and USD softness elevates the subyacente, while futures pricing incorporates funding and inventory economics; as immediate tightness eases or as futures demand is used for exposure, the front of the curve reverts to slight contango.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\textwidth]{figures/silver_pricing_over_the_week.pdf}
-\caption{Pricing of SIZ25 over the week}
-\end{figure}
-
-\paragraph{Day-by-day classification and implied net carry.}
-Using $F=S\,e^{(r+u-l)T}$ and $F^{\*}=S\,e^{rT}$, the net $u-l$ is obtained from $u-l=\tfrac{1}{T}\ln(F/F^{\*})$ (ACT/360; $T$ decreases from $\sim0.319$ to $\sim0.300$ over the week):
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/silver_difference.pdf}
-\caption{Silver price series. Source: Investing.com.}
-\end{figure}
-
+\subsubsection*{Curve and slope}
 \begin{itemize}
-  \item \textbf{Fri 9/5:} $F-F^{*} = -\$0.024$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.18\%$ p.a.
-  \item \textbf{Mon 9/8:} $F-F^{*} = -\$0.011$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.08\%$ p.a.
-  \item \textbf{Tue 9/9:} $F-F^{*} = -\$0.111$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.87\%$ p.a.
-  \item \textbf{Wed 9/10:} $F-F^{*} = -\$0.114$ $\rightarrow$ \textbf{backwardation}; $u-l \approx -0.89\%$ p.a.
-  \item \textbf{Thu 9/11:} $F-F^{*} = +\$0.017$ $\rightarrow$ \textbf{contango}; $u-l \approx +0.13\%$ p.a.
-  \item \textbf{Fri 9/12:} $F-F^{*} = +\$0.085$ $\rightarrow$ \textbf{contango}; $u-l \approx +0.66\%$ p.a.
+  \item Settles: \textbf{Oct-25 62.69 $\rightarrow$ Dec-25 62.19 $\rightarrow$ Mar-26 61.95 $\rightarrow$ Dec-26 61.77 $\rightarrow$ Oct-27 62.08}.
+  \item 1-yr slope (Oct-25$\rightarrow$Oct-26): $61.74/62.69-1\approx -1.52\%$ $\Rightarrow$ $(r+u-y)\approx -1.5\%$ p.a. $\Rightarrow$ $y>r+u$.
+  \item Back end re-steepens slightly into Oct-27.
 \end{itemize}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.7\textwidth]{figures/silver_risk_premium.pdf}
-\caption{Silver price series. Source: Investing.com.}
-\end{figure}
+\subsubsection*{Session move}
+\begin{itemize}
+  \item Near-parallel \textbf{+0.32 to +0.36 \$/bbl} across the strip. Spot-led rally, curve shape broadly unchanged.
+\end{itemize}
 
-\paragraph{Forward premium vs.\ spot.}
-The ``Risk Premium'' column $(F/S-1)$ stays small ($\approx 1.06$--$1.50\%$). It dips mid-week as spot outperforms, then rises as futures regain a modest premium. Economically, this forward premium is used to summarize \textbf{carry} (funding $+$ storage $-$ lease). It should be interpreted as a carry/liquidity effect, not as an arbitrage.
+\subsubsection*{Liquidity/microstructure}
+\begin{itemize}
+  \item Heavy flow front: \textbf{Oct-25 vol 313k, OI 157k}; \textbf{Nov-25 188k/260k}, \textbf{Dec-25 145k/280k}. Backs thinner; many \textbf{A/B} are quotes, not prints. Total \textbf{vol 913k, OI 1.95M}.
+\end{itemize}
+
+\subsubsection*{Calendar spreads (carry)}
+\begin{itemize}
+  \item \textbf{Oct/Nov +0.27}, \textbf{Nov/Dec +0.23}, \textbf{Oct/Dec +0.50} (front richer).
+  \item Long-only roll is \textbf{positive} in backwardation: sell high near, buy lower deferred. Short roll is negative.
+\end{itemize}
+
+\subsubsection*{Economic read}
+\begin{itemize}
+  \item Backwardation signals \textbf{tight prompt balances} or expected \textbf{inventory draws}.
+  \item If USD rates fall or inventories build, curve should \textbf{flatten} (less backwardation).
+  \item Shape is cost-of-carry: $F=S\,e^{(r+u-y)T}$. Here $y$ dominates.
+\end{itemize}
+
+\subsubsection*{Tactics}
+\begin{itemize}
+  \item Directional bull: prefer near months for higher beta; hedge roll with \textbf{long near / short far} if you expect flattening.
+  \item Producers: hedge in deferred where backwardation lowers forward price but roll works against shorts.
+  \item Consumers: near-dated longs benefit from roll; layer hedges if you fear prompt spikes.
+\end{itemize}
+
+\subsubsection*{Next diagnostics (if you have spot $S$)}
+Estimate convenience yield:
+\[
+y \approx r+u-\frac{1}{T}\ln\left(\frac{F_T}{S}\right),
+\]
+by month to see where tightness concentrates.
+
+
+
+
+
+
+
+
 
 
 \section{Silver}
-
-In this section, the economic role, policy drivers, historical stress episode, recent developments, spot versus futures framework, and Mexico-linked implications of silver are discussed.
 
 \subsection{Economic role and macro-financial channels}
 Silver is a dual-use metal with a large industrial footprint (electronics, photovoltaics, medical and chemical applications) and a non-trivial investment component. As a result, its pricing is shaped by both end-use demand and financial conditions. Cyclical expansions raise manufacturing throughput and technology adoption, lifting physical offtake; global slowdowns reverse that impulse. Monetary policy and term premia transmit through discount rates and the USD: a stronger dollar tightens global financial conditions and lowers non-USD purchasing power, dampening demand for dollar-priced commodities; a softer USD does the opposite \citep{silver_institute_wss_2024,usgs_silver_mcs_2024,bis_usd_commodity_2023}.
@@ -379,7 +626,7 @@ In early September 2025, spot silver traded above \$40/oz and marked 14-year hig
 \paragraph{Mexico: why it matters.}
 Mexico is the world’s largest silver producer, so revenue, royalties, and FX inflows are sensitive to the level and volatility of silver. Higher prices improve internal cash generation and capex flexibility; conversely, regulatory or logistical frictions widen local basis and delay monetization. Through the terms-of-trade channel, stronger silver can be peso-supportive when broader macro conditions are aligned \citep{reuters_mx_top_silver}.
 
-\subsection{Spot versus futures (interpretive framework)}
+\subsection{Spot \& futures}
 The spot price refers to unallocated silver in London (or a deliverable loco) and is used to value immediate transactions and inventories. COMEX futures internalize financing and inventory economics over horizon \(T\) via the cost-of-carry relation
 \[
 F=S\,e^{(r+u-l)T},
@@ -400,6 +647,61 @@ Mexico’s role as the world’s largest silver producer means that domestic cas
   \item \textbf{FX interaction (USD/MXN).} Stronger silver improves Mexico’s terms of trade and can support MXN conditionally on global risk; however, a stronger MXN reduces peso revenues for unhedged USD sales. It is used to pair metal hedges with FX hedges to stabilize MXN cash flows.
 \end{enumerate}
 In summary, elevated spot levels benefit near-term Mexican exports directly, while the sign and size of the futures basis determine carry and roll outcomes on hedges. Policy- and logistics-sensitive basis risk is material; it is used to complement price hedging with explicit basis and FX risk management, recognizing that the curve reflects financing and inventory conditions that need not move one-for-one with spot.
+
+
+
+\subsection{Futures term structure (12 Sep 2025, integrated read)}
+
+\paragraph{Framework.}
+The silver curve on \emph{12 Sep 2025} is interpreted through the cost-of-carry relation
+\[
+F_T = S_0\,e^{(r+u-l)T},
+\]
+where \(r\) is USD funding, \(u\) storage/insurance, and \(l\) the lease (convenience) rate. Curve \emph{shape} identifies the sign and size of \((r+u-l)\); parallel \emph{level} moves are used to diagnose spot-led shocks, while \emph{non-parallel} moves are used to diagnose changes in carry/inventory conditions.
+
+\paragraph{Curve shape and levels.}
+A clear \emph{contango} is observed across listed maturities:
+\[
+\text{SEP-25 } \mathbf{42.387}\ \rightarrow\ \text{DEC-25 } \mathbf{42.830}\ \rightarrow\ \text{MAR-26 } \mathbf{43.322}\ \rightarrow\ \text{DEC-26 } \mathbf{44.682}\ \rightarrow\ \text{MAR-27 } \mathbf{45.089}\ \rightarrow\ \text{SEP-27 } \mathbf{45.877}.
+\]
+The one-year slope (DEC-25 \(\rightarrow\) DEC-26) is
+\[
+\frac{44.682}{42.830}-1 \approx \mathbf{4.32\%}\ \text{p.a.},
+\]
+and the two-year slope (SEP-25 \(\rightarrow\) SEP-27) is
+\[
+\Big(\frac{45.877}{42.387}\Big)^{1/2}-1 \approx \mathbf{4.04\%}\ \text{p.a.}
+\]
+These slopes are used as reduced-form estimates of \((r+u-l)\) over the corresponding horizons, implying \(r+u-l\gtrsim 4\%\) p.a.; inventories are not tight enough to invert the curve (\(l\) does not dominate \(r+u\)).
+
+\paragraph{Daily move and decomposition.}
+A near-parallel increase of about \(\mathbf{+0.68}\) USD/oz along the strip (\(\sim \mathbf{+1.6\%}\) at the front) is observed. Parallelism is used to attribute the move primarily to a \emph{spot-led shock} (e.g., dollar softness and investor demand), while the persistence of contango indicates that intertemporal premia \((r+u-l)\) are broadly unchanged on the day. This diagnosis is consistent with the one-day SIZ25 read, where slight contango is obtained despite elevated spot.
+
+\paragraph{Liquidity and microstructure.}
+Open interest and volume concentrate in \textbf{DEC-25} (vol \(\approx 72{,}263\), OI \(\approx 133{,}690\)); \textbf{MAR-26} is the secondary node (vol \(\approx 2{,}265\), OI \(\approx 16{,}343\)). It is used to execute hedges and curve views primarily in these nodes to minimize execution and basis risk. Quotes in thin months are often marking references rather than active trading venues.
+
+\paragraph{Carry and roll math.}
+Calendar spreads summarize carry costs and roll P\&L:
+\[
+\text{DEC-25/MAR-26} \approx +0.492,\qquad \text{DEC-25/DEC-26} \approx +1.852.
+\]
+In contango, long futures positions face \emph{negative roll yield} if spot is unchanged (convergence down toward spot); short positions benefit from carry. This mapping is used in hedge design (e.g., producer shorts) and in curve trades (e.g., flatteners/steepeners).
+
+\paragraph{Macro levers mapped to shape.}
+Three levers are used to connect macro news to curve diagnostics: (i) \emph{rates}—lower USD rates compress \((r+u-l)\) and flatten contango; (ii) \emph{inventory/lease}—tight physical markets raise \(l\), flattening or inverting the curve; (iii) \emph{storage/operations}—changes in storage and insurance costs shift \(u\), steepening or flattening depending on direction. The observed contango with a parallel up-move is, therefore, read as “risk-on/spot-led, inventory not binding.”
+
+\paragraph{Implementation tactics.}
+Directional bulls are typically routed to near maturities for higher spot beta and may hedge roll via calendar spreads (e.g., long DEC-25 / short MAR-26) if carry is expected to compress. Industrial users hedging inputs are advised to lock deferred maturities knowingly that the quoted contango is the carrying cost they pay. Curve views are implemented as \emph{flatteners} if easing USD rates or tighter inventories are expected; otherwise, \emph{steepeners} are preferred.
+
+\paragraph{Diagnostics for inference.}
+When spot \(S_0\), USD term rates, and storage estimates are available, the convenience/lease component can be inferred as
+\[
+y \approx r + u - \frac{1}{T} \ln\!\Big(\frac{F_T}{S_0}\Big),
+\]
+and its time-variation is used as an early warning of physical tightness (rising \(y\) with flat \(r\)) or of storage/funding pressure (rising \(u\) or \(r\) with flat \(y\)).
+
+\medskip
+\noindent\emph{Synthesis.} The term structure on 12 Sep 2025 exhibits orderly contango with a spot-led parallel rally. It is used to conclude that intertemporal premia remain positive but contained, consistent with strong spot demand and adequate deliverable inventories. This conclusion coheres with the one-day SIZ25 basis and the week’s transition from mild backwardation to mild contango, linking news flow to a coherent curve narrative.
 
 
 \subsection{Interpretation of \texorpdfstring{SIZ25}{SIZ25} (one-day read)}
@@ -432,6 +734,21 @@ u-l=c_{\mathrm{mkt}}-r\approx 0.60\%\ \text{p.a.}
 \]
 This decomposition is used to interpret the premium as \emph{slight contango}: financing and storage together exceed the lease (convenience) rate by a few basis points on an annualized basis, so the future prices above both spot and the pure-financing benchmark \(F^{*}=S\,e^{rT}\).
 
+
+\paragraph{Why this is consistent with the news flow.}
+Contemporaneous headlines emphasize (i) elevated spot levels on rising Fed-cut probabilities and a softer USD, (ii) ETF-related investor demand, and (iii) discussion of structural deficits. These elements are used to lift the \emph{subyacente} first; however, the futures price capitalizes financing and inventory over the next 108 days. The small, positive \(u-l\) indicates that, notwithstanding robust spot demand, lease rates have not surged enough to dominate funding and storage for this horizon. Adequate deliverable stocks, available storage, and year-end financing conditions can sustain a modest contango even as spot remains buoyant. Economically, this is read as a \emph{carry/liquidity configuration}, not as a dislocation or an arbitrage.
+
+
+
+
+\medskip
+\noindent\emph{Risk classification.} The premium sits well within typical no-arbitrage bands once bid–ask, exchange fees, collateral haircuts, and delivery frictions are recognized. Positioning should therefore emphasize curve-shape risk (carry and roll) rather than seeking to monetize an illusory mispricing.
+
+
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+Table-based evidence indicates a transition from \emph{mild backwardation} early in the week (negative Market \(-\) Theoretical) to \emph{mild contango} by Thursday–Friday (positive spreads). Interpreting \(u-l=\tfrac{1}{T}\ln(F/F^{*})\) with ACT/360:
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/silver_pricing_over_the_week.pdf}
@@ -439,10 +756,11 @@ This decomposition is used to interpret the premium as \emph{slight contango}: f
 \label{fig:silver_week}
 \end{figure}
 
-
-\paragraph{Why this is consistent with the news flow.}
-Contemporaneous headlines emphasize (i) elevated spot levels on rising Fed-cut probabilities and a softer USD, (ii) ETF-related investor demand, and (iii) discussion of structural deficits. These elements are used to lift the \emph{subyacente} first; however, the futures price capitalizes financing and inventory over the next 108 days. The small, positive \(u-l\) indicates that, notwithstanding robust spot demand, lease rates have not surged enough to dominate funding and storage for this horizon. Adequate deliverable stocks, available storage, and year-end financing conditions can sustain a modest contango even as spot remains buoyant. Economically, this is read as a \emph{carry/liquidity configuration}, not as a dislocation or an arbitrage.
-
+\begin{itemize}
+  \item \textbf{9/5–9/10:} negative spreads (\(-\$0.02\) to \(-\$0.11\)/oz) imply \(l>r+u\): nearby inventory scarcity and/or elevated lease rates.
+  \item \textbf{9/11–9/12:} positive spreads (\(+\$0.02\) to \(+\$0.09\)/oz) imply \(r+u>l\): easing tightness and/or stronger preference for futures exposure that capitalizes carry.
+\end{itemize}
+The “Risk Premium” \((F/S-1)\) remains small (≈1.06–1.50\%), dipping when spot outperforms and recovering as futures regain a modest premium. Economically, this premium summarizes carry (funding \(+\) storage \(-\) lease) and is best interpreted as a liquidity/carry effect rather than an arbitrage opportunity.
 
 \begin{figure}[h]
 \centering
@@ -450,19 +768,6 @@ Contemporaneous headlines emphasize (i) elevated spot levels on rising Fed-cut p
 \caption{Daily difference \(F-F^{*}\) and sign (backwardation vs.\ contango).}
 \label{fig:silver_difference}
 \end{figure}
-
-
-\medskip
-\noindent\emph{Risk classification.} The premium sits well within typical no-arbitrage bands once bid–ask, exchange fees, collateral haircuts, and delivery frictions are recognized. Positioning should therefore emphasize curve-shape risk (carry and roll) rather than seeking to monetize an illusory mispricing.
-
-
-\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
-Table-based evidence indicates a transition from \emph{mild backwardation} early in the week (negative Market \(-\) Theoretical) to \emph{mild contango} by Thursday–Friday (positive spreads). Interpreting \(u-l=\tfrac{1}{T}\ln(F/F^{*})\) with ACT/360:
-\begin{itemize}
-  \item \textbf{9/5–9/10:} negative spreads (\(-\$0.02\) to \(-\$0.11\)/oz) imply \(l>r+u\): nearby inventory scarcity and/or elevated lease rates.
-  \item \textbf{9/11–9/12:} positive spreads (\(+\$0.02\) to \(+\$0.09\)/oz) imply \(r+u>l\): easing tightness and/or stronger preference for futures exposure that capitalizes carry.
-\end{itemize}
-The “Risk Premium” \((F/S-1)\) remains small (≈1.06–1.50\%), dipping when spot outperforms and recovering as futures regain a modest premium. Economically, this premium summarizes carry (funding \(+\) storage \(-\) lease) and is best interpreted as a liquidity/carry effect rather than an arbitrage opportunity.
 
 
 The term structure transitions from \emph{mild backwardation} to \emph{mild contango} over the week. Early readings (\(F-F^{*}<0\)) are used to infer \(l>r+u\) for short horizons—consistent with transient tightness or elevated borrow in the physical market—while late-week readings (\(F-F^{*}>0\)) indicate \(r+u>l\) as funding and storage reassert dominance.
@@ -513,6 +818,88 @@ As the leading global producer, Mexico is positioned to benefit from elevated sp
 
 
 \section{MXN/USD}
+
+\subsection{Recent developments}
+The peso entered mid-September 2025 near its strongest levels in over a year (\(\sim\)18.4–18.6 USD/MXN), supported by improved global risk appetite and rising odds of U.S. rate cuts. Market focus has been on: (i) the Federal Reserve path toward easing, which compresses U.S.–Mexico rate differentials and is typically MXN-supportive; (ii) Banxico’s gradualism, which preserves domestic carry; (iii) fiscal guidance that points to a narrower 2026 deficit; (iv) trade-policy proposals on autos that raise tail risks for the external sector; and (v) evolving Pemex support that can compress sovereign-linked risk premia if execution holds \citep{reuters_usdmxn_quote,reuters_mx_markets_11sep,reuters_mx_markets_12sep,reuters_fed_poll_2025,reuters_cenbank_graphic_2025,reuters_banxico_jun26_2025,banxico_calendar_2025,reuters_budget_2026_2025,reuters_tariffs_autos_2025,reuters_pemex_plan_2025,reuters_fitch_pemex_2025}.
+
+\subsection{Spot \& futures}
+Quoting follows CME convention: \emph{price = USD per MXN} (\$/MXN). To obtain the usual USD/MXN, invert. Spot (\(S\)) summarizes contemporaneous USD conditions and Mexico’s macro risk. Futures/forwards transfer FX risk across time under \emph{covered interest parity} (CIP):
+\[
+F = S\,e^{(r_{\mathrm{USD}}-r_{\mathrm{MXN}})T},
+\]
+with \(r_{\mathrm{USD}}\) a USD risk-free proxy (SOFR) and \(r_{\mathrm{MXN}}\) an MXN money-market rate. Because \(r_{\mathrm{MXN}}>r_{\mathrm{USD}}\) in typical regimes, \(\$/{\rm MXN}\) forwards price \emph{below} spot (equivalently, USD/MXN forwards \emph{above} spot). Deviations at very short tenors can reflect fixing times, holidays, and margin conventions; persistent deviations signal cross-currency basis \citep{bis_cip_2016,bis_cip_2024,frbny_sofr,frbny_sofr_index,cme_fx_overview,cme_mxn_product,cme_mxn_rulebook}.
+
+\subsection{Mexico-linked implications}
+FX levels and forward structure transmit into inflation, real incomes, and public finances. A firm MXN lowers traded-goods inflation and import costs, but compresses peso revenues for USD-earning sectors unless hedged. For the sovereign and large corporates, credible fiscal signals and Pemex risk reduction compress term premia that feed into longer-dated forwards. For real-money and corporate treasuries, CIP-implied discounts in \(\$/{\rm MXN}\) encode carry; hedge design should pair FX with underlying commodity or rate exposures to stabilize peso cash flows.
+
+\subsection{Futures term structure (12 Sep 2025)}
+\paragraph{Levels and shape.}
+\[
+\text{SEP-25 } \mathbf{0.054210}\ (\approx 18.447\ \text{USD/MXN})\ \rightarrow\ 
+\text{DEC-25 } \mathbf{0.053700}\ (\approx 18.622)\ \rightarrow\ 
+\text{MAR-26 } \mathbf{0.053170}\ (\approx 18.808)\ \rightarrow\ 
+\text{SEP-26 } \mathbf{0.052100}\ (\approx 19.194)\ \rightarrow\
+\text{DEC-26 } \mathbf{0.051550}\ (\approx 19.399)\ \rightarrow\
+\text{MAR-27 } \mathbf{0.051010}\ (\approx 19.604).
+\]
+The curve is \emph{downward} in \(\$/{\rm MXN}\) (\(F<S\)), which corresponds to an \emph{upward} USD/MXN forward path. Annualized, SEP-25\(\to\)MAR-27 implies \(\sim 4.0\%\) p.a. MXN depreciation under CIP, consistent with \(r_{\mathrm{MXN}}-r_{\mathrm{USD}}\) for those tenors.
+
+\paragraph{Microstructure.}
+Activity concentrates in SEP- and DEC-25 (high volume and OI). Thinly traded months are marks-to-curve; treat small kinks with caution. With the curve sloping down in \(\$/{\rm MXN}\), long-MXN positions (long futures) face \emph{negative roll}, while short-MXN (long USD) earns forward carry.
+
+\subsection{Interpretation of \texorpdfstring{MPZ25}{MPZ25} (one-day read)}
+Using \(\$/{\rm MXN}\) spot \(S=0.05427\), front settlement \(F=0.05421\), and \(T=3/360\), the forward sits slightly \emph{below} spot by \(-6\times 10^{-5}\) \$/MXN (\(-0.11\%\) of spot). Under CIP:
+\[
+\frac{F}{S}=e^{(r_{\mathrm{USD}}-r_{\mathrm{MXN}})T}\;\Rightarrow\;
+r_{\mathrm{MXN}}-r_{\mathrm{USD}}=\frac{1}{T}\ln\!\Big(\frac{S}{F}\Big).
+\]
+At such short horizons this annualizes to a large number due to \(T\ll 1\); economically it simply states \(r_{\mathrm{MXN}}>r_{\mathrm{USD}}\). The magnitude is well within no-arbitrage bands once day-counts, holiday effects, and bid–ask are recognized. Directionally, the sign matches the macro backdrop: Fed-easing expectations and Banxico gradualism favor a small forward \emph{discount} in \(\$/{\rm MXN}\).
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+\paragraph{Data (CME \$/MXN, ACT/360).}
+\begin{center}
+\begin{tabular}{lrrrrrr}
+\toprule
+Date & SOFR (\%) & \(T\) (days) & \(S\) & \(F\) & \(F^{*}=S e^{r_{\mathrm{USD}}T}\) & \(F{-}F^{*}\) \\
+\midrule
+2025-09-05 & 4.42 & 10 & 0.05343 & 0.05342 & 0.053494 & \(-7.4\times10^{-5}\) \\
+2025-09-08 & 4.40 & 7  & 0.05359 & 0.05357 & 0.053635 & \(-6.5\times10^{-5}\) \\
+2025-09-09 & 4.40 & 6  & 0.05370 & 0.05367 & 0.053739 & \(-6.9\times10^{-5}\) \\
+2025-09-10 & 4.39 & 5  & 0.05377 & 0.05378 & 0.053802 & \(-2.2\times10^{-5}\) \\
+2025-09-11 & 4.41 & 4  & 0.05417 & 0.05409 & 0.054196 & \(-1.06\times10^{-4}\) \\
+2025-09-12 & 4.41 & 3  & 0.05427 & 0.05421 & 0.054290 & \(-8.0\times10^{-5}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Read-through.}
+\begin{itemize}
+  \item \textbf{Sign and stability.} \(F<S\) on five of six days (tiny exception on 9/10), consistent with \(r_{\mathrm{MXN}}>r_{\mathrm{USD}}\). The daily forward discount vs.\ spot (\(F/S-1\)) ranges from about \(-0.02\%\) to \(-0.15\%\), small in economic terms yet directionally coherent.
+  \item \textbf{Proper benchmark.} The negative \(F-F^{*}\) relative to \(F^{*}=S e^{r_{\mathrm{USD}}T}\) is \emph{expected} in FX because the correct fair value is CIP, \(S e^{(r_{\mathrm{USD}}-r_{\mathrm{MXN}})T}\). Using only USD funding overstates fair by the MXN carry component.
+  \item \textbf{News linkage.} Fed-easing expectations (USD rates lower) and Banxico gradualism (MXN rates still high) maintain the forward \emph{discount} in \(\$/{\rm MXN}\). The small 9/10 blip (\(F\gtrsim S\)) is noise at \(T\leq 5\) days, plausibly from fixing and liquidity effects. Fiscal signals and Pemex support compress longer-dated premia but have little impact at one-week horizons; tariff headlines can widen risk premia episodically, yet the short-dated strip remained carry-driven.
+\end{itemize}
+
+\subsection{Does this benefit Mexico? What should be done?}
+\paragraph{Assessment.}
+A firm MXN with CIP-consistent forward discounts lowers imported-inflation pressure and stabilizes local financing conditions. For exporters and remitters, the stronger currency tightens peso revenues, which increases the importance of hedge overlays. The observed structure is benign: it rewards USD-based investors who hedge into MXN (positive carry) and allows domestic treasuries to pre-fund USD at predictable forward points.
+
+\paragraph{Actions (policy-neutral investors).}
+\begin{enumerate}
+  \item \textbf{Separate level from carry.} Manage spot risk (USD/MXN) and carry risk (forward points) independently. Use short-dated forwards for cash-flow alignment; employ calendar rolls to manage carry.
+  \item \textbf{Pair hedges.} Combine FX hedges with commodity or rate hedges where revenues or costs are joint (e.g., silver exporters hedging both XAG and MXN) to stabilize MXN cash flows.
+  \item \textbf{Tenor discipline.} Favor liquid fronts (SEP, DEC) for execution; stair-step coverage to reduce fixing risk. Avoid annualizing micro-tenor signals.
+\end{enumerate}
+
+\paragraph{Actions (Mexico’s operating environment).}
+\begin{enumerate}
+  \item \textbf{Credible fiscal and Pemex execution.} Sustained consolidation and transparent Pemex support compress term premia embedded in longer-dated forwards.
+  \item \textbf{Hedge accounting clarity.} Neutral tax and accounting treatment for FX hedges reduces frictions and encourages systematic risk transfer.
+  \item \textbf{Market plumbing.} Robust local money markets and settlement infrastructure shrink cross-currency basis and improve CIP pass-through.
+\end{enumerate}
+
+
+
+\section{MXN/USD}
 The exchange rate of the Mexican Peso (MXN) against the US Dollar (USD) is a crucial indicator of the Mexican economy and is influenced by a complex mix of domestic and international factors. One of the most important is the monetary policy of the US Federal Reserve (Fed). When the Fed raises its interest rates, the dollar strengthens, attracting investment into dollar-denominated assets and commonly causing a depreciation of the peso (i.e., it takes more pesos to buy one dollar). Similarly, interest rate decisions by the Bank of Mexico (Banxico) impact the exchange rate; higher rates can strengthen the peso by attracting foreign investment \citep{dallasfed_peso_2023,banxico_regional_2024}.
 
 The overall state of the worldwide economy and investors' willingness to engage in risk are also pivotal determinants. The MXN is considered a "risk currency" or an "emerging market currency." During periods of global optimism and stability, investors often seek higher returns in emerging markets like Mexico, which appreciates the peso. Conversely, in times of uncertainty, geopolitical tension, or global recessions, investors seek safe-haven assets like the US dollar, triggering a massive sell-off of pesos and its depreciation \citep{bis_eme_internationalisation_2022}.
@@ -539,8 +926,41 @@ Since MXN rates are usually higher than USD rates, the MXN/USD forward is normal
 \end{figure}
 
 
-\subsubsection{USD/MXN: recent news and pricing implications}
+\subsection{Futures term structure (12 Sep 2025)}
+\paragraph{Interpretation uses CME quoting:} \emph{price = USD per MXN}. To compare with the usual \emph{USD/MXN}, invert.
 
+\subsubsection*{Levels and curve}
+\begin{itemize}
+  \item \textbf{Fronts:} SEP-25 \textbf{0.054210} $\approx$ 18.447 USD/MXN; DEC-25 \textbf{0.053700} $\approx$ 18.622.
+  \item \textbf{Outs:} MAR-26 \textbf{0.053170} $\approx$ 18.808; SEP-26 \textbf{0.052100} $\approx$ 19.194; DEC-26 \textbf{0.051550} $\approx$ 19.399; MAR-27 \textbf{0.051010} $\approx$ 19.604.
+  \item \textbf{Shape:} \emph{Downward} in \$/MXN $\Rightarrow$ \emph{USD/MXN upward}. Implies \emph{gradual MXN depreciation}: $\approx$ \textbf{+6.3\%} from SEP-25 to MAR-27 ($\sim$\textbf{4.1\% p.a.}).
+\end{itemize}
+
+\subsubsection*{What the slope says}
+\begin{itemize}
+  \item Covered-interest-parity signal: with \textbf{MXN rates $>$ USD rates}, forwards price \textbf{MXN at a discount}. The $\sim$3.7--4.1\% annualized fall in \$/MXN from SEP$\rightarrow$DEC-25 and out the curve is consistent with that rate differential, not a pure macro ``view.''
+\end{itemize}
+
+\subsubsection*{Daily move}
+\begin{itemize}
+  \item \textbf{SEP-25 change +0.000120:} \$/MXN \textbf{+0.22\%}. Inverted, \textbf{USD/MXN $-0.22\%$} $\rightarrow$ \textbf{MXN strengthened} on the day.
+  \item \textbf{DEC-25 change +0.000120} similar sign and size.
+\end{itemize}
+
+\subsubsection*{Liquidity and microstructure}
+\begin{itemize}
+  \item \textbf{Very active:} \textbf{Est. volume 82,475}, \textbf{OI 267,710}. Concentration in \textbf{DEC-25 (53,457 vol, 170,511 OI)} and \textbf{SEP-25 (29,018 vol, 97,132 OI)}.
+  \item ``B/A'' marks are quotes (bid/ask), not prints. Zero volume months are \emph{marks to curve}; treat small kinks there cautiously.
+\end{itemize}
+
+\subsubsection*{Trading reads}
+\begin{itemize}
+  \item \textbf{Direction:} Long future = long MXN (profits if \$/MXN rises / USD/MXN falls).
+  \item \textbf{Carry/roll:} With downward \$/MXN curve, \emph{long-MXN has negative roll}; \emph{short-MXN (long USD)} earns forward carry.
+  \item \textbf{Macro sensitivity:} A faster-than-priced narrowing of the \emph{Banxico--Fed} gap flattens the curve (backs up in \$/MXN; downs in USD/MXN). Policy surprises dominate short-dated moves; rate-differential path drives the back.
+\end{itemize}
+
+\subsubsection{USD/MXN: recent news and pricing implications}
 \paragraph{Spot context.}
 As of mid-September 2025, USD/MXN trades near 18.45, the peso having reached its strongest levels in over a year amid improved global risk sentiment and lower U.S. rate expectations \citep{reuters_usdmxn_quote,reuters_mx_markets_11sep,reuters_mx_markets_12sep}.
 
@@ -565,6 +985,11 @@ so a downward shift in the Fed path (\(r_{\mathrm{USD}}\downarrow\)) is used to 
 
 \paragraph{Interpretation with the news backdrop.} The recent macro mix—Fed easing expectations, supportive global risk appetite, a relatively firm MXN, and locally gradual Banxico guidance—creates a setting in which index futures demand is used to obtain fast beta exposure and dividend-timing risk is perceived as limited. Under these conditions, a \textbf{modestly richer future} vs.\ fair is consistent with: (i) pro-risk positioning that lifts $F$ marginally, (ii) slightly lower expected dividends before expiry, and (iii) liquidity/carry effects as equities trade near highs. The signal is small and lies within typical no-arbitrage frictions; it is read as a \textbf{mild, pro-risk tilt} rather than a standalone mispricing.
 
+\subsection{Futures term structure (Sep 12, 2025)}
+
+\subsection{Interpretation of \texorpdfstring{MPU25}{MPU25} (one-day read)}
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+
 
 
 
@@ -574,10 +999,33 @@ so a downward shift in the Fed path (\(r_{\mathrm{USD}}\downarrow\)) is used to 
 
 The TIIE is today the central reference for the cost of overnight peso funding; it is the base price of money used by banks and firms to set interest on loans, bonds, and other instruments. It is estimated with one-day wholesale repo operations settled at INDEVAL, with government or equivalent collateral, and with banks and broker-dealers as participants. Based on these transactions, Banxico reports a representative daily rate and, in addition, \textbf{composition indices} that accumulate daily factors over business or calendar days and ``forward compounded'' versions useful for contracts that require explicit capitalization. The result reflects what actually happened in the market \citep{banxico_methodology,banxico_indices}.
 
-At the CME, the futures contract allows trading the compounded rate; by convention it is quoted as \textbf{Index = 100 - 100R}. For example, today the rate is 8.0126\% and its CME futures price for the TIEU25 contract maturing on September 30, 2025 is 92.28. 
+At the CME, the futures contract allows trading the compounded rate; Futures price = 100 − expected compounded F-TIIE (annualized) over the contract’s reference period. By convention it is quoted as \textbf{Index = 100 - 100R}. For example, today the rate is 8.0126\% and its CME futures price for the TIEU25 contract maturing on September 30, 2025 is 92.28
+
+Where For a monthly TIE with $D$ calendar days and daily F-TIIE fixes $r_i$ applying to $d_i$ days each:
+
+  $$
+  R=\Bigg(\prod_{i}^n\big(1+\tfrac{1}{360}r_i\big)-1\Bigg)\cdot \tfrac{360}{n},\qquad
+  {\text{Futures price}=100-R}
+  $$
+
+In this work it is assumed expect F-TIIE to be flat for the next horizon days. Then the compounded average annualizes back to
+
+$$
+R=\Bigg(\big(1+\tfrac{1}{360}r_i\big)^n-1\Bigg)\cdot \tfrac{360}{n}.
+$$
+
+For example, today at September 12, the rate is 8.0126\% for 18 days to expire on September 30, 2025. Then  
+
+\begin{align*}
+  F^* &= 100 - 100\cdot \Bigg(\big(1+\tfrac{1}{360}(8.0126)\big)^{18}-1\Bigg)\cdot \tfrac{360}{18}. \\
+  & = 91.97
+\end{align*}
+
+
+A \textbf{+1 bp} change in the expected annualized rate moves the futures \textbf{−1 tick bp}, \textbf{P\&L = −MXN 200/contract}; the \textbf{minimum tick 0.5 bp = MXN 100}.
 
 \begin{center}
-\includegraphics[width=0.5\textwidth]{figures/tiie.png}
+\includegraphics[width=0.5\textwidth]{figures/tiie_pricing_sep12.png}
 \end{center}
 
 A \textbf{positive basis in price} is observed: the \textbf{futures contract} $F=92.28$ is \textbf{above} the theoretical fair value $F^*=92.16$. The \textbf{implied monthly market rate} is therefore about \textbf{12 bps lower} than the model rate, since the market is discounting a \textbf{lower average TIEU25} for the remainder of the month than assumed by the fair value that is, a smoother downward path of rates. In other words, the expectation is for average rates to drift lower. Under the futures convention \textbf{Index = 100 - 100·R}, a \textbf{higher price implies a lower implied rate}. 
@@ -624,7 +1072,71 @@ Of course, this is not always the case, for several reasons:
     \item \textbf{Technical factors.} Term premiums, paper supply, repositioning, or calendar effects. The compounding methodology extends the last published rate on weekends and holidays, introducing small differences across months and quarters and a \textbf{basis} between what you want to hedge and what the contract settles \citep{cme2025a,cme2025b}.
 \end{itemize}
 
+\subsection{TIIE futures term structure (as of Sep 12, 2025)}
+Reading rule: \textbf{Price = 100 $-$ implied annualized F-TIIE}. So each settle gives an implied rate $R$.
 
+Key reads from your strip (implied $R=100-\text{Settle}$):
+
+\begin{itemize}
+  \item \textbf{Term-structure}: downward. Market prices \textbf{easing} $\approx -91$ bp from \textbf{SEP-25 7.740\%} to \textbf{AUG-27 6.830\%}, then a small \textbf{rebound +17.5 bp} into \textbf{SEP-27 7.005\%}.
+  \item \textbf{Front vs late-2025}: big steps early $\rightarrow$ expected cuts concentrated in \textbf{Q4-25}:
+    \begin{itemize}
+      \item SEP-25 \textbf{7.740\%}, OCT-25 \textbf{7.535\%} ($-20.5$ bp m/m), NOV-25 \textbf{7.350\%} ($-18.5$ bp), DEC-25 \textbf{7.240\%}.
+    \end{itemize}
+  \item \textbf{2026}: flatter, small humps.
+    \begin{itemize}
+      \item JUN-26 \textbf{7.015\%}, DEC-26 \textbf{6.980\%}. Micro kinks suggest meeting-month risk or illiquidity marks.
+    \end{itemize}
+  \item \textbf{2027}: trough around \textbf{6.83--6.85\%} through AUG, then \textbf{SEP-27 up to 7.005\%}. Read as mild re-steepening/term premium rather than a new cycle.
+  \item \textbf{Liquidity signal}: Est. Volume = 0 almost everywhere; OI material only in \textbf{OCT-25 (492)} and \textbf{SEP-25 (120)}. Most far maturities are \textbf{marks to curve}, not traded prints. Treat kinks cautiously.
+  \item \textbf{Microstructure}: each contract settles to the \textbf{monthly compounded overnight F-TIIE}, linearly annualized. A single policy cut inside a month drags that month’s average, but not one-for-one with the policy rate.
+  \item \textbf{Carry math}: 1 bp move in implied $R$ = \textbf{MXN 200/contract}. Long futures wins if the market reprices to a \textbf{lower} implied rate; short wins if repriced \textbf{higher}.
+  \item \textbf{Spot check vs today’s fix}: if today F-TIIE $\approx$ \textbf{8.0126\%}, then \textbf{SEP-25 at 7.740\%} implies the remaining September days are expected \textbf{below today’s fix} on average.
+\end{itemize}
+
+\textbf{Actionable take:}
+\begin{itemize}
+  \item Express a \textbf{cuts view} by going \textbf{long} the near contracts you believe are too high in $R$ (too low in price).
+  \item Hedge path risk by spreading adjacent months if your view is about \textbf{timing} of cuts, not total magnitude.
+  \item Use the OI cluster (SEP/OCT-25) for tighter execution; far months are curve proxies.
+\end{itemize}
+
+Signal quality. With zero volume, “Change” is weak evidence of shifting expectations. Use swap/OIS quotes or nearby active months to infer policy path.
+
+Tactics. Prefer limit orders and the months with OI; consider calendar spreads for timing views; for size or precision use OTC MXN OIS vs F-TIIE.
+
+
+
+\subsection{TIIE futures term structure (as of Sep 8, 2025)}
+
+
+Read as \textbf{price = 100 $-$ implied annualized F-TIIE}. Your settles imply these rates:
+
+\begin{itemize}
+  \item \textbf{SEP-25 92.2500 $\rightarrow$ 7.7500\%} ($\Delta$price $-0.0100$ $\Rightarrow$ rate \textbf{+1.0 bp} d/d)
+  \item \textbf{OCT-25 92.4600 $\rightarrow$ 7.5400\%} (unch)
+  \item \textbf{NOV-25 92.6600 $\rightarrow$ 7.3400\%} (\textbf{+1.5 bp lower} d/d in rate since price $+0.0150$)
+  \item \textbf{DEC-25 92.7600 $\rightarrow$ 7.2400\%} (price $+0.0050$ $\Rightarrow$ rate $-0.5$ bp)
+  \item \textbf{JAN-26 92.7300 $\rightarrow$ 7.2700\%}, \textbf{FEB-26 92.7850 $\rightarrow$ 7.2150\%}, \textbf{MAR-26 92.8650 $\rightarrow$ 7.1350\%}
+  \item \textbf{Apr--Aug-26 $\approx$ 7.06--7.03\%}, \textbf{late-26 $\approx$ 7.10$\rightarrow$7.06\%}
+  \item \textbf{Jan--Aug-27 7.05$\rightarrow$6.935\%}, then \textbf{SEP-27 92.8450 $\rightarrow$ 7.1550\%} (kink up)
+\end{itemize}
+
+\textbf{Observations:}
+\begin{itemize}
+  \item \textbf{Curve shape:} Clear easing path from \textbf{7.75\% (Sep-25)} toward \textbf{$\sim$6.94\% (Aug-27)}, then a \textbf{re-steepening} in \textbf{Sep-27}. That last jump likely reflects illiquidity or a marking artifact, not a firm macro call.
+  \item \textbf{Cut timing:} Steep drops into \textbf{Nov--Dec-25} imply cuts clustered in Q4-25. Monthly comp means a 25 bp policy cut mid-month pulls the month’s average by $\approx$12--13 bp, not 25 bp.
+  \item \textbf{Microstructure:} \textbf{Estimated volume = 2} (only \textbf{NOV-25} traded). \textbf{DEC-25 ``92.7650B''} is a \textbf{bid}, not a trade. Almost all other lines are \textbf{clearing marks}. Treat daily ``Change'' as curve marking, not price discovery.
+  \item \textbf{Liquidity:} \textbf{OI 653} total, concentrated in \textbf{SEP-25 (120)} and \textbf{OCT-25 (492)}. Far maturities with OI=0 are curve placeholders.
+  \item \textbf{Day-over-day signal:} Front months barely moved in rate terms ($\pm$0--1.5 bp). Far months were marked higher in price by \textbf{3--10+ ticks} ($\approx$1.5--5 bp lower in implied rate), consistent with gentle long-end bull-flattening.
+  \item \textbf{Relative to today’s fix (8.0126\%):} Near contracts imply the remainder of Sep-25 averages \textbf{below 8\%}, consistent with expected easing path already underway.
+  \item \textbf{P\&L units:} \textbf{1 bp} change in implied rate = \textbf{MXN 200/contract}; min tick \textbf{0.5 bp = MXN 100}. With \textbf{OI 653}, market DV01 $\approx$ \textbf{MXN 130.6k per bp}.
+  \item \textbf{Tactics:} Express a view in \textbf{SEP/OCT-25} where OI exists. Use \textbf{calendar spreads (e.g., OCT/NOV, NOV/DEC)} if your view is about \textbf{cut timing}. Treat \textbf{Sep-27 kink} as low-quality unless volume appears.
+\end{itemize}
+
+
+\subsection{Interpretation of \texorpdfstring{TIEU25}{TIEU25} (one-day read)}
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
 
 \section{IPC}
 
@@ -657,6 +1169,37 @@ Netting these forces, the near-term base case is a \emph{carry-and-liquidity-sup
 
 \paragraph{Interpretation with the news background.} In a setting where risk appetite is supported by anticipated Fed easing, a firm MXN, and benign local discount-rate dynamics, a \textbf{slightly richer future} is consistent with: (i) \textbf{long-demand in futures} to gain rapid benchmark exposure, (ii) \textbf{temporarily lower dividend-drag} expected between now and expiry, and (iii) \textbf{carry-and-liquidity effects} when equity rallies compress index lending spreads. The signal is therefore read as a \textbf{modest, pro-risk tilt}—not a standalone arbitrage—indicating that the market prices a marginally easier near-term environment for Mexican equities than implied by the model inputs.
 
+\subsection{Futures term structure (as of Sep 12, 2025)}
+
+The IPC futures term structure as of September 12, 2025, is shown in the Appendix. The front contract (SEP-25) expires on September 19, 2025. (\hyperref[fig:ipc_settlements]{View the Appendix for the future price settlements}).
+
+Read rule: equity index future. \textbf{Fair value $F_T = S_0\,e^{(r-q)T}$} where $r$ is the MXN funding rate and $q$ is the IPC dividend yield over $[0,T]$. Price is in index points.
+
+Key reads from your strip:
+
+\begin{itemize}
+  \item \textbf{Liquidity:} Only \textbf{SEP-25} traded. \textbf{Est. volume 196}, \textbf{OI 65}. \textbf{DEC-25+} show \textbf{0 volume, 0 OI}---mostly \textbf{marks}, not prints. The ``B/A'' on SEP means best bid/ask quotes, not trades.
+  \item \textbf{Session move:} SEP-25 \textbf{+144 pts} $\approx$ \textbf{+0.23\%}; deferred marks \textbf{+195--200 pts} $\approx$ \textbf{+0.30--0.32\%}. Curve shifted up in parallel, slightly larger at the back.
+  \item \textbf{Term-structure:} Contango. Settles rise from \textbf{61758 (SEP-25)} to \textbf{63767 (SEP-26)}. Quarterly steps: \textbf{+531, +492, +493, +493}. From front to 1-yr out: \textbf{+2009 pts} $\rightarrow$ slope $\approx$
+  \[
+    \frac{F_{1Y}}{F_{0}}-1 \approx \frac{63767}{61758}-1 \approx 3.25\%
+    \quad\Rightarrow\quad
+    r-q \approx \ln\left(\frac{63767}{61758}\right)\approx 3.20\%~\text{p.a.}
+  \]
+  Interpretation: under risk-neutral pricing the market implies \textbf{funding $>$ dividend yield by $\sim$3.2\%} over the next year.
+  \item \textbf{Carry/basis mechanics:} With weeks to SEP expiry, $F-S$ should be small and tends to $S\,(r-q)\,T$ at short $T$. Positive contango is consistent with $r>q$. It is \emph{not} an equity growth forecast; it is cost-of-carry.
+  \item \textbf{Sensitivity to Banxico:} Cuts lower $r$. All else equal, contango compresses and deferred futures cheapen vs.\ near. Calendar \emph{long SEP / short DEC or MAR} benefits if $r-q$ falls faster than implied.
+  \item \textbf{Dividend risk:} The back-month marks embed an assumed $q$ path. High dividend seasons steepen contango less; dividend downgrades steepen it more for a given $r$.
+  \item \textbf{Signal quality:} With 0 volume and 0 OI past SEP-25, far-month levels are curve proxies. Use them for carry math, not as standalone conviction.
+\end{itemize}
+
+What to compute next (if you have spot $S$ and an $r$ curve):
+
+\[
+q_{\text{impl}}(T)=r-\frac{1}{T}\ln\left(\frac{F_T}{S}\right).
+\]
+
+Compare $q_{\text{impl}}$ to realized IPC dividends to test if the slope is rich or cheap.
 
 
 
@@ -664,5 +1207,51 @@ Netting these forces, the near-term base case is a \emph{carry-and-liquidity-sup
 \bibliography{refs}
 
 
+\section{Appendix: Key references and data sources}
+\newpage
+
+%% add another pdf
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/CORN12SEP.pdf}
+  \caption{Daily difference \(F-F^{*}\) and sign (backwardation vs.\ contango).}
+  \label{fig:corn_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/CORN12SEP.pdf}
+  \label{fig:corn_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/CRUDEOIL12SEP.pdf}
+  \label{fig:crudeoil_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/SILVER12SEP.pdf}
+  \label{fig:silver_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/MXNUSD12SEP.pdf}
+  \label{fig:mxnusd_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/TIIE12SEP.pdf}
+  \label{fig:tiie_settlements}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.99\textwidth]{appendix/IPC12SEP.pdf}
+  \label{fig:ipc_settlements}
+\end{figure}
 
 \end{document}
