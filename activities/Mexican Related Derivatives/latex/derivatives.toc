@@ -1,113 +1,157 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{Corn}{4}{section*.2}%
-\contentsline {subsection}{Recent developments}{4}{section*.3}%
-\contentsline {subsection}{Spot \& futures}{4}{section*.4}%
-\contentsline {subsection}{Mexico-linked implications}{5}{section*.5}%
-\contentsline {paragraph}{Structural context and policy regime.}{5}{section*.5}%
-\contentsline {paragraph}{Transmission channels into domestic costs.}{5}{section*.5}%
-\contentsline {paragraph}{Operational playbook for importers and food/feed users.}{5}{section*.5}%
-\contentsline {paragraph}{Scenario guidance (news-aware).}{6}{Item.10}%
-\contentsline {paragraph}{Policy and infrastructure implications.}{6}{Item.10}%
-\contentsline {subsection}{Futures term structure (12 Sep 2025)}{6}{section*.11}%
-\contentsline {paragraph}{Quoting rule.}{6}{section*.11}%
-\contentsline {paragraph}{Curve and carries (illustrative strip).}{6}{section*.11}%
-\contentsline {subsection}{Interpretation of ZCZ5 (one-day read)}{7}{section*.12}%
-\contentsline {paragraph}{Link to the news.}{7}{section*.12}%
-\contentsline {subsection}{Does this benefit Mexico? What should be done}{8}{section*.13}%
-\contentsline {paragraph}{Assessment.}{8}{section*.13}%
-\contentsline {paragraph}{Operational guidance for Mexican buyers (feed, food, processors).}{8}{section*.13}%
-\contentsline {paragraph}{Investor playbook (policy–neutral).}{8}{Item.18}%
-\contentsline {paragraph}{Policy and infrastructure priorities for Mexico.}{9}{Item.18}%
-\contentsline {section}{Corn}{10}{section*.23}%
-\contentsline {subsection}{Interpretation of ZCZ25 (one-day read)}{11}{section*.25}%
-\contentsline {subsection}{Futures terms structure (12 Sep 2025)}{12}{section*.26}%
-\contentsline {paragraph}{Rule of thumb:}{12}{section*.26}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{12}{section*.27}%
-\contentsline {section}{Crude Oil}{14}{section*.28}%
-\contentsline {subsection}{Recent developments}{14}{section*.29}%
-\contentsline {subsection}{Spot \& futures}{14}{section*.30}%
+\contentsline {section}{Corn}{5}{section*.2}%
+\contentsline {subsection}{Recent developments}{5}{section*.3}%
+\contentsline {subsection}{Spot \& futures}{5}{section*.4}%
+\contentsline {subsection}{Mexico-linked implications}{6}{section*.5}%
+\contentsline {paragraph}{Structural context and policy regime.}{6}{section*.5}%
+\contentsline {paragraph}{Transmission channels into domestic costs.}{6}{section*.5}%
+\contentsline {paragraph}{Operational playbook for importers and food/feed users.}{6}{section*.5}%
+\contentsline {paragraph}{Scenario guidance (news-aware).}{7}{Item.10}%
+\contentsline {paragraph}{Policy and infrastructure implications.}{7}{Item.10}%
+\contentsline {subsection}{Futures term structure (12 Sep 2025)}{7}{section*.11}%
+\contentsline {paragraph}{Quoting rule.}{7}{section*.11}%
+\contentsline {paragraph}{Curve and carries (illustrative strip).}{7}{section*.11}%
+\contentsline {subsection}{Interpretation of ZCZ5 (one-day read)}{8}{section*.12}%
+\contentsline {paragraph}{Link to the news.}{8}{section*.12}%
+\contentsline {subsection}{Does this benefit Mexico? What should be done}{9}{section*.13}%
+\contentsline {paragraph}{Assessment.}{9}{section*.13}%
+\contentsline {paragraph}{Operational guidance for Mexican buyers (feed, food, processors).}{9}{section*.13}%
+\contentsline {paragraph}{Investor playbook (policy–neutral).}{9}{Item.18}%
+\contentsline {paragraph}{Policy and infrastructure priorities for Mexico.}{10}{Item.18}%
+\contentsline {section}{Corn}{11}{section*.23}%
+\contentsline {subsection}{Interpretation of ZCZ25 (one-day read)}{12}{section*.25}%
+\contentsline {subsection}{Futures terms structure (12 Sep 2025)}{13}{section*.26}%
+\contentsline {paragraph}{Rule of thumb:}{13}{section*.26}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{13}{section*.27}%
+\contentsline {section}{Crude Oil}{15}{section*.28}%
+\contentsline {subsection}{Recent developments}{15}{section*.29}%
+\contentsline {subsection}{Spot \& futures}{15}{section*.30}%
 \contentsline {subsection}{Mexico-linked implications}{15}{section*.31}%
 \contentsline {paragraph}{Transmission channels.}{15}{section*.31}%
-\contentsline {paragraph}{Role of curve shape for cash-flow timing.}{15}{section*.31}%
-\contentsline {paragraph}{Logistics, storage, and basis.}{15}{section*.31}%
-\contentsline {paragraph}{FX and monetary-policy interactions.}{15}{section*.31}%
+\contentsline {paragraph}{Role of curve shape for cash-flow timing.}{16}{section*.31}%
+\contentsline {paragraph}{Logistics, storage, and basis.}{16}{section*.31}%
+\contentsline {paragraph}{FX and monetary-policy interactions.}{16}{section*.31}%
 \contentsline {paragraph}{Corporate treasury and investor implementation.}{16}{section*.31}%
-\contentsline {paragraph}{Policy and operating priorities.}{16}{section*.31}%
-\contentsline {paragraph}{Net assessment.}{16}{section*.31}%
-\contentsline {subsection}{Futures term structure (12 Sep 2025)}{16}{section*.32}%
-\contentsline {subsection}{Interpretation of CLV25 (one-day read)}{17}{section*.33}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{17}{section*.34}%
-\contentsline {subsection}{Does this benefit Mexico? What should be done}{18}{section*.35}%
-\contentsline {section}{Crude Oil}{19}{section*.42}%
-\contentsline {subsection}{Interpretation of CLV25 (one-day read)}{20}{section*.43}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{21}{section*.44}%
-\contentsline {subsection}{Futures terms structure (12 Sep 2025)}{21}{section*.45}%
-\contentsline {paragraph}{Backwardation.}{21}{section*.45}%
-\contentsline {section}{Silver}{23}{section*.46}%
-\contentsline {subsection}{Economic role and macro-financial channels}{23}{section*.47}%
-\contentsline {subsection}{Policy and geopolitical drivers}{23}{section*.49}%
+\contentsline {paragraph}{Policy and operating priorities.}{17}{section*.31}%
+\contentsline {paragraph}{Net assessment.}{17}{section*.31}%
+\contentsline {subsection}{Futures term structure (12 Sep 2025)}{17}{section*.32}%
+\contentsline {subsection}{Interpretation of CLV25 (one-day read)}{18}{section*.33}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{18}{section*.34}%
+\contentsline {subsection}{Does this benefit Mexico? What should be done}{19}{section*.35}%
+\contentsline {section}{Crude Oil}{20}{section*.42}%
+\contentsline {subsection}{Interpretation of CLV25 (one-day read)}{21}{section*.43}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{22}{section*.44}%
+\contentsline {subsection}{Futures terms structure (12 Sep 2025)}{22}{section*.45}%
+\contentsline {paragraph}{Backwardation.}{22}{section*.45}%
+\contentsline {section}{Silver}{24}{section*.46}%
+\contentsline {subsection}{Economic role and macro-financial channels}{24}{section*.47}%
+\contentsline {subsection}{Policy and geopolitical drivers}{24}{section*.49}%
 \contentsline {subsection}{Historical stress episode}{24}{section*.50}%
-\contentsline {subsection}{Recent developments}{24}{section*.51}%
-\contentsline {paragraph}{Mexico: why it matters.}{24}{section*.51}%
-\contentsline {subsection}{Spot \& futures}{24}{section*.52}%
-\contentsline {subsection}{Mexico-linked implications}{25}{section*.53}%
+\contentsline {subsection}{Recent developments}{25}{section*.51}%
+\contentsline {paragraph}{Mexico: why it matters.}{25}{section*.51}%
+\contentsline {subsection}{Spot \& futures}{25}{section*.52}%
+\contentsline {subsection}{Mexico-linked implications}{26}{section*.53}%
 \contentsline {subsection}{Futures term structure (12 Sep 2025, integrated read)}{26}{section*.59}%
 \contentsline {paragraph}{Framework.}{26}{section*.59}%
-\contentsline {paragraph}{Curve shape and levels.}{26}{section*.59}%
-\contentsline {paragraph}{Daily move and decomposition.}{26}{section*.59}%
-\contentsline {paragraph}{Liquidity and microstructure.}{26}{section*.59}%
+\contentsline {paragraph}{Curve shape and levels.}{27}{section*.59}%
+\contentsline {paragraph}{Daily move and decomposition.}{27}{section*.59}%
+\contentsline {paragraph}{Liquidity and microstructure.}{27}{section*.59}%
 \contentsline {paragraph}{Carry and roll math.}{27}{section*.59}%
 \contentsline {paragraph}{Macro levers mapped to shape.}{27}{section*.59}%
-\contentsline {paragraph}{Implementation tactics.}{27}{section*.59}%
-\contentsline {paragraph}{Diagnostics for inference.}{27}{section*.59}%
+\contentsline {paragraph}{Implementation tactics.}{28}{section*.59}%
+\contentsline {paragraph}{Diagnostics for inference.}{28}{section*.59}%
 \contentsline {subsection}{Interpretation of SIZ25 (one-day read)}{28}{section*.60}%
 \contentsline {paragraph}{Why this is consistent with the news flow.}{29}{figure.61}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{29}{section*.62}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{30}{section*.62}%
 \contentsline {paragraph}{Day-by-day interpretation.}{30}{figure.64}%
-\contentsline {paragraph}{Mechanistic drivers behind the flip.}{30}{figure.64}%
+\contentsline {paragraph}{Mechanistic drivers behind the flip.}{31}{figure.64}%
 \contentsline {subsection}{Does this benefit Mexico? What should be done?}{31}{section*.65}%
 \contentsline {paragraph}{Economic incidence for Mexico.}{31}{section*.65}%
-\contentsline {paragraph}{Implications for investors (policy-neutral).}{31}{section*.65}%
-\contentsline {paragraph}{Implications for Mexico (policy and operating environment).}{31}{Item.69}%
+\contentsline {paragraph}{Implications for investors (policy-neutral).}{32}{section*.65}%
+\contentsline {paragraph}{Implications for Mexico (policy and operating environment).}{32}{Item.69}%
 \contentsline {section}{MXN/USD}{33}{section*.74}%
 \contentsline {subsection}{Recent developments}{33}{section*.75}%
 \contentsline {subsection}{Spot \& futures}{33}{section*.76}%
-\contentsline {subsection}{Mexico-linked implications}{34}{section*.77}%
+\contentsline {subsection}{Mexico-linked implications}{33}{section*.77}%
 \contentsline {subsection}{Futures term structure (12 Sep 2025)}{34}{section*.78}%
 \contentsline {paragraph}{Levels and shape.}{34}{section*.78}%
 \contentsline {paragraph}{Microstructure.}{34}{section*.78}%
 \contentsline {subsection}{Interpretation of MPZ25 (one-day read)}{34}{section*.79}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{35}{section*.80}%
-\contentsline {paragraph}{Data (CME \$/MXN, ACT/360).}{35}{section*.80}%
-\contentsline {paragraph}{Read-through.}{35}{section*.80}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{34}{section*.80}%
+\contentsline {paragraph}{Data (CME \$/MXN, ACT/360).}{34}{section*.80}%
+\contentsline {paragraph}{Read-through.}{34}{section*.80}%
 \contentsline {subsection}{Does this benefit Mexico? What should be done?}{35}{section*.81}%
 \contentsline {paragraph}{Assessment.}{35}{section*.81}%
 \contentsline {paragraph}{Actions (policy-neutral investors).}{35}{section*.81}%
-\contentsline {paragraph}{Actions (Mexico’s operating environment).}{36}{Item.84}%
-\contentsline {section}{MXN/USD}{37}{section*.88}%
-\contentsline {subsection}{Futures term structure (12 Sep 2025)}{38}{section*.91}%
-\contentsline {paragraph}{Interpretation uses CME quoting:}{38}{section*.91}%
-\contentsline {subsubsection}{USD/MXN: recent news and pricing implications}{39}{section*.91}%
-\contentsline {paragraph}{Spot context.}{39}{section*.91}%
-\contentsline {paragraph}{Key developments.}{39}{section*.91}%
-\contentsline {paragraph}{Mapping to spot and futures.}{40}{Item.96}%
-\contentsline {paragraph}{Measurement.}{40}{Item.96}%
-\contentsline {paragraph}{Interpretation with the news backdrop.}{40}{Item.96}%
-\contentsline {subsection}{Futures term structure (Sep 12, 2025)}{41}{section*.97}%
-\contentsline {subsection}{Interpretation of MPU25 (one-day read)}{41}{section*.98}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{41}{section*.99}%
-\contentsline {section}{TIIE}{42}{section*.100}%
-\contentsline {subsection}{TIIE futures term structure (as of Sep 12, 2025)}{44}{section*.107}%
-\contentsline {subsection}{TIIE futures term structure (as of Sep 8, 2025)}{45}{section*.108}%
-\contentsline {subsection}{Interpretation of TIEU25 (one-day read)}{46}{section*.109}%
-\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{46}{section*.110}%
-\contentsline {section}{IPC}{47}{section*.111}%
-\contentsline {paragraph}{Derivatives and implementation.}{47}{section*.111}%
-\contentsline {paragraph}{Nowcasting the next move: macro–market linkages.}{47}{section*.111}%
-\contentsline {paragraph}{Base case and risks.}{48}{Item.116}%
-\contentsline {paragraph}{Measurement.}{48}{figure.117}%
-\contentsline {paragraph}{Interpretation with the news background.}{48}{figure.117}%
-\contentsline {subsection}{Futures term structure (as of Sep 12, 2025)}{49}{section*.118}%
-\contentsline {section}{Bibliography}{50}{section*.119}%
-\contentsline {section}{Appendix A: Price Settlements (Sep 12, 2025)}{56}{section*.120}%
-\contentsline {section}{Appendix B: Price Settlements (Sep 8, 2025)}{64}{section*.122}%
+\contentsline {paragraph}{Actions (Mexico’s operating environment).}{35}{Item.84}%
+\contentsline {section}{MXN/USD}{36}{section*.88}%
+\contentsline {subsection}{Futures term structure (12 Sep 2025)}{37}{section*.91}%
+\contentsline {paragraph}{Interpretation uses CME quoting:}{37}{section*.91}%
+\contentsline {subsubsection}{USD/MXN: recent news and pricing implications}{38}{section*.91}%
+\contentsline {paragraph}{Spot context.}{38}{section*.91}%
+\contentsline {paragraph}{Key developments.}{38}{section*.91}%
+\contentsline {paragraph}{Mapping to spot and futures.}{39}{Item.96}%
+\contentsline {paragraph}{Measurement.}{39}{Item.96}%
+\contentsline {paragraph}{Interpretation with the news backdrop.}{39}{Item.96}%
+\contentsline {subsection}{Futures term structure (Sep 12, 2025)}{40}{section*.97}%
+\contentsline {subsection}{Interpretation of MPU25 (one-day read)}{40}{section*.98}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{40}{section*.99}%
+\contentsline {section}{TIIE}{41}{section*.100}%
+\contentsline {subsection}{TIIE futures term structure (as of Sep 12, 2025)}{43}{section*.107}%
+\contentsline {subsection}{TIIE futures term structure (as of Sep 8, 2025)}{44}{section*.108}%
+\contentsline {subsection}{Interpretation of TIEU25 (one-day read)}{45}{section*.109}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{45}{section*.110}%
+\contentsline {section}{TIIE}{46}{section*.111}%
+\contentsline {subsection}{Recent developments}{46}{section*.112}%
+\contentsline {subsection}{Spot \& futures}{46}{section*.113}%
+\contentsline {subsection}{Mexico-linked implications}{47}{section*.114}%
+\contentsline {paragraph}{Transmission map.}{47}{section*.114}%
+\contentsline {paragraph}{Banks (ALM and net interest margins).}{47}{section*.114}%
+\contentsline {paragraph}{Pension funds, insurers, and mutual funds.}{47}{section*.114}%
+\contentsline {paragraph}{Corporates and treasuries.}{48}{section*.114}%
+\contentsline {paragraph}{Households and consumption.}{48}{section*.114}%
+\contentsline {paragraph}{Sovereign and state-owned enterprises.}{48}{section*.114}%
+\contentsline {paragraph}{Money-market and microstructure considerations.}{48}{section*.114}%
+\contentsline {paragraph}{External channel and MXN.}{48}{section*.114}%
+\contentsline {paragraph}{Operational scenarios.}{48}{section*.114}%
+\contentsline {paragraph}{Synthesized recommendations.}{49}{section*.114}%
+\contentsline {subsection}{Futures term structure (12 Sep 2025)}{49}{section*.118}%
+\contentsline {subsection}{Interpretation of TIEU25 (one-day read, 12 Sep 2025)}{49}{section*.119}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{49}{section*.120}%
+\contentsline {paragraph}{Data snapshot.}{49}{section*.120}%
+\contentsline {paragraph}{Interpretation.}{50}{section*.120}%
+\contentsline {paragraph}{Microstructure note.}{50}{section*.120}%
+\contentsline {subsection}{Does this benefit Mexico? What should be done?}{50}{section*.121}%
+\contentsline {section}{IPC}{51}{section*.122}%
+\contentsline {subsection}{Recent developments}{51}{section*.123}%
+\contentsline {subsection}{Spot \& futures}{51}{section*.124}%
+\contentsline {subsection}{Mexico-linked implications}{51}{section*.125}%
+\contentsline {paragraph}{Transmission channels.}{51}{section*.125}%
+\contentsline {paragraph}{Derivatives-specific incidence.}{52}{Item.130}%
+\contentsline {paragraph}{Sectoral and policy linkages.}{52}{Item.130}%
+\contentsline {paragraph}{Actionable playbook (Mexico focus).}{53}{Item.130}%
+\contentsline {paragraph}{Scenario map (link to news).}{53}{Item.134}%
+\contentsline {paragraph}{Monitoring set.}{53}{Item.134}%
+\contentsline {subsection}{Futures term structure (as of 12 Sep 2025)}{53}{section*.135}%
+\contentsline {paragraph}{Shape and slope.}{53}{section*.135}%
+\contentsline {paragraph}{Level move.}{54}{section*.135}%
+\contentsline {paragraph}{Liquidity note.}{54}{section*.135}%
+\contentsline {subsection}{Interpretation of one day (12 Sep 2025)}{54}{section*.136}%
+\contentsline {subsection}{Weekly term-structure diagnostics (5–12 Sep 2025)}{54}{section*.137}%
+\contentsline {paragraph}{Observed path.}{54}{section*.137}%
+\contentsline {paragraph}{Carry inference.}{54}{section*.137}%
+\contentsline {paragraph}{News linkage.}{54}{section*.137}%
+\contentsline {subsection}{Does this benefit Mexico? What should be done? How does it affect it?}{54}{section*.138}%
+\contentsline {paragraph}{Benefit.}{54}{section*.138}%
+\contentsline {paragraph}{Investor actions (policy-neutral).}{55}{section*.138}%
+\contentsline {paragraph}{Policy and operating implications.}{55}{Item.141}%
+\contentsline {section}{IPC}{56}{section*.145}%
+\contentsline {paragraph}{Derivatives and implementation.}{56}{section*.145}%
+\contentsline {paragraph}{Nowcasting the next move: macro–market linkages.}{56}{section*.145}%
+\contentsline {paragraph}{Base case and risks.}{56}{Item.150}%
+\contentsline {paragraph}{Measurement.}{57}{figure.151}%
+\contentsline {paragraph}{Interpretation with the news background.}{57}{figure.151}%
+\contentsline {subsection}{Futures term structure (as of Sep 12, 2025)}{58}{section*.152}%
+\contentsline {section}{Bibliography}{59}{section*.153}%
+\contentsline {section}{Appendix A: \\ Price Settlements \\ (Sep 12, 2025)}{65}{section*.154}%
+\contentsline {section}{Appendix B: \\ Python Notebook }{73}{section*.156}%

@@ -1,8 +1,8 @@
-\documentclass[10pt,a4paper]{article} % Compila con lualatex o xelatex
+\documentclass[11pt,a4paper]{article} % Compila con lualatex o xelatex
 
   % --- Layout & links ---
   \usepackage[english]{babel}
-  \usepackage[margin=1.5in]{geometry}
+  \usepackage[top=35mm, bottom=25mm, left=30mm, right=30mm]{geometry}
 
   \PassOptionsToPackage{hyphens}{url} % permite cortar en guiones
   \usepackage[hidelinks]{hyperref}
@@ -49,13 +49,13 @@
 
   % --- Hacer los títulos de sección y subsección más grandes ---
   \titleformat{\section}
-    {\boldd\fontsize{34pt}{128pt}\selectfont} % el primer {} es el formato, el segundo {} es el tamaño de línea
+    {\boldd\fontsize{34pt}{34pt}\selectfont} % el primer {} es el formato, el segundo {} es el tamaño de línea
     {\thesection}{18em}{} % el primer {} es el formato, el segundo {} es la separación entre número y título
     \titleformat{\subsection}
       {\boldd\fontsize{18pt}{18pt}\selectfont}
       {\thesubsection}{10em}{}
-  \titlespacing*{\section}{0pt}{0pt}{24pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
-  \titlespacing*{\subsection}{0pt}{18pt}{18pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+  \titlespacing*{\section}{0pt}{24pt}{48pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
+  \titlespacing*{\subsection}{0pt}{18pt}{6pt} % el primer {} es la sangría, el segundo {} es el espacio antes, el tercero {} es el espacio después
 
   % --- Encabezado con nombre de la sección ---
   \usepackage{fancyhdr}
@@ -133,7 +133,7 @@
   \vspace{1cm}
   
   {\medium\fontsize{12pt}{12pt}\selectfont
-  {\large Course:  Productos Derivados: O25 LAT4012 2\par}
+  {\large Productos Derivados: O25 LAT4012 2\par}
   \vspace{.5em}
   {\large Professor:  Enríque Covarrubias Jaramillo\par}
   \vspace{.5em}
@@ -1138,6 +1138,242 @@ Read as \textbf{price = 100 $-$ implied annualized F-TIIE}. Your settles imply t
 \subsection{Interpretation of \texorpdfstring{TIEU25}{TIEU25} (one-day read)}
 \subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
 
+\section{TIIE}
+
+\subsection{Recent developments}
+Policy signaling and inflation data point to a gradual easing cycle in Mexico, conditioned by external monetary policy and exchange-rate dynamics. On \emph{Aug 7, 2025}, Banco de México lowered the policy rate to \textbf{7.75\%} in a divided vote, noting headline inflation around the target band and weak activity \citep{reuters_banxico_cut_aug25,banxico_mps_aug7_2025}. Into mid-September, softer U.S.\ labor data raised the probability of a Federal Reserve cut at the September meeting, weakening the USD and easing global financial conditions \citep{reuters_global_cuts_sep11a,reuters_global_cuts_sep11b}. MXN strengthened and Mexican equities set record highs, consistent with easier external conditions \citep{reuters_mxn_sept15}. These forces are typically transmitted to the local front end: \emph{Funding TIIE} (F-TIIE) fixes in the near term, and the \emph{term structure} of implied monthly compounded F-TIIE via futures \citep{frbny_sofr_page,fred_sofr}.
+
+\subsection{Spot \& futures}
+The \emph{Overnight Funding TIIE} is a transaction-based reference rate calculated from peso repo trades settled at INDEVAL; Banxico also publishes compounding indices on business and calendar bases that allow exact accrual over arbitrary periods \citep{banxico_f_tiie_method,banxico_indices_page,banxico_on_method_en}. CME’s \emph{Mexican Funding TIIE (Monthly)} futures settle to the annualized compounded average of each day’s F-TIIE over the contract month, quoted as
+\[
+\textbf{Index} \equiv 100 - 100\,R_{\text{comp}},
+\]
+with ACT/360 convention and final settlement equal to \(100 - R_{\text{month}}\) \citep{cme_tiie_monthly_overview,cme_tiie_monthly_specs,cme_tiie_monthly_method,cme_tiie_quarterly_overview}. Hence, a higher futures price implies a lower \emph{implied} compounded monthly rate, and a 1~bp change in the implied rate corresponds to \(\pm \textbf{MXN 200}\) per contract (tick \(=0.5\)~bp \(=\) MXN~100) \citep{cme_tiie_monthly_specs}.
+
+\subsection{Mexico-linked implications}
+Because F-TIIE underpins Bondes~F and cascades into bank funding curves, the monthly compounded futures are used to transfer near-term policy-path risk from balance sheets to the market \citep{cme_tiie_monthly_overview,cme_ftiie_article}. Easing expectations raise the index (lower implied \(R\)), delivering mark-to-market gains to longs; conversely, stickier inflation or MXN weakness can reprice the front months lower. The curve’s \emph{shape} encodes the distribution of expected Banxico cuts across calendar months; microstructure matters because some listed months are \emph{marks to curve} rather than traded prints.
+
+\paragraph{Transmission map.}
+Monthly F--TIIE futures translate into prices (i) the expected path of Banco de México’s policy stance, (ii) wholesale MXN funding dynamics, and (iii) external shocks (Fed, USD). By convention,
+\[
+\text{Futures Price} \equiv 100 - 100\,R_{\text{comp}},
+\]
+so higher price $\Leftrightarrow$ lower implied monthly compounded rate. Contract sensitivity: $\Delta \mathrm{P\&L} \approx 50{,}000 \times \Delta \text{Index}$ MXN per contract; $1$ bp in $R$ $\Rightarrow \pm$ MXN $200$; minimum tick $=0.5$ bp $=$ MXN $100$.
+
+\paragraph{Banks (ALM and net interest margins).}
+\begin{itemize}
+  \item \textbf{NIM mechanics.} Funding costs typically adjust faster than asset yields on variable-rate books. A first-order margin response is
+  \[
+  \Delta \mathrm{NIM} \simeq w_A\,\beta_A\,\Delta r \;-\; w_L\,\beta_L\,\Delta r,
+  \]
+  where $w_A,w_L$ are asset/liability weights and $\beta_{A,L}$ are repricing betas. If $\beta_L>\beta_A$ initially, easing can widen NIM before convergence.
+  \item \textbf{Hedging.} Long monthly F--TIIE futures (benefit from price up) protect margins in a cuts repricing; shorts protect against a hawkish reversal. Timing risk is better expressed with \emph{calendar spreads} (e.g., OCT/NOV) than outright notional.
+  \item \textbf{Basis risk.} Futures settle to the \emph{monthly} compounded overnight index (ACT/360), while effective funding mixes business-day patterns, liquidity buffers, and idiosyncratic spreads. Manage this basis via limits, backtesting, and mapping rules from F--TIIE to transfer-pricing curves.
+\end{itemize}
+
+\paragraph{Pension funds, insurers, and mutual funds.}
+\begin{itemize}
+  \item \textbf{Tactical duration and carry.} Falling implied $R$ supports long-carry in Mbonos/Bondes F. Monthly futures provide a clean front-end overlay to \emph{nowcast} policy moves without disturbing strategic allocations.
+  \item \textbf{Execution.} Concentrate orders in high-OI near months; predefine roll windows and size caps to mitigate market impact.
+\end{itemize}
+
+\paragraph{Corporates and treasuries.}
+\begin{itemize}
+  \item \textbf{Financing cost.} Easing reduces MXN floating-rate expense and expands debt capacity. Align hedges (long monthly F--TIIE) with months of peak cash interest outflow.
+  \item \textbf{Dollarized revenues.} For USD-revenue firms with MXN liabilities, pair long F--TIIE with FX hedges to stabilize MXN margins.
+\end{itemize}
+
+\paragraph{Households and consumption.}
+\begin{itemize}
+  \item Variable-rate credit costs ease gradually (cards, payroll, auto). Mortgage transmission is slower. The debt-service relief supports consumption with lags; monitor inflation risks via MXN.
+\end{itemize}
+
+\paragraph{Sovereign and state-owned enterprises.}
+\begin{itemize}
+  \item \textbf{Rollover costs.} Lower front-end rates reduce near-term funding expense and anchor Bondes F auctions. Staggered hedging across liquid months minimizes slippage and basis volatility.
+  \item \textbf{Governance.} Neutral tax and accounting treatment of hedge outcomes preserves incentives for prudent use of monthly futures.
+\end{itemize}
+
+\paragraph{Money-market and microstructure considerations.}
+\begin{itemize}
+  \item \textbf{Path extraction.} The monthly futures curve encodes \emph{when} and \emph{how much} easing is priced. Kinks with low open interest are often \emph{marks}, not firm views.
+  \item \textbf{Conventions.} Weekend/holiday compounding extends the last fix and can generate small inter-month differences; document ACT/360 assumptions in internal pricing policy.
+\end{itemize}
+
+\paragraph{External channel and MXN.}
+\begin{itemize}
+  \item Fed cuts typically ease global financial conditions and weaken USD. MXN appreciation lowers tradables inflation and permits Banxico to ease with less risk to expectations. Adverse USD shocks invert this logic and can delay the local cycle.
+\end{itemize}
+
+\paragraph{Operational scenarios.}
+\begin{itemize}
+  \item \textbf{Faster-than-expected cuts.} Futures prices rise in the front cluster; longs benefit; liability managers gain relief. Tighten limits on F--TIIE vs.\ internal funding basis and re-estimate repricing betas.
+  \item \textbf{Delayed or data-dependent path.} Prices fall; shorts protect NIM and margins. Use \emph{calendar spreads} to express “delay” without overcommitting gross notional.
+  \item \textbf{FX shock (MXN weaker).} Harder easing path; hedge both $R$ and FX to bound MXN P\&L.
+\end{itemize}
+
+\paragraph{Synthesized recommendations.}
+\begin{enumerate}
+  \item Separate \emph{level risk} (implied $R$) from \emph{timing risk} (monthly compounding). Use front contracts for direction and adjacent spreads for timing.
+  \item Execute in high-OI nodes; manage and report the basis between monthly F--TIIE and internal funding metrics.
+  \item Integrate rate and FX hedges where revenue/cost currencies differ; adopt standardized hedge accounting to preserve fiscal neutrality.
+\end{enumerate}
+
+
+\subsection{Futures term structure (12 Sep 2025)}
+Rule of thumb for reading: \(\text{Implied }R = 100 - \text{Settle}\). The observed strip (CME monthly) shows a clear easing path from the front:
+\[
+\text{SEP-25 } \sim \mathbf{7.74\%}\ \to\ \text{OCT-25 } \sim \mathbf{7.53\%}\ \to\ \text{NOV-25 } \sim \mathbf{7.40\%}\ \to\ \text{DEC-25 } \sim \mathbf{7.37\%},
+\]
+flattening into 2026 near \(7.0\%\), troughing around \(6.83\%\) by mid–late 2027, then a mild re-steepening \citep{cme_tiie_monthly_quotes}. This configuration is consistent with clustered cuts over \(\text{Q4-2025}\) followed by a slower cadence, not a sharp overshoot. Liquidity is concentrated in the nearest listed months; far maturities should be treated as curve marks \citep{cme_tiie_monthly_overview,cme_tiie_monthly_quotes}.
+
+\subsection{Interpretation of \texorpdfstring{TIEU25}{TIEU25} (one-day read, 12 Sep 2025)}
+Using your inputs for \emph{Sep 12}:
+\[
+\text{Settle} = \mathbf{93.035}\ \Rightarrow\ R_{\text{mkt}}=\mathbf{6.965\%}.
+\]
+Your \emph{model} fair \((F^{*})\) built by extending the latest daily fix across the horizon implies
+\[
+F^{*}=\mathbf{91.6369}\quad\Rightarrow\quad R_{\text{mod}}=\mathbf{8.363\%}.
+\]
+Hence, the \emph{price basis} \(F-F^{*}=\mathbf{+1.398}\) index points maps to an \emph{expected-path gap} of \(\sim\mathbf{140}\)~bp: the market discounts a monthly-compounded average materially below the flat-at-spot benchmark. Economically, this is a \emph{front-loaded easing} signal: with days already accrued near \(8.01\%\), the remaining path must average lower to deliver \(6.97\%\) for the target month \citep{banxico_on_method_en,cme_tiie_monthly_method}.
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+\paragraph{Data snapshot.} Your weekly table shows \(\text{Settle}\uparrow\) from \(\mathbf{92.855}\) to \(\mathbf{93.035}\) as the horizon decays \(390\to383\) days; implied rate falls \(\mathbf{7.145\%\to6.965\%}\) (\(\approx \mathbf{-18}\)~bp). The model fair \(F^{*}\) is stable near \(91.62\)–\(91.64\), so the basis widens from \(\sim\!+1.24\) to \(\sim\!+1.40\) points.
+
+\paragraph{Interpretation.} The \emph{direction} (higher price, lower implied \(R\)) aligns with global news that boosted odds of a Fed cut and softened the USD \citep{reuters_global_cuts_sep11a,reuters_global_cuts_sep11b}. That external easing channel, plus Banxico’s August 25~bp cut and guidance, rationalizes a modest bull-flattening of the near curve \citep{reuters_banxico_cut_aug25,banxico_mps_aug7_2025}. The persistent positive basis relative to your flat-at-spot model encodes \(\sim\)1.3–1.4~pp of cumulative easing over the next year. Day-count decay (ACT/360) explains why the \(|F-F^{*}|\) drifts only slowly even as the view strengthens.
+
+\paragraph{Microstructure note.} CME monthly F-TIIE shows concentrated open interest in the front cluster; far-month marks are less informative intraday. For higher-fidelity path inference, cross-check with MXN OIS and Banxico-dated IRS where available.
+
+\subsection{Does this benefit Mexico? What should be done?}
+\textbf{Banks.} A lower expected path compresses deposit and wholesale funding costs first; asset yields on variable-rate loans reprice with lags. Net interest margins narrow unless liabilities reprice faster. Use front-month \textbf{short} F-TIIE futures to protect NIM against a hawkish repricing; use \textbf{long} positions if liability relief is the objective \citep{cme_ftiie_article}.
+
+\textbf{Corporates.} For MXN debt, easing lowers interest expense and raises debt capacity. Treasury teams should pair MXN OIS or monthly F-TIIE longs with FX overlays if revenues are USD-linked.
+
+\textbf{Households/consumers.} Variable-rate credit costs ease gradually; mortgage and durable-goods financing become more affordable. Inflation risks from MXN swings should be monitored.
+
+\textbf{Sovereign/Pemes.} Lower front-end rates reduce rollover costs. Transparent hedge governance can lock favorable funding while avoiding concentration in a single month.
+
+\textbf{Tactics.} 
+(i) Express a \emph{cuts} view by going \textbf{long} near-month contracts; 
+(ii) express \emph{timing} via calendar spreads (e.g., OCT/NOV) because monthly comp averages dilute within-month decisions; 
+(iii) manage execution in months with open interest; 
+(iv) track MXN and U.S.\ rates as primary catalysts.
+
+\medskip
+\noindent\emph{Synthesis.} The weekly drift higher in price and the sustained positive basis versus a flat-at-spot model are consistent with an easing path concentrated in \(\text{Q4-2025}\) and moderating thereafter. For Mexico, this configuration supports a measured decline in funding costs without destabilizing curve kinks. Implementation should separate \emph{level} risk (the implied rate \(R\)) from \emph{timing} risk (month-by-month comp effects) and align hedge tenors with liquidity nodes.
+
+
+
+\section{IPC}
+
+\subsection{Recent developments}
+Mexico’s benchmark \emph{S\&P/BMV IPC} printed fresh highs into \emph{12 Sep 2025} as global risk appetite improved on rising Fed-easing probabilities and a firm peso backdrop \citep{reuters_ipc_record_2025,reuters_usdmxn_quote}. Local conditions remain supportive but gradual: Banxico’s pace of easing is measured amid stable inflation expectations, while fiscal messaging and quasi-sovereign considerations (Pemex) shape equity risk premia and multiples \citep{bloomberg_mx_inflation_2025,mnd_inflation_band_2025,reuters_budget_2025,reuters_pemex_plan_2025}. Trade-policy headlines (e.g., prospective auto tariffs) interact with the nearshoring narrative and the industrial complex, generating sectoral rotations \citep{reuters_tariffs_china_autos_2025,reuters_border_jobs_2025}.
+
+\subsection{Spot \& futures}
+The IPC is float-adjusted, market-cap weighted under published rules \citep{spdj_ipc_page,spdj_bmv_methodology}. Spot index levels reflect contemporaneous earnings, discount rates, and MXN conditions; futures on MexDer transfer price risk across time. The fair-value relation
+\[
+F_T = S_0\,e^{(r-q)T}
+\]
+is used, where \(r\) is the relevant funding rate and \(q\) the dividend yield over \([0,T]\). In practice, thin trading in deferred IPC maturities and dividend-timing uncertainty add microstructure noise around this benchmark \citep{mexder_ipc_fut}. In the accompanying tables, SOFR is used as the working \(r\) for consistency across assets; ideally an MXN funding curve would be applied for precision. This choice does not alter the qualitative reading of the week’s carry dynamics.
+
+\subsection{Mexico-linked implications}
+Equity levels and futures carry transmit into financing conditions for issuers, pension/wealth portfolios, and the hedging cost of domestic asset managers. A steeper contango (\(r>q\)) raises the “cost of carry” for long futures exposure but eases the roll for short index overlays; compressing contango (via lower \(r\) or higher \(q\)) does the opposite. Policy credibility (fiscal/Pemex) and Banxico guidance compress risk premia, supporting spot while also affecting the slope through the \(r\) channel.
+
+\paragraph{Transmission channels.}
+The IPC level and its futures carry transmit to Mexico’s real and financial economy through five primary channels:
+\begin{enumerate}
+  \item \textbf{Sovereign and macro risk premia.} Credible fiscal guidance and Pemex execution compress sovereign spreads, supporting equity multiples and lowering the \emph{required} discount rate; this improves spot and, via the rate channel, can compress \(r-q\) on the strip \citep{reuters_budget_2025,reuters_pemex_plan_2025}.
+  \item \textbf{FX and external balance.} Pro–risk global conditions and favorable terms of trade strengthen MXN, which reduces imported inflation and supports real income, but dampens exporters’ MXN revenues unless FX is hedged; IPC futures help neutralize equity beta while FX overlays manage currency co-movement \citep{reuters_usdmxn_quote}.
+  \item \textbf{Corporate financing and issuance windows.} Higher spot and lower equity risk premia improve primary/secondary equity issuance conditions; modest contango (\(r>q\)) raises the carry cost of long index overlays used by issuers and asset managers to warehouse market exposure while deals are executed \citep{spdj_ipc_page,spdj_bmv_methodology}.
+  \item \textbf{Pension and wealth portfolios.} Afores and local managers use IPC futures to control beta around rebalances; with \(r-q\approx 3\%\) p.a., maintaining long overlays has a measurable but manageable carry cost, which falls if Banxico eases in line with disinflation \citep{bloomberg_mx_inflation_2025,mnd_inflation_band_2025}.
+  \item \textbf{Sectoral earnings sensitivity.} Trade-policy shocks (e.g., prospective auto tariffs) and nearshoring dynamics rotate earnings leadership across consumer, industrial, and materials sectors; derivatives are used to implement temporary tilts while stock-specific catalysts arrive \citep{reuters_tariffs_china_autos_2025,reuters_border_jobs_2025}.
+\end{enumerate}
+
+\paragraph{Derivatives-specific incidence.}
+\begin{itemize}
+  \item \textbf{Carry and roll.} With modest contango, long futures positions incur negative roll yield absent price appreciation; short overlays benefit. If Fed cuts arrive and Banxico follows gradually, \(r\downarrow\) compresses \(r-q\) and reduces long-carry drag \citep{reuters_ipc_record_2025}.
+  \item \textbf{Dividend timing.} Near-expiry basis is sensitive to ex-dividend dates of large constituents; it is used to align rolls with the dividend calendar to minimize slippage. The one-year strip embeds an \emph{expected} \(q\)-path that can diverge from realized distributions.
+  \item \textbf{Liquidity concentration.} Trading and OI cluster in the front contract; far maturities are marks. Hedgers should stage coverage along liquid nodes to reduce execution and basis risk \citep{mexder_ipc_fut}.
+\end{itemize}
+
+\paragraph{Sectoral and policy linkages.}
+\begin{itemize}
+  \item \textbf{Industrials/nearshoring.} Improved logistics and regulatory clarity raise earnings durability and support higher multiples; IPC futures hedge interim market swings while capacity is built.
+  \item \textbf{Energy and quasi-sovereign complex.} Transparent Pemex funding plans lower tail risk and compress the equity risk premium market-wide; slope effects come via the rate channel \citep{reuters_pemex_plan_2025}.
+  \item \textbf{Trade regime.} Auto-tariff decisions reprice supply chains and consumer prices, altering margins; managers use index futures plus sector tilts to bridge event risk \citep{reuters_tariffs_china_autos_2025}.
+\end{itemize}
+
+\paragraph{Actionable playbook (Mexico focus).}
+\begin{enumerate}
+  \item \textbf{Issuers and treasuries.} Use spot strength to pre-hedge equity-linked issuance with short IPC overlays; collapse overlays post-allocation to lock funding at improved valuations.
+  \item \textbf{Asset owners (Afores).} Separate beta and carry: maintain target equity beta with front IPC futures and manage \(r-q\) via calendar spreads if a slope compression is anticipated from Fed/Banxico sequencing.
+  \item \textbf{FX integration.} Pair IPC overlays with USD/MXN hedges when liability currency or benchmark is MXN, recognizing that pro–risk rallies can strengthen MXN and alter MXN-denominated tracking.
+  \item \textbf{Policy levers.} Reinforce fiscal signaling and Pemex transparency to lower macro risk premia; deepen far-month futures liquidity to reduce basis noise and improve hedge effectiveness across horizons.
+\end{enumerate}
+
+\paragraph{Scenario map (link to news).}
+\begin{description}
+  \item[\textit{Faster Fed easing, gradual Banxico.}] Spot supported; \(r\downarrow\) compresses \(r-q\), flattening contango. Bias: favor long beta with lighter carry drag; calendar flatteners (long near/short far) gain.
+  \item[\textit{Tariff escalation or growth scare.}] Spot vulnerability; MXN may weaken. Bias: protective short overlays; pair with FX hedges. \(q\) risk rises if dividend guidance is cut; \(r-q\) may widen if local rates stay firm.
+  \item[\textit{Pemex/fiscal credibility gains.}] Risk premia compress; issuance windows improve; slope impact via lower \(r\). Bias: opportunistic issuance and overlay reduction; extend hedge tenors as basis stability improves.
+\end{description}
+
+\paragraph{Monitoring set.}
+Track (i) implied \(r-q(T)=\frac{1}{T}\ln(F_T/S_0)\) across tenors, (ii) front-month basis vs.\ ex-dividend calendar, (iii) slope changes around Banxico/Fed events, and (iv) liquidity/roll metrics in the front two contracts. These diagnostics are used to translate news into implementable positioning while maintaining MXN-aware risk control.
+
+
+\subsection{Futures term structure (as of 12 Sep 2025)}
+\paragraph{Shape and slope.}
+The strip is in \emph{modest contango}. From \textbf{SEP-25} to \textbf{SEP-26} settlements rise by \(\sim 2{,}009\) points. The one-year slope is
+\[
+\frac{F_{1\mathrm{Y}}}{F_{0}}-1 \approx \frac{63{,}767}{61{,}758}-1 \approx \mathbf{3.25\%},
+\qquad
+\Rightarrow\quad r-q \approx \ln\!\Big(\frac{F_{1\mathrm{Y}}}{S_0}\Big)\approx \mathbf{3.20\%\ \text{p.a.}}
+\]
+under risk-neutral pricing. Interpretation: funding exceeds expected dividends by \(\sim 3.2\%\) over the next year.
+
+\paragraph{Level move.}
+The curve shifted up almost in parallel on the session (\(+0.23\%\) front; \(+0.30\%\)–\(0.32\%\) deferred), a spot-led move consistent with the news backdrop, with limited change in \((r-q)\).
+
+\paragraph{Liquidity note.}
+Trading concentrates in \textbf{SEP-25}; far maturities showed near-zero volume and OI. Deferred marks should be treated as carry proxies, not high-conviction levels.
+
+\subsection{Interpretation of one day (12 Sep 2025)}
+A small \emph{positive basis} is observed: \(F=61{,}840>F^{*}=61{,}819.36\), a premium of \(20.64\) points (\(\sim \mathbf{0.07\%}\)). In the fair-value map \(F_T=S_0 e^{(r-q)T}\), this is read as a market-implied carry \(\hat c=\frac{1}{T}\ln(F/S_0)\) that is marginally above the model’s \((r-q)\), i.e., a slightly lower effective dividend drag or marginally higher funding over the remaining days. Economically, it signals a \emph{modest pro-risk tilt} amid supportive global conditions, not an arbitrage.
+
+\subsection{Weekly term-structure diagnostics (5–12 Sep 2025)}
+\paragraph{Observed path.}
+Across the week, the futures premium to spot \((F/S_0-1)\) drifts from \(\mathbf{+0.40\%}\) (9/5) to \(\mathbf{-0.07\%}\) (9/12), with interim readings of \(+0.27\%\), \(+0.13\%\), \(+0.32\%\), and \(+0.10\%\). The market–model gap (\(F-F^{*}\)) narrows mechanically as \(T\) shortens, while daily \((F,S_0)\) co-move with equities’ risk-on tone.
+
+\paragraph{Carry inference.}
+Using the horizon-specific reading \(r-q=\frac{1}{T}\ln(F/S_0)\), the \emph{implied} \((r-q)\) oscillates around small positive values early week and turns slightly negative into 9/12 as \(F\) slips below \(S_0\) on very short \(T\). This is consistent with (i) rising proximity to dividend accruals and (ii) session-specific microstructure (basis and last/settle timing). Given the short horizons, annualized inferences are volatile; the one-year strip discussed above is the appropriate gauge for the structural \(r-q\) of \(\sim 3.2\%\).
+
+\paragraph{News linkage.}
+The pattern matches the backdrop: Fed-cut expectations lift spot and compress forward premia; Banxico’s gradualism maintains positive carry at longer maturities; dividend timing and index-lending dynamics dominate the front-days basis. Net effect: a curve that is \emph{up in level} with \emph{modest contango} intact, while near-expiry prints toggle around flat as ex-dividend proximity and microstructure bite.
+
+\subsection{Does this benefit Mexico? What should be done? How does it affect it?}
+\paragraph{Benefit.}
+Higher spot IPC levels support wealth effects and lower equity risk premia, aiding funding conditions for issuers. A modest contango implies limited carry costs for maintaining long futures exposure and stable hedging for pension funds and domestic managers.
+
+\paragraph{Investor actions (policy-neutral).}
+\begin{enumerate}
+  \item \emph{Decompose risks.} Manage spot beta and carry separately. Use front contracts for beta; use calendar spreads to express views on \((r-q)\) compression if Fed cuts and dividend seasonality are expected to flatten the slope.
+  \item \emph{Hedge design.} For MXN-based portfolios, pair IPC futures with USD/MXN overlays when relevant to stabilize peso-denominated performance, recognizing the FX–equity interaction in risk-off episodes.
+  \item \emph{Dividend timing.} Near-expiry basis is sensitive to ex-div schedules. Align rebalancing and roll dates with the dividend calendar to minimize slippage.
+\end{enumerate}
+
+\paragraph{Policy and operating implications.}
+\begin{enumerate}
+  \item \emph{Signal clarity.} Transparent fiscal guidance and Pemex execution reduce sovereign risk premia, supporting spot and compressing \((r-q)\) via the rate channel.
+  \item \emph{Market depth.} Measures that deepen far-month liquidity reduce basis noise and improve hedge effectiveness across horizons.
+  \item \emph{Macro mix.} A gradual Banxico path consistent with nominal anchors maintains credible carry while avoiding abrupt slope shifts that raise hedging costs.
+\end{enumerate}
+
+\medskip
+\noindent\emph{Synthesis.} Into mid-September 2025, the IPC exhibits a spot-led advance with a modest, orderly contango. One-day and weekly diagnostics are coherent with the news flow: supportive global rates and steady local policy compress front premia while leaving the one-year \(r-q\) near \(\sim 3.2\%\). For Mexico, this configuration improves funding optics and portfolio transmission; for investors, it favors disciplined beta plus carry-aware implementation; for policymakers, credibility and market depth are the levers that translate favorable conditions into durable risk premia compression.
+
+
 \section{IPC}
 
 The S\&P/BMV IPC is the flagship index of the Mexican equity market, designed to measure the performance of the largest and most liquid stocks listed on the Bolsa Mexicana de Valores (BMV). It is float-adjusted, market-cap weighted, and maintained under published rules with regular rebalances \citep{spdj_ipc_page,spdj_bmv_methodology}.
@@ -1207,7 +1443,7 @@ Compare $q_{\text{impl}}$ to realized IPC dividends to test if the slope is rich
 \bibliography{refs}
 
 
-\section{Appendix A: Price Settlements (Sep 12, 2025)}
+\section{Appendix A: \\ Price Settlements \\ (Sep 12, 2025)}
 \newpage
 
 %% add another pdf
@@ -1254,8 +1490,7 @@ Compare $q_{\text{impl}}$ to realized IPC dividends to test if the slope is rich
   \label{fig:ipc_settlements}
 \end{figure}
 
-\section{Appendix B: Price Settlements (Sep 8, 2025)}
-\newpage
-\includepdf[pages=-]{appendix/appendixB.pdf}
+\section{Appendix B: \\ Python Notebook }
+\includepdf[pages=2-]{appendix/appendixB.pdf}
 
 \end{document}

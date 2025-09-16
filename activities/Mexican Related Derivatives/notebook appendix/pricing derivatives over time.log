@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.7.19)  15 SEP 2025 21:45
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.7.19)  16 SEP 2025 00:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -14,8 +14,8 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
 (C:\Users\herie\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(C:\Users\herie\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+(C:\Users\herie\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
 \c@section=\count272
@@ -1693,23 +1693,23 @@ Package caption Info: End \AtBeginDocument code.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(81.30374pt, 434.90039pt, 81.30374pt)
-* v-part:(T,H,B)=(108.405pt, 664.37186pt, 72.26999pt)
+* h-part:(L,W,R)=(85.35826pt, 426.79135pt, 85.35826pt)
+* v-part:(T,H,B)=(99.58464pt, 674.33032pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=434.90039pt
-* \textheight=664.37186pt
-* \oddsidemargin=9.03375pt
-* \evensidemargin=9.03375pt
-* \topmargin=-0.86499pt
+* \textwidth=426.79135pt
+* \textheight=674.33032pt
+* \oddsidemargin=13.08827pt
+* \evensidemargin=13.08827pt
+* \topmargin=-9.68535pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=57.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1753,17 +1753,17 @@ Package fontspec Info:
 (fontspec)             Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             'latinmodern-math.otf' with options
 (fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script
-=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=Mat
-hScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={
-latinmodern-math.otf}].
+=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,
+Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}
+},BoldFont={latinmodern-math.otf}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->"[latinmodern-math.otf]/OT:script=math;language=df
-lt;"<6-8.5>"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>"[
-latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <9.3075->"[latinmodern-math.otf]/OT:script=math;language
+=dflt;"<6.57-9.3075>"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=
+0;"<-6.57>"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->"[latinmodern-math.otf]/OT:script=math;language=dflt;
 "
@@ -1804,28 +1804,28 @@ Package fontspec Info:
 (fontspec)             Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             'latinmodern-math.otf' with options
 (fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script
-=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=Mat
-hScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={
-latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
-(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
-(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
-(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
-(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
-(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
-(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
-(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
-(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
-(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
-(fontspec)             21\font =0pt\relax }].
+=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,
+Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}
+},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.3143pt\relax \fontdimen 10\font =4.8618pt\relax
+(fontspec)             \fontdimen 11\font =7.5117pt\relax \fontdimen 12\font
+(fontspec)             =3.77776pt\relax \fontdimen 13\font =3.97485pt\relax
+(fontspec)             \fontdimen 14\font =3.97485pt\relax \fontdimen 15\font
+(fontspec)             =3.16455pt\relax \fontdimen 16\font =2.70465pt\relax
+(fontspec)             \fontdimen 17\font =2.70465pt\relax \fontdimen 18\font
+(fontspec)             =2.7375pt\relax \fontdimen 19\font =2.19pt\relax
+(fontspec)             \fontdimen 22\font =2.7375pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.0001]"[latinmodern-math.otf]/OT:script=math;l
-anguage=dflt;"<6-8.5>s*[1.0001]"[latinmodern-math.otf]/OT:script=math;language=
-dflt;+ssty=0;"<-6>s*[1.0001]"[latinmodern-math.otf]/OT:script=math;language=dfl
-t;+ssty=1;"
+(fontspec)             <9.3075->s*[1.0001]"[latinmodern-math.otf]/OT:script=mat
+h;language=dflt;"<6.57-9.3075>s*[1.0001]"[latinmodern-math.otf]/OT:script=math;
+language=dflt;+ssty=0;"<-6.57>s*[1.0001]"[latinmodern-math.otf]/OT:script=math;
+language=dflt;+ssty=1;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->s*[1.0001]"[latinmodern-math.otf]/OT:script=math;lang
 uage=dflt;"
@@ -1865,22 +1865,22 @@ Package fontspec Info:
 (fontspec)             Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             'latinmodern-math.otf' with options
 (fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script
-=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=Mat
-hScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={
-latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
-(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
-(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
-(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmodern-math.otf,
+Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathScriptScript}
+},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.438pt\relax \fontdimen 9\font =2.19pt\relax
+(fontspec)             \fontdimen 10\font =1.82864pt\relax \fontdimen 11\font
+(fontspec)             =1.21545pt\relax \fontdimen 12\font =6.56999pt\relax
 (fontspec)             \fontdimen 13\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[0.9999]"[latinmodern-math.otf]/OT:script=math;l
-anguage=dflt;"<6-8.5>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;language=
-dflt;+ssty=0;"<-6>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;language=dfl
-t;+ssty=1;"
+(fontspec)             <9.3075->s*[0.9999]"[latinmodern-math.otf]/OT:script=mat
+h;language=dflt;"<6.57-9.3075>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;
+language=dflt;+ssty=0;"<-6.57>s*[0.9999]"[latinmodern-math.otf]/OT:script=math;
+language=dflt;+ssty=1;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
 (fontspec)             <->s*[0.9999]"[latinmodern-math.otf]/OT:script=math;lang
 uage=dflt;"
@@ -1905,17 +1905,17 @@ LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 6.
+(Font)              scaled to size 10.95116pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 6.
+(Font)              scaled to size 7.6658pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 6.
+(Font)              scaled to size 5.47559pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 6.
+(Font)              scaled to size 10.94882pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 6.
+(Font)              scaled to size 7.66417pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 6.
+(Font)              scaled to size 5.47441pt on input line 6.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
 
 (C:\Users\herie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
@@ -1932,6 +1932,10 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 6.
 (C:\Users\herie\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.475> not available
+(Font)              size <5> substituted on input line 6.
+
 LaTeX Font Info:    Trying to load font information for LS1+libertinust1mathbb 
 on input line 6.
 
@@ -1951,6 +1955,15 @@ initions
 
 
 [2]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00064pt on input line 529.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 529.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 529.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 529.
+
 
 LaTeX Font Warning: Font shape `TU/Inconsolata(0)/b/n' undefined
 (Font)              using `TU/Inconsolata(0)/m/n' instead on input line 530.
@@ -1976,79 +1989,88 @@ LaTeX Font Warning: Font shape `TU/Inconsolata(0)/m/it' undefined
 
 ]
 
-LaTeX Info: Redefining \. on input line 639.
-LaTeX Info: Redefining \% on input line 639.
+LaTeX Info: Redefining \. on input line 636.
+LaTeX Info: Redefining \% on input line 636.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported  on input line 639.
+(babel)             Reported  on input line 636.
 [5]
 
-[6
+LaTeX Info: Redefining \. on input line 639.
+LaTeX Info: Redefining \% on input line 639.
+[6]
+
+[7
 
 
 ]
 
 LaTeX Info: Redefining \. on input line 759.
 LaTeX Info: Redefining \% on input line 759.
-[7]
+[8]
 
-[8
-
-
-]
-
-LaTeX Info: Redefining \. on input line 842.
-LaTeX Info: Redefining \% on input line 842.
-LaTeX Info: Redefining \. on input line 842.
-LaTeX Info: Redefining \% on input line 842.
 [9
 
-]
 
-LaTeX Info: Redefining \. on input line 869.
-LaTeX Info: Redefining \% on input line 869.
-LaTeX Info: Redefining \. on input line 869.
-LaTeX Info: Redefining \% on input line 869.
+]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00085pt on input line 789.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 789.
+
+
+LaTeX Info: Redefining \. on input line 842.
+LaTeX Info: Redefining \% on input line 842.
+LaTeX Info: Redefining \. on input line 842.
+LaTeX Info: Redefining \% on input line 842.
 [10
 
 ]
 
-LaTeX Info: Redefining \. on input line 898.
-LaTeX Info: Redefining \% on input line 898.
-LaTeX Info: Redefining \. on input line 898.
-LaTeX Info: Redefining \% on input line 898.
+LaTeX Info: Redefining \. on input line 869.
+LaTeX Info: Redefining \% on input line 869.
+LaTeX Info: Redefining \. on input line 869.
+LaTeX Info: Redefining \% on input line 869.
 [11
 
 ]
 
-LaTeX Info: Redefining \. on input line 922.
-LaTeX Info: Redefining \% on input line 922.
-LaTeX Info: Redefining \. on input line 922.
-LaTeX Info: Redefining \% on input line 922.
+LaTeX Info: Redefining \. on input line 898.
+LaTeX Info: Redefining \% on input line 898.
+LaTeX Info: Redefining \. on input line 898.
+LaTeX Info: Redefining \% on input line 898.
 [12
 
 ]
 
-LaTeX Info: Redefining \. on input line 948.
-LaTeX Info: Redefining \% on input line 948.
-LaTeX Info: Redefining \. on input line 948.
-LaTeX Info: Redefining \% on input line 948.
+LaTeX Info: Redefining \. on input line 922.
+LaTeX Info: Redefining \% on input line 922.
+LaTeX Info: Redefining \. on input line 922.
+LaTeX Info: Redefining \% on input line 922.
 [13
 
 ]
 
-LaTeX Info: Redefining \. on input line 972.
-LaTeX Info: Redefining \% on input line 972.
-LaTeX Info: Redefining \. on input line 972.
-LaTeX Info: Redefining \% on input line 972.
+LaTeX Info: Redefining \. on input line 948.
+LaTeX Info: Redefining \% on input line 948.
+LaTeX Info: Redefining \. on input line 948.
+LaTeX Info: Redefining \% on input line 948.
 [14
 
 ]
 
-LaTeX Info: Redefining \. on input line 998.
-LaTeX Info: Redefining \% on input line 998.
-LaTeX Info: Redefining \. on input line 998.
-LaTeX Info: Redefining \% on input line 998.
+LaTeX Info: Redefining \. on input line 972.
+LaTeX Info: Redefining \% on input line 972.
+LaTeX Info: Redefining \. on input line 972.
+LaTeX Info: Redefining \% on input line 972.
 [15
+
+]
+
+LaTeX Info: Redefining \. on input line 998.
+LaTeX Info: Redefining \% on input line 998.
+LaTeX Info: Redefining \. on input line 998.
+LaTeX Info: Redefining \% on input line 998.
+[16
 
 ]
 
@@ -2056,32 +2078,32 @@ LaTeX Info: Redefining \. on input line 1038.
 LaTeX Info: Redefining \% on input line 1038.
 LaTeX Info: Redefining \. on input line 1038.
 LaTeX Info: Redefining \% on input line 1038.
-[16
+[17
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_32_0.pn
 g Graphic file (type bmp)
 <pricing derivatives over time_files/pricing derivatives over time_32_0.png>
 
+
+LaTeX Info: Redefining \. on input line 1091.
+LaTeX Info: Redefining \% on input line 1091.
+LaTeX Info: Redefining \. on input line 1091.
+LaTeX Info: Redefining \% on input line 1091.
+[18
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
 
  []
 
 
 
-LaTeX Info: Redefining \. on input line 1093.
-LaTeX Info: Redefining \% on input line 1093.
-LaTeX Info: Redefining \. on input line 1093.
-LaTeX Info: Redefining \% on input line 1093.
-[17
-
-]
-
 LaTeX Info: Redefining \. on input line 1096.
 LaTeX Info: Redefining \% on input line 1096.
 LaTeX Info: Redefining \. on input line 1096.
 LaTeX Info: Redefining \% on input line 1096.
-[18]
+[19]
 File: pricing derivatives over time_files/pricing derivatives over time_34_0.pn
 g Graphic file (type bmp)
 <pricing derivatives over time_files/pricing derivatives over time_34_0.png>
@@ -2096,7 +2118,7 @@ LaTeX Info: Redefining \. on input line 1120.
 LaTeX Info: Redefining \% on input line 1120.
 LaTeX Info: Redefining \. on input line 1120.
 LaTeX Info: Redefining \% on input line 1120.
-[19
+[20
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_36_0.pn
@@ -2113,54 +2135,54 @@ LaTeX Info: Redefining \. on input line 1145.
 LaTeX Info: Redefining \% on input line 1145.
 LaTeX Info: Redefining \. on input line 1145.
 LaTeX Info: Redefining \% on input line 1145.
-[20
+[21
 
 ]
-Underfull \hbox (badness 6708) in paragraph at lines 1145--1145
+Underfull \hbox (badness 3907) in paragraph at lines 1145--1145
 |\TU/EBGaramondBold(0)/m/n/34 Generalize the function for
  []
 
 
 
-[21
+[22
 
 
 ]
 
 LaTeX Info: Redefining \. on input line 1264.
 LaTeX Info: Redefining \% on input line 1264.
-[22]
+[23]
 
 LaTeX Info: Redefining \. on input line 1267.
 LaTeX Info: Redefining \% on input line 1267.
-[23]
+[24]
 
-[24
-
-
-]
-
-LaTeX Info: Redefining \. on input line 1297.
-LaTeX Info: Redefining \% on input line 1297.
-LaTeX Info: Redefining \. on input line 1297.
-LaTeX Info: Redefining \% on input line 1297.
 [25
 
+
 ]
 
-LaTeX Info: Redefining \. on input line 1348.
-LaTeX Info: Redefining \% on input line 1348.
-LaTeX Info: Redefining \. on input line 1348.
-LaTeX Info: Redefining \% on input line 1348.
+LaTeX Info: Redefining \. on input line 1297.
+LaTeX Info: Redefining \% on input line 1297.
+LaTeX Info: Redefining \. on input line 1297.
+LaTeX Info: Redefining \% on input line 1297.
 [26
 
 ]
 
-LaTeX Info: Redefining \. on input line 1381.
-LaTeX Info: Redefining \% on input line 1381.
-LaTeX Info: Redefining \. on input line 1381.
-LaTeX Info: Redefining \% on input line 1381.
+LaTeX Info: Redefining \. on input line 1348.
+LaTeX Info: Redefining \% on input line 1348.
+LaTeX Info: Redefining \. on input line 1348.
+LaTeX Info: Redefining \% on input line 1348.
 [27
+
+]
+
+LaTeX Info: Redefining \. on input line 1381.
+LaTeX Info: Redefining \% on input line 1381.
+LaTeX Info: Redefining \. on input line 1381.
+LaTeX Info: Redefining \% on input line 1381.
+[28
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_47_0.pn
@@ -2177,7 +2199,7 @@ LaTeX Info: Redefining \. on input line 1396.
 LaTeX Info: Redefining \% on input line 1396.
 LaTeX Info: Redefining \. on input line 1396.
 LaTeX Info: Redefining \% on input line 1396.
-[28
+[29
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_49_0.pn
@@ -2194,36 +2216,36 @@ LaTeX Info: Redefining \. on input line 1411.
 LaTeX Info: Redefining \% on input line 1411.
 LaTeX Info: Redefining \. on input line 1411.
 LaTeX Info: Redefining \% on input line 1411.
-[29
-
-]
-
 [30
 
-
 ]
 
-LaTeX Info: Redefining \. on input line 1441.
-LaTeX Info: Redefining \% on input line 1441.
-LaTeX Info: Redefining \. on input line 1441.
-LaTeX Info: Redefining \% on input line 1441.
 [31
 
+
 ]
 
-LaTeX Info: Redefining \. on input line 1493.
-LaTeX Info: Redefining \% on input line 1493.
-LaTeX Info: Redefining \. on input line 1493.
-LaTeX Info: Redefining \% on input line 1493.
+LaTeX Info: Redefining \. on input line 1441.
+LaTeX Info: Redefining \% on input line 1441.
+LaTeX Info: Redefining \. on input line 1441.
+LaTeX Info: Redefining \% on input line 1441.
 [32
 
 ]
 
-LaTeX Info: Redefining \. on input line 1526.
-LaTeX Info: Redefining \% on input line 1526.
-LaTeX Info: Redefining \. on input line 1526.
-LaTeX Info: Redefining \% on input line 1526.
+LaTeX Info: Redefining \. on input line 1493.
+LaTeX Info: Redefining \% on input line 1493.
+LaTeX Info: Redefining \. on input line 1493.
+LaTeX Info: Redefining \% on input line 1493.
 [33
+
+]
+
+LaTeX Info: Redefining \. on input line 1526.
+LaTeX Info: Redefining \% on input line 1526.
+LaTeX Info: Redefining \. on input line 1526.
+LaTeX Info: Redefining \% on input line 1526.
+[34
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_58_0.pn
@@ -2240,7 +2262,7 @@ LaTeX Info: Redefining \. on input line 1541.
 LaTeX Info: Redefining \% on input line 1541.
 LaTeX Info: Redefining \. on input line 1541.
 LaTeX Info: Redefining \% on input line 1541.
-[34
+[35
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_60_0.pn
@@ -2257,30 +2279,36 @@ LaTeX Info: Redefining \. on input line 1556.
 LaTeX Info: Redefining \% on input line 1556.
 LaTeX Info: Redefining \. on input line 1556.
 LaTeX Info: Redefining \% on input line 1556.
-[35
-
-]
-
 [36
 
-
 ]
 
-LaTeX Info: Redefining \. on input line 1586.
-LaTeX Info: Redefining \% on input line 1586.
-LaTeX Info: Redefining \. on input line 1586.
-LaTeX Info: Redefining \% on input line 1586.
 [37
 
+
 ]
 
-LaTeX Info: Redefining \. on input line 1695.
-LaTeX Info: Redefining \% on input line 1695.
-LaTeX Info: Redefining \. on input line 1695.
-LaTeX Info: Redefining \% on input line 1695.
+LaTeX Info: Redefining \. on input line 1586.
+LaTeX Info: Redefining \% on input line 1586.
+LaTeX Info: Redefining \. on input line 1586.
+LaTeX Info: Redefining \% on input line 1586.
 [38
 
 ]
+
+LaTeX Info: Redefining \. on input line 1691.
+LaTeX Info: Redefining \% on input line 1691.
+LaTeX Info: Redefining \. on input line 1691.
+LaTeX Info: Redefining \% on input line 1691.
+[39
+
+]
+
+LaTeX Info: Redefining \. on input line 1695.
+LaTeX Info: Redefining \% on input line 1695.
+LaTeX Info: Redefining \. on input line 1695.
+LaTeX Info: Redefining \% on input line 1695.
+[40]
 File: pricing derivatives over time_files/pricing derivatives over time_71_0.pn
 g Graphic file (type bmp)
 <pricing derivatives over time_files/pricing derivatives over time_71_0.png>
@@ -2295,7 +2323,7 @@ LaTeX Info: Redefining \. on input line 1710.
 LaTeX Info: Redefining \% on input line 1710.
 LaTeX Info: Redefining \. on input line 1710.
 LaTeX Info: Redefining \% on input line 1710.
-[39
+[41
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_73_0.pn
@@ -2312,49 +2340,49 @@ LaTeX Info: Redefining \. on input line 1725.
 LaTeX Info: Redefining \% on input line 1725.
 LaTeX Info: Redefining \. on input line 1725.
 LaTeX Info: Redefining \% on input line 1725.
-[40
-
-]
-
-[41
-
-
-]
-
-LaTeX Info: Redefining \. on input line 1755.
-LaTeX Info: Redefining \% on input line 1755.
-LaTeX Info: Redefining \. on input line 1755.
-LaTeX Info: Redefining \% on input line 1755.
 [42
 
 ]
 
-LaTeX Info: Redefining \. on input line 1760.
-LaTeX Info: Redefining \% on input line 1760.
-LaTeX Info: Redefining \. on input line 1760.
-LaTeX Info: Redefining \% on input line 1760.
 [43
 
+
 ]
 
+LaTeX Info: Redefining \. on input line 1755.
+LaTeX Info: Redefining \% on input line 1755.
+LaTeX Info: Redefining \. on input line 1755.
+LaTeX Info: Redefining \% on input line 1755.
 [44
 
-
 ]
 
-LaTeX Info: Redefining \. on input line 1813.
-LaTeX Info: Redefining \% on input line 1813.
-LaTeX Info: Redefining \. on input line 1813.
-LaTeX Info: Redefining \% on input line 1813.
+LaTeX Info: Redefining \. on input line 1760.
+LaTeX Info: Redefining \% on input line 1760.
+LaTeX Info: Redefining \. on input line 1760.
+LaTeX Info: Redefining \% on input line 1760.
 [45
 
 ]
 
-LaTeX Info: Redefining \. on input line 1869.
-LaTeX Info: Redefining \% on input line 1869.
-LaTeX Info: Redefining \. on input line 1869.
-LaTeX Info: Redefining \% on input line 1869.
 [46
+
+
+]
+
+LaTeX Info: Redefining \. on input line 1813.
+LaTeX Info: Redefining \% on input line 1813.
+LaTeX Info: Redefining \. on input line 1813.
+LaTeX Info: Redefining \% on input line 1813.
+[47
+
+]
+
+LaTeX Info: Redefining \. on input line 1869.
+LaTeX Info: Redefining \% on input line 1869.
+LaTeX Info: Redefining \. on input line 1869.
+LaTeX Info: Redefining \% on input line 1869.
+[48
 
 ]
 
@@ -2362,7 +2390,7 @@ LaTeX Info: Redefining \. on input line 1989.
 LaTeX Info: Redefining \% on input line 1989.
 LaTeX Info: Redefining \. on input line 1989.
 LaTeX Info: Redefining \% on input line 1989.
-[47
+[49
 
 ]
 File: pricing derivatives over time_files/pricing derivatives over time_92_0.pn
@@ -2375,11 +2403,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 2003--2004
 
 
 
+LaTeX Info: Redefining \. on input line 2027.
+LaTeX Info: Redefining \% on input line 2027.
+LaTeX Info: Redefining \. on input line 2027.
+LaTeX Info: Redefining \% on input line 2027.
+[50]
+
 LaTeX Info: Redefining \. on input line 2032.
 LaTeX Info: Redefining \% on input line 2032.
 LaTeX Info: Redefining \. on input line 2032.
 LaTeX Info: Redefining \% on input line 2032.
-[48]
+[51]
 File: pricing derivatives over time_files/pricing derivatives over time_94_1.pn
 g Graphic file (type bmp)
 <pricing derivatives over time_files/pricing derivatives over time_94_1.png>
@@ -2394,7 +2428,7 @@ LaTeX Info: Redefining \. on input line 2078.
 LaTeX Info: Redefining \% on input line 2078.
 LaTeX Info: Redefining \. on input line 2078.
 LaTeX Info: Redefining \% on input line 2078.
-[49
+[52
 
 ] (pricing derivatives over time.aux
 LaTeX Info: Redefining \. on input line 12.
@@ -2406,6 +2440,10 @@ L3 programming layer <2025-07-11>
  ***********
 
 
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.475pt have occurred.
+
+
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
@@ -2413,12 +2451,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 36539 strings out of 403265
- 713369 string characters out of 5461230
- 1380341 words of memory out of 5000000
- 64410 multiletter control sequences out of 15000+600000
- 636781 words of font info for 115 fonts, out of 8000000 for 9000
+ 36579 strings out of 403265
+ 714825 string characters out of 5461230
+ 1388721 words of memory out of 5000000
+ 64442 multiletter control sequences out of 15000+600000
+ 645119 words of font info for 143 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  116i,13n,121p,1342b,912s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on pricing derivatives over time.pdf (50 pages).
+Output written on pricing derivatives over time.pdf (53 pages).
