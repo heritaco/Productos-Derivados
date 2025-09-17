@@ -509,17 +509,17 @@
     {\large September 17, 2025 \par}}
     \end{titlepage}
 
+    \setcounter{page}{49}
+
 
     % --- Tabla de contenidos ---
     \renewcommand{\contentsname}{Contents}
     \tableofcontents
-    \thispagestyle{empty}
+    % \thispagestyle{empty}
     \newpage
 
     % --- Inicio del documento ---
     
-    
-
     
     \hypertarget{import-necessary-libraries}{%
 \section{Import necessary libraries}\label{import-necessary-libraries}}
@@ -658,7 +658,7 @@ Investing.com}\label{fetching-data-from-investing.com}}
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_21496\textbackslash{}2588569263.py:9:
+C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_27404\textbackslash{}2588569263.py:9:
 FutureWarning: The behavior of 'isin' with dtype=datetime64[ns] and castable
 values (e.g. strings) is deprecated. In a future version, these will not be
 considered matching by isin. Explicitly cast to the appropriate dtype before
@@ -769,7 +769,7 @@ dtype: float64
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_21496\textbackslash{}338722890.py:11:
+C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_27404\textbackslash{}338722890.py:11:
 FutureWarning: Passing literal html to 'read\_html' is deprecated and will be
 removed in a future version. To read from a literal string, wrap it in a
 'StringIO' object.
@@ -803,15 +803,15 @@ date
 2025-09-03  41.2150  40.8735  41.4850  40.6171      0.73
 2025-09-04  40.6950  41.1801  41.2431  40.3947     -1.26
 2025-09-05  41.0050  40.6890  41.4350  40.5497      0.76
-2025-09-07  40.8645  41.0020  41.0055  40.7565     -0.34
-2025-09-08  41.3550  41.0050  41.6750  40.5132      1.20
+2025-09-08  41.3550  41.0050  41.6750  40.5132      0.85
 2025-09-09  40.9050  41.3382  41.4984  40.7728     -1.09
 2025-09-10  41.1700  40.9085  41.3150  40.7155      0.65
 2025-09-11  41.5850  41.1929  41.7850  40.8810      1.01
 2025-09-12  42.1950  41.5695  42.4950  41.3931      1.47
 2025-09-14  42.1035  42.2325  42.2425  42.0705     -0.22
-2025-09-15  42.6165  42.2050  42.7656  41.9966      1.22
-2025-09-16  42.5295  42.6175  42.7525  42.3505     -0.20
+2025-09-15  42.7350  42.2050  42.7656  41.9966      1.50
+2025-09-16  42.6245  42.6850  42.9950  42.2511     -0.26
+2025-09-17  42.0055  42.6235  42.6325  41.7955     -1.45
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1129,7 +1129,7 @@ Price}\label{plot-the-difference-between-theoretical-and-market-price}}
 \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Risk Premium (}\PY{l+s+s1}{\PYZpc{}}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Risk Premium of SIZ25 over Theoretical Price}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{axhline}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}880000}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{False}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{latex/figures/silver\PYZus{}risk\PYZus{}premium.pdf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{bbox\PYZus{}inches}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad\PYZus{}inches}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}
 \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
@@ -1305,7 +1305,7 @@ dtype: float64
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_21496\textbackslash{}338722890.py:11:
+C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_27404\textbackslash{}338722890.py:11:
 FutureWarning: Passing literal html to 'read\_html' is deprecated and will be
 removed in a future version. To read from a literal string, wrap it in a
 'StringIO' object.
@@ -1332,15 +1332,15 @@ date
 2025-09-03  0.05346  0.05342  0.05361  0.05323      0.11
 2025-09-04  0.05337  0.05345  0.05349  0.05317     -0.17
 2025-09-05  0.05343  0.05337  0.05382  0.05334      0.11
-2025-09-07  0.05339  0.05344  0.05349  0.05337     -0.07
-2025-09-08  0.05359  0.05343  0.05371  0.05336      0.37
+2025-09-08  0.05359  0.05343  0.05371  0.05336      0.30
 2025-09-09  0.05370  0.05359  0.05381  0.05356      0.21
 2025-09-10  0.05377  0.05369  0.05387  0.05360      0.13
 2025-09-11  0.05417  0.05377  0.05421  0.05356      0.74
 2025-09-12  0.05427  0.05416  0.05429  0.05399      0.18
 2025-09-14  0.05420  0.05424  0.05424  0.05416     -0.13
 2025-09-15  0.05445  0.05421  0.05456  0.05416      0.46
-2025-09-16  0.05448  0.05446  0.05449  0.05443      0.06
+2025-09-16  0.05468  0.05443  0.05474  0.05435      0.41
+2025-09-17  0.05465  0.05467  0.05467  0.05464     -0.04
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1449,7 +1449,7 @@ dtype: float64
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_21496\textbackslash{}338722890.py:11:
+C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_27404\textbackslash{}338722890.py:11:
 FutureWarning: Passing literal html to 'read\_html' is deprecated and will be
 removed in a future version. To read from a literal string, wrap it in a
 'StringIO' object.
@@ -1477,15 +1477,15 @@ date
 2025-09-03  63.97  65.62  65.72  63.72     -2.47
 2025-09-04  63.48  63.82  63.84  62.72     -0.77
 2025-09-05  61.87  63.33  63.49  61.45     -2.54
-2025-09-07  62.23  62.34  62.34  61.87      0.58
-2025-09-08  62.26  62.00  63.34  61.85      0.05
+2025-09-08  62.26  62.00  63.34  61.85      0.63
 2025-09-09  62.63  62.43  63.67  62.37      0.59
 2025-09-10  63.67  62.74  64.08  62.72      1.66
 2025-09-11  62.37  63.80  63.80  62.21     -2.04
 2025-09-12  62.69  62.27  63.98  61.69      0.51
 2025-09-14  62.68  62.32  62.71  62.26     -0.02
-2025-09-15  63.33  63.32  63.67  62.52      1.04
-2025-09-16  63.43  63.32  63.52  63.31      0.16
+2025-09-15  63.30  62.97  63.67  62.52      0.99
+2025-09-16  64.64  63.31  64.76  62.89      2.12
+2025-09-17  64.39  64.63  64.64  64.39     -0.39
 \end{Verbatim}
 \end{tcolorbox}
         
@@ -1597,7 +1597,7 @@ dtype: int64
 \end{tcolorbox}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_21496\textbackslash{}2632186628.py:4:
+C:\textbackslash{}Users\textbackslash{}herie\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}ipykernel\_27404\textbackslash{}2632186628.py:4:
 FutureWarning: YF.download() has changed argument auto\_adjust default to True
   ipc = yf.download('\^{}MXX', start='2020-01-01', end='2025-12-31')
 [*********************100\%***********************]  1 of 1 completed
@@ -1619,7 +1619,7 @@ Date
 2025-09-10  60489.191406  60987.351562  60431.628906  60643.140625  156040900
 2025-09-11  61553.578125  61886.121094  60605.320312  60686.628906  201091300
 2025-09-12  61798.941406  61941.988281  61535.960938  61596.890625  157237100
-2025-09-15  62102.128906  62252.128906  61730.359375  61894.851562  134046507
+2025-09-15  62102.128906      0.000000      0.000000      0.000000          0
 
 [1437 rows x 5 columns]
 \end{Verbatim}
@@ -1690,19 +1690,55 @@ Index([14, 11, 10, 9, 8, 7], dtype='int64')
 \end{Verbatim}
 \end{tcolorbox}
         
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{40}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{}\PYZsh{} add expected dividends to the dataframe on the 3 column}
+\PY{n}{IPC}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Expected Dividends}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{expected\PYZus{}dividends}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{41}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{IPC}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{41}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+            SOFR Rate  Horizon (days)     ipc Price  Market Settlement  \textbackslash{}
+2025-09-05       4.42              14  60479.761719              60722
+2025-09-08       4.40              11  60649.761719              60814
+2025-09-09       4.40              10  60679.531250              60759
+2025-09-10       4.39               9  60489.191406              60685
+2025-09-11       4.41               8  61553.578125              61614
+2025-09-12       4.41               7  61798.941406              61758
+
+            Theoretical Price    Difference  Risk Premium  Expected Dividends
+2025-09-05       46649.282408  14072.717592      0.004005            0.018667
+2025-09-08       51681.410836   9132.589164      0.002708            0.014667
+2025-09-09       53168.667423   7590.332577      0.001310            0.013333
+2025-09-10       54355.122058   6329.877942      0.003237            0.012000
+2025-09-11       56573.106082   5040.893918      0.000982            0.010667
+2025-09-12       57939.078173   3818.921827     -0.000662            0.009333
+\end{Verbatim}
+\end{tcolorbox}
+        
     \hypertarget{difference-between-theoretical-and-market-price}{%
 \subsection{Difference between Theoretical and Market
 Price}\label{difference-between-theoretical-and-market-price}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{40}{\boxspacing}
+\prompt{In}{incolor}{42}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plot\PYZus{}difference}\PY{p}{(}\PY{n}{IPC}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ipc}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_71_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_73_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -1710,14 +1746,14 @@ Price}\label{difference-between-theoretical-and-market-price}}
 \subsection{Premium Risk}\label{premium-risk}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{41}{\boxspacing}
+\prompt{In}{incolor}{43}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plot\PYZus{}risk\PYZus{}premium}\PY{p}{(}\PY{n}{IPC}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ipc}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_73_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_75_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
@@ -1728,7 +1764,7 @@ Price}\label{difference-between-theoretical-and-market-price}}
 \subsection{Futures Contract Price}\label{futures-contract-price}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{42}{\boxspacing}
+\prompt{In}{incolor}{44}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Corn Futures (CZ25)}
 \PY{n}{CZ25\PYZus{}settle} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{4216}\PY{o}{\PYZhy{}}\PY{l+m+mi}{36}\PY{p}{,} \PY{l+m+mi}{4216}\PY{p}{,} \PY{l+m+mi}{4196}\PY{p}{,} \PY{l+m+mi}{4170}\PY{p}{,} \PY{l+m+mi}{4196}\PY{p}{,} \PY{l+m+mi}{4300}\PY{p}{]}
@@ -1739,7 +1775,7 @@ Price}\label{difference-between-theoretical-and-market-price}}
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{42}{\boxspacing}
+\prompt{Out}{outcolor}{44}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 2025-09-05    4180
 2025-09-08    4216
@@ -1763,7 +1799,7 @@ dtype: int64
 \subsection{Futures Contract Price}\label{futures-contract-price}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{43}{\boxspacing}
+\prompt{In}{incolor}{45}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} TIIE Futures (TIEU26)}
 \PY{n}{TIEU26\PYZus{}settle} \PY{o}{=} \PY{p}{[}\PY{l+m+mf}{92.925}\PY{o}{\PYZhy{}}\PY{l+m+mf}{.07}\PY{p}{,} \PY{l+m+mf}{92.925}\PY{p}{,} \PY{l+m+mf}{92.955}\PY{p}{,} \PY{l+m+mf}{92.93}\PY{p}{,} \PY{l+m+mf}{92.965}\PY{p}{,} \PY{l+m+mf}{93.035}\PY{p}{]}
@@ -1773,7 +1809,7 @@ dtype: int64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{43}{\boxspacing}
+\prompt{Out}{outcolor}{45}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 2025-09-05    92.855
 2025-09-08    92.925
@@ -1786,7 +1822,7 @@ dtype: float64
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{44}{\boxspacing}
+\prompt{In}{incolor}{46}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{TIEU26\PYZus{}expiration\PYZus{}date} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2026\PYZhy{}09\PYZhy{}30}\PY{l+s+s2}{\PYZdq{}}
 \PY{n}{TIEU26\PYZus{}expiration\PYZus{}date} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{to\PYZus{}datetime}\PY{p}{(}\PY{n}{TIEU26\PYZus{}expiration\PYZus{}date}\PY{p}{)}
@@ -1797,7 +1833,7 @@ dtype: float64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{44}{\boxspacing}
+\prompt{Out}{outcolor}{46}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 2025-09-05    390
 2025-09-08    387
@@ -1813,7 +1849,7 @@ dtype: int64
 \subsection{Spot Price}\label{spot-price}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{45}{\boxspacing}
+\prompt{In}{incolor}{47}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} read the Sheet1 from tiie.xlsx}
 \PY{n}{tiie} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tiie.xlsx}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{sheet\PYZus{}name}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sheet1}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{parse\PYZus{}dates}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
@@ -1822,7 +1858,7 @@ dtype: int64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{45}{\boxspacing}
+\prompt{Out}{outcolor}{47}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
             TIIE a 28 días, Tasa de interés en por ciento anual
 Fecha
@@ -1843,7 +1879,7 @@ Fecha
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{46}{\boxspacing}
+\prompt{In}{incolor}{48}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tiie} \PY{o}{=} \PY{n}{tiie}\PY{p}{[}\PY{n}{tiie}\PY{o}{.}\PY{n}{index}\PY{o}{.}\PY{n}{isin}\PY{p}{(}\PY{n}{dates}\PY{p}{)}\PY{p}{]}
 \PY{n}{tiie} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{tiie}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{index}\PY{o}{=}\PY{n}{tiie}\PY{o}{.}\PY{n}{index}\PY{p}{)}
@@ -1852,7 +1888,7 @@ Fecha
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{46}{\boxspacing}
+\prompt{Out}{outcolor}{48}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 Fecha
 2025-09-05    8.0226
@@ -1869,7 +1905,7 @@ Name: TIIE a 28 días, Tasa de interés en por ciento anual, dtype: float64
 \subsection{Pricing}\label{pricing}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{47}{\boxspacing}
+\prompt{In}{incolor}{49}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{theoretical\PYZus{}price\PYZus{}tiie} \PY{o}{=} \PY{l+m+mi}{100} \PY{o}{\PYZhy{}} \PY{l+m+mi}{100}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{tiie}\PY{o}{/}\PY{l+m+mi}{100}\PY{o}{/}\PY{l+m+mi}{360}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{n}{days\PYZus{}for\PYZus{}expiration}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{o}{*}\PY{l+m+mi}{360}\PY{o}{/}\PY{n}{days\PYZus{}for\PYZus{}expiration}
 \PY{n}{theoretical\PYZus{}price\PYZus{}tiie}
@@ -1877,7 +1913,7 @@ Name: TIIE a 28 días, Tasa de interés en por ciento anual, dtype: float64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{47}{\boxspacing}
+\prompt{Out}{outcolor}{49}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 Fecha
 2025-09-05    91.619424
@@ -1891,7 +1927,7 @@ dtype: float64
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{48}{\boxspacing}
+\prompt{In}{incolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{difference\PYZus{}tiie} \PY{o}{=} \PY{n}{TIEU26} \PY{o}{\PYZhy{}} \PY{n}{theoretical\PYZus{}price\PYZus{}tiie}
 \PY{n}{difference\PYZus{}tiie}
@@ -1899,7 +1935,7 @@ dtype: float64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{48}{\boxspacing}
+\prompt{Out}{outcolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 2025-09-05    1.235576
 2025-09-08    1.302735
@@ -1912,10 +1948,9 @@ dtype: float64
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{49}{\boxspacing}
+\prompt{In}{incolor}{51}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{TIIE} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}
-    \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{SOFR Rate}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{SOFR}\PY{p}{,}
     \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Horizon (days)}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{days\PYZus{}for\PYZus{}expiration}\PY{p}{,}
     \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{TIIE Rate}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{tiie}\PY{p}{,}
     \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Market Settlement}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{TIEU26}\PY{p}{,}
@@ -1927,28 +1962,28 @@ dtype: float64
 \end{tcolorbox}
 
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{49}{\boxspacing}
+\prompt{Out}{outcolor}{51}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-            SOFR Rate  Horizon (days)  TIIE Rate  Market Settlement  \textbackslash{}
-2025-09-05       4.42             390     8.0226             92.855
-2025-09-08       4.40             387     8.0226             92.925
-2025-09-09       4.40             386     8.0126             92.955
-2025-09-10       4.39             385     8.0126             92.930
-2025-09-11       4.41             384     8.0126             92.965
-2025-09-12       4.41             383     8.0126             93.035
+            Horizon (days)  TIIE Rate  Market Settlement  Theoretical Price  \textbackslash{}
+2025-09-05             390     8.0226             92.855          91.619424
+2025-09-08             387     8.0226             92.925          91.622265
+2025-09-09             386     8.0126             92.955          91.634107
+2025-09-10             385     8.0126             92.930          91.635051
+2025-09-11             384     8.0126             92.965          91.635995
+2025-09-12             383     8.0126             93.035          91.636939
 
-            Theoretical Price  Difference
-2025-09-05          91.619424    1.235576
-2025-09-08          91.622265    1.302735
-2025-09-09          91.634107    1.320893
-2025-09-10          91.635051    1.294949
-2025-09-11          91.635995    1.329005
-2025-09-12          91.636939    1.398061
+            Difference
+2025-09-05    1.235576
+2025-09-08    1.302735
+2025-09-09    1.320893
+2025-09-10    1.294949
+2025-09-11    1.329005
+2025-09-12    1.398061
 \end{Verbatim}
 \end{tcolorbox}
         
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{50}{\boxspacing}
+\prompt{In}{incolor}{52}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def}\PY{+w}{ }\PY{n+nf}{tiie\PYZus{}pricing\PYZus{}derivatives\PYZus{}over\PYZus{}time}\PY{p}{(}\PY{n}{spot}\PY{p}{,} \PY{n}{name}\PY{p}{)}\PY{p}{:}
     \PY{c+c1}{\PYZsh{} plot the table for LaTeX}
@@ -1985,25 +2020,32 @@ dtype: float64
         \PY{c+c1}{\PYZsh{} Make the first row (header) bold}
         \PY{k}{if} \PY{n}{key}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{==} \PY{l+m+mi}{0}\PY{p}{:}  \PY{c+c1}{\PYZsh{} Header row}
             \PY{n}{cell}\PY{o}{.}\PY{n}{set\PYZus{}text\PYZus{}props}\PY{p}{(}\PY{n}{weight}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bold}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} save}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{n}{pad}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{latex/figures/}\PY{l+s+si}{\PYZob{}}\PY{n}{name}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZus{}pricing\PYZus{}over\PYZus{}the\PYZus{}week.pdf}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{bbox\PYZus{}inches}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tight}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{pad\PYZus{}inches}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{)}
+    \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-
+    \hypertarget{difference-between-theoretical-and-market-price}{%
+\subsection{Difference between Theoretical and Market
+Price}\label{difference-between-theoretical-and-market-price}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{51}{\boxspacing}
+\prompt{In}{incolor}{53}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tiie\PYZus{}pricing\PYZus{}derivatives\PYZus{}over\PYZus{}time}\PY{p}{(}\PY{n}{TIIE}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tiie}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_92_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_94_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{52}{\boxspacing}
+\prompt{In}{incolor}{54}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def}\PY{+w}{ }\PY{n+nf}{plot\PYZus{}difference}\PY{p}{(}\PY{n}{spot}\PY{p}{,} \PY{n}{name}\PY{p}{)}\PY{p}{:}
     \PY{c+c1}{\PYZsh{} Adjust layout to reduce margins}
@@ -2026,13 +2068,8 @@ dtype: float64
 \end{Verbatim}
 \end{tcolorbox}
 
-
-    \hypertarget{difference-between-theoretical-and-market-price}{%
-\subsection{Difference between Theoretical and Market
-Price}\label{difference-between-theoretical-and-market-price}}
-
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{53}{\boxspacing}
+\prompt{In}{incolor}{55}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plot\PYZus{}difference}\PY{p}{(}\PY{n}{TIIE}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{tiie}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
@@ -2045,28 +2082,28 @@ Price}\label{difference-between-theoretical-and-market-price}}
 
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_94_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{pricing derivatives over time_files/pricing derivatives over time_96_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
             \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
-\prompt{Out}{outcolor}{53}{\boxspacing}
+\prompt{Out}{outcolor}{55}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-            SOFR Rate  Horizon (days)  TIIE Rate  Market Settlement  \textbackslash{}
-2025-09-05       4.42             390     8.0226             92.855
-2025-09-08       4.40             387     8.0226             92.925
-2025-09-09       4.40             386     8.0126             92.955
-2025-09-10       4.39             385     8.0126             92.930
-2025-09-11       4.41             384     8.0126             92.965
-2025-09-12       4.41             383     8.0126             93.035
+            Horizon (days)  TIIE Rate  Market Settlement  Theoretical Price  \textbackslash{}
+2025-09-05             390     8.0226             92.855          91.619424
+2025-09-08             387     8.0226             92.925          91.622265
+2025-09-09             386     8.0126             92.955          91.634107
+2025-09-10             385     8.0126             92.930          91.635051
+2025-09-11             384     8.0126             92.965          91.635995
+2025-09-12             383     8.0126             93.035          91.636939
 
-            Theoretical Price  Difference
-2025-09-05          91.619424    1.235576
-2025-09-08          91.622265    1.302735
-2025-09-09          91.634107    1.320893
-2025-09-10          91.635051    1.294949
-2025-09-11          91.635995    1.329005
-2025-09-12          91.636939    1.398061
+            Difference
+2025-09-05    1.235576
+2025-09-08    1.302735
+2025-09-09    1.320893
+2025-09-10    1.294949
+2025-09-11    1.329005
+2025-09-12    1.398061
 \end{Verbatim}
 \end{tcolorbox}
         
