@@ -1,8 +1,8 @@
 # 1) Añade todo (incluye los no rastreados)
 git add -A
 
-# 2) Fija fecha pasada (CDMX UTC-06:00)
-$env:GIT_AUTHOR_DATE = "2025-10-10 11:00:00 -0600"
+# 2) Fija fecha pasada (CDMX UTC-06:00), the date is YYYY-MM-DD HH:MM:SS -0600
+$env:GIT_AUTHOR_DATE = "2025-10-24 11:00:00 -0600"
 $env:GIT_COMMITTER_DATE = $env:GIT_AUTHOR_DATE
 
 # 3) Crea el commit
