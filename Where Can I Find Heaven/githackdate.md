@@ -2,7 +2,7 @@
 git add -A
 
 # 2) Fija fecha pasada (CDMX UTC-06:00), the date is YYYY-MM-DD HH:MM:SS -0600
-$env:GIT_AUTHOR_DATE = "2025-10-28 11:00:00 -0600"
+$env:GIT_AUTHOR_DATE = "2025-11-01 11:00:00 -0600"
 $env:GIT_COMMITTER_DATE = $env:GIT_AUTHOR_DATE
 
 # 3) Crea el commit
